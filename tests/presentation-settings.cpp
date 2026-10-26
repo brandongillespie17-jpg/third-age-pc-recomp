@@ -10,6 +10,14 @@
 #include "third_age_overlay.h"
 using namespace gbarecomp;
 extern "C" const unsigned kBiosDispatchTableLen;
+static void set_environment(const char* name,const char* value) {
+    assert(SDL_setenv(name,value,1)==0);
+#ifdef _WIN32
+    // SDL's DLL and the statically linked executable have separate CRT
+    // environment tables. The runtime reads std::getenv from this executable.
+    assert(_putenv_s(name,value)==0);
+#endif
+}
 static void key(HostWindow& win, SDL_Keycode code) {
     SDL_Event e{};e.type=SDL_KEYDOWN;e.key.keysym.sym=code;
     assert(SDL_PushEvent(&e)==1);win.pump();
@@ -94,13 +102,13 @@ int main(int argc,char** argv) {
     assert(loaded.camera_smoothing&&loaded.presentation_hz==144&&loaded.sprite_cache);
     assert(loaded.volume==37&&loaded.edge_speed==5);
     // Saved choices override the legacy diagnostic launcher defaults.
-    SDL_setenv("THIRD_AGE_PRESENT_HZ","60",1);SDL_setenv("THIRD_AGE_DITHER_OAM_CACHE","0",1);
+    set_environment("THIRD_AGE_PRESENT_HZ","60");set_environment("THIRD_AGE_DITHER_OAM_CACHE","0");
     ThirdAgeSettings seeded;assert(seeded.camera_smoothing&&seeded.presentation_hz==60&&!seeded.sprite_cache);
     seeded.load(settings.path);assert(seeded.camera_smoothing&&seeded.presentation_hz==144&&seeded.sprite_cache);
     // Reject malformed/unsupported persisted values without damaging defaults.
     {std::ofstream f(dir/"invalid.ini");f<<"camera_smoothing=2\npresentation_hz=999\nsprite_cache=-1\n";}
     seeded.load(dir/"invalid.ini");assert(seeded.camera_smoothing&&seeded.presentation_hz==144&&seeded.sprite_cache);
-    SDL_setenv("THIRD_AGE_PRESENT_HZ","",1);SDL_setenv("THIRD_AGE_DITHER_OAM_CACHE","",1);
+    set_environment("THIRD_AGE_PRESENT_HZ","");set_environment("THIRD_AGE_DITHER_OAM_CACHE","");
     // Recreating a window restores the saved choice, including a cold clock.
     win.close();HostWindow reopened;assert(reopened.open());reopened.set_third_age_settings(&loaded);
     assert(third_age_present_hz()==144);

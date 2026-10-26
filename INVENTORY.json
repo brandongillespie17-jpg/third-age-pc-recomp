@@ -2,8 +2,8 @@
   "files": [
     {
       "path": ".github/workflows/publish-desktop.yml",
-      "bytes": 2513,
-      "sha256": "58198b15ad8192b37e7e5522fc0657baded8993f29f10ff1afc78f7a8205d117"
+      "bytes": 2512,
+      "sha256": "75ee131858c5c3c0ffc1df498fe8563f15550751071849c22ec08daf8f50cc91"
     },
     {
       "path": ".github/workflows/windows-release.yml",
@@ -177,8 +177,8 @@
     },
     {
       "path": "tests/presentation-settings.cpp",
-      "bytes": 9237,
-      "sha256": "325c49938f3a9edbff0adf8f9d7cf00126822860219a9b1429db805656f75e76"
+      "bytes": 9568,
+      "sha256": "6f08eae779ead8e42d840a891892a6ab45d30214648c8170d6744784fd56bcab"
     },
     {
       "path": "tests/test-present-diagnostics.py",

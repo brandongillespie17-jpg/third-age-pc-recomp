@@ -7,7 +7,7 @@ permissions:
   contents: read
 concurrency:
   group: desktop-preview-20261026
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   windows:
     uses: ./.github/workflows/windows-release.yml

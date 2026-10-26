@@ -19,6 +19,15 @@ def main(work):
     source=Path(__file__).resolve().parent.parent
     current=release();require(not current['draft'] and current['target_commitish']==COMMIT,'Release source changed')
     existing={a['name']:a for a in current['assets']}
+    final_name=OLD_NAME.replace('.zip','-ringbearer.zip')
+    # Resume after upload if the exact audited package already replaced the old
+    # pair. A notes-formatting failure must not rebuild or replace tested bytes.
+    if set(existing)=={final_name,final_name+'.sha256'}:
+        expected={final_name:'cc49d2ff3b0077e7751144c332714a35cd273a46c78158d478a25dc0766a84cb',final_name+'.sha256':'8fad2b319b124e766933d1600f86ca94eee54bf9c88baa7db43abe2cafee6314'}
+        if all(existing[n]['digest']=='sha256:'+digest for n,digest in expected.items()):
+            require(current['body'].startswith('**Font correction:**'),'Font correction notes missing')
+            print('Verified the already-uploaded, native-Windows-tested Ringbearer package and checksum; no rebuild needed.')
+            return
     font_name=OLD_NAME.replace('.zip','-ringbearer.zip')
     previous=existing.get(OLD_NAME) or existing.get(font_name)
     require(previous and previous['digest'] in {'sha256:'+OLD_HASH,'sha256:87489d656026cb122120995447290d625a0eecd2902a2adfcd5589988b3cda26'},'Previous Windows ZIP changed')
@@ -51,7 +60,7 @@ def main(work):
     for p in files:
         a=assets[p.name];require(a['size']==p.stat().st_size and a['digest']=='sha256:'+file_hash(p),'Uploaded checksum mismatch')
     notes=work/'notes.md'
-    prior_body=current['body']
+    prior_body=current['body'].replace('\r\n','\n')
     if prior_body.startswith('**Font correction:**'):prior_body=prior_body.split('\n\n',1)[1]
     notes.write_text('**Font correction:** Ringbearer now loads automatically from the included `assets/fonts/ringbearer.ttf`. No manual extraction, font installation or environment variable is needed. All original font files, READMEs and the original archive are preserved unchanged. EXE and SDL2 DLL bytes are unchanged from the tested HD build.\n\n'+prior_body.replace('unchanged optional font archive','complete unchanged font distribution'))
     gh('release','edit',TAG,'--repo',REPO,'--notes-file',str(notes))

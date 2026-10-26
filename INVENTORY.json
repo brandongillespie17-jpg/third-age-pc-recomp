@@ -292,8 +292,8 @@
     },
     {
       "path": "tools/update_windows_font_release.py",
-      "bytes": 5391,
-      "sha256": "3986363dc61c7986dddc39b5751e6bb680c0e4f4c264a35bc514babd60e1f771"
+      "bytes": 6212,
+      "sha256": "efe673ff8af49066411e27f716ee3ad192b60e9ad501b26bb9b7adc25452ec75"
     },
     {
       "path": "vendor/gbarecomp/.gitattributes",

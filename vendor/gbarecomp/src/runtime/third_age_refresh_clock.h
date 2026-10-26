@@ -1,15 +1,26 @@
 #pragma once
 #include <algorithm>
 #include <array>
+#include <atomic>
 #include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
 namespace gbarecomp {
-inline int third_age_present_hz(){
-    static const int hz=[](){const char* p=std::getenv("THIRD_AGE_PRESENT_HZ");if(!p)return 0;
-        char* end=nullptr;const long n=std::strtol(p,&end,10);
-        return end&&!*end&&(n==60||n==120||n==144||n==165)?int(n):0;}();return hz;
+inline bool third_age_supported_present_hz(int hz){return hz==60||hz==120||hz==144||hz==165;}
+inline int third_age_environment_present_hz(){
+    const char* p=std::getenv("THIRD_AGE_PRESENT_HZ");if(!p)return 0;
+    char* end=nullptr;const long n=std::strtol(p,&end,10);
+    return end&&!*end&&(n==60||n==120||n==144||n==165)?int(n):0;
+}
+// Shared by the window, guest service loop and pacer. UI changes must reach
+// all three; a process-start-only environment lookup leaves interpolation idle.
+inline std::atomic<int>& third_age_active_present_hz(){
+    static std::atomic<int> hz{third_age_environment_present_hz()};return hz;
+}
+inline int third_age_present_hz(){return third_age_active_present_hz().load(std::memory_order_relaxed);}
+inline void third_age_set_present_hz(int hz){
+    third_age_active_present_hz().store(third_age_supported_present_hz(hz)?hz:0,std::memory_order_relaxed);
 }
 inline int64_t third_age_present_now(){return std::chrono::duration_cast<std::chrono::nanoseconds>(
     std::chrono::steady_clock::now().time_since_epoch()).count();}
@@ -17,6 +28,11 @@ class ThirdAgeRefreshClock {
     int64_t next_=0,period_=0;
 public:
     explicit ThirdAgeRefreshClock(int hz=third_age_present_hz()):period_(hz>0?1000000000ll/hz:0){}
+    bool set_hz(int hz){
+        const int64_t period=hz>0?1000000000ll/hz:0;
+        if(period==period_)return false;
+        period_=period;next_=0;return true;
+    }
     bool enabled()const{return period_!=0;}
     // Read-only diagnostics; scheduling remains entirely in presented().
     int64_t deadline_ns()const{return next_;}

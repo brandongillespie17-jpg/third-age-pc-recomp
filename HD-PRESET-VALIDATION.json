@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-26",
+  "scope": "Captured HD visual preset and Advanced menu",
+  "capture": "Existing playtest saved visual settings; exact nonpersonal values in docs/HD-PRESET.json",
+  "linux_test": "PASS: actual SDL overlay keyboard controls; preset OFF/ON, Advanced navigation, custom colors and flags, cold persistence; display/audio/gameplay unchanged",
+  "layout": "Video preset and Advanced screenshots reviewed at 1440x960",
+  "smoothing_test": "PASS: live keyboard/mouse rate toggles, pacer service, persistence and window recreation",
+  "windows": "Required CI compile and actual SDL dummy menu regression before publication",
+  "limitations": [
+    "Physical display smoothness and full campaign not validated by dummy SDL tests"
+  ]
+}

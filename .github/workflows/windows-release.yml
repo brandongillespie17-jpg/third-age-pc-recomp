@@ -1,8 +1,9 @@
 name: Windows preview base package
 
-# Deliberately manual. No push/PR/tag trigger and no GitHub Release publication.
+# Can be invoked manually or by the separate reviewed release publisher.
 on:
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
@@ -84,6 +85,7 @@ jobs:
           cmake -S . -B $build -G 'Visual Studio 17 2022' -A x64 `
             "-D$($env:PUBLIC_RUNTIME_CMAKE_OPTION)=ON" `
             -DTHIRD_AGE_ALLOW_HEADLESS=OFF `
+            -DTHIRD_AGE_BUILD_PRESENTATION_TESTS=ON `
             -DGBARECOMP_STATIC_RELEASE=OFF `
             -DGBARECOMP_COMPILER_CACHE=OFF `
             -DGBARECOMP_SELFHEAL_RECOMPILE_DEFAULT=OFF `
@@ -98,8 +100,14 @@ jobs:
 
       - name: Build only reviewed runtime target
         run: |
-          cmake --build $env:BUILD_ROOT --config Release --target third-age-pc --parallel 2
+          cmake --build $env:BUILD_ROOT --config Release --target third-age-pc presentation-settings --parallel 2
           if ($LASTEXITCODE -ne 0) { throw 'Windows compilation failed.' }
+
+      - name: Test live presentation settings without game inputs
+        run: |
+          Copy-Item "$env:SDL_ROOT/lib/x64/SDL2.dll" "$env:BUILD_ROOT/Release/SDL2.dll"
+          ctest --test-dir $env:BUILD_ROOT -C Release -R '^presentation-settings$' --output-on-failure --no-tests=error
+          if ($LASTEXITCODE -ne 0) { throw 'Presentation settings regression failed.' }
 
       - name: Audit dependencies and create code-only base ZIP
         run: |

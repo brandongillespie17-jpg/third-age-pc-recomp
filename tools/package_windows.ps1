@@ -221,6 +221,14 @@ selected by setting THIRD_AGE_FONT to a local TrueType font path before launch.
 No custom font is required. Create assets/fonts only for that optional font.
 An invalid explicit font path is reported as an error.
 
+Open F10/Escape > Display for Camera Smoothing and the Presentation Rate
+(60/120/144/165 Hz). Camera interpolation uses Video > Advanced > Expanded Battlefield.
+Video > HD Preset toggles HD visuals without changing monitor settings.
+Video > Advanced adjusts individual visuals/colors; OFF/ON remembers your tweaks.
+Gameplay > Sprite Cache controls the separate experimental rendering cache.
+These preferences apply immediately and save automatically. Smooth Scaling
+controls pixel filtering and is separate from camera smoothing.
+
 New saves default to saves/third-age.sav beside the executable. Do not merge this
 preview into an existing campaign/save directory or overwrite an original save.
 The final assembled download includes the 68 exact approved BMP portraits and

@@ -67,7 +67,7 @@ void FramePacer::wait_for_next_frame() {
     }
     // Optional presentation service fills the existing guest wait budget.
     // The guest deadline and its late-frame policy below are unchanged.
-    if(wait_service_){
+    if(wait_service_&&(!wait_service_enabled_||wait_service_enabled_())){
         while(clock::now()<next_){
             wait_service_();
             const auto remaining=next_-clock::now();

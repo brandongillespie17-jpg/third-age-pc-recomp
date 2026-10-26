@@ -1,0 +1,60 @@
+name: Publish Windows and Linux HD previews
+on:
+  push:
+    branches: [release/hd-smoothing-20261026]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: desktop-preview-20261026
+  cancel-in-progress: false
+jobs:
+  windows:
+    uses: ./.github/workflows/windows-release.yml
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install build and runtime dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build g++ libsdl2-dev fonts-dejavu-core
+      - name: Build without private game inputs
+        run: |
+          cmake -S . -B "$RUNNER_TEMP/linux-build" -G Ninja \
+            -DCMAKE_BUILD_TYPE=Release -DTHIRD_AGE_PORTABLE_RELEASE=ON \
+            -DTHIRD_AGE_BUILD_PRESENTATION_TESTS=ON -DTHIRD_AGE_ALLOW_HEADLESS=OFF \
+            -DGBARECOMP_SELFHEAL_RECOMPILE_DEFAULT=OFF -DGBARECOMP_ENABLE_MODS=OFF \
+            -DFETCHCONTENT_FULLY_DISCONNECTED=ON \
+            '-DCMAKE_EXE_LINKER_FLAGS=-static-libstdc++ -static-libgcc'
+          cmake --build "$RUNNER_TEMP/linux-build" --target third-age-pc presentation-settings --parallel 2
+      - name: Test live menu, preset and persistence
+        run: ctest --test-dir "$RUNNER_TEMP/linux-build" -R '^presentation-settings$' --output-on-failure --no-tests=error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: third-age-linux-tested-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/linux-build/third-age-pc
+            ${{ runner.temp }}/linux-build/CMakeCache.txt
+            ${{ runner.temp }}/linux-build/Testing/Temporary/LastTest.log
+          if-no-files-found: error
+          retention-days: 14
+  publish:
+    needs: [windows, linux]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install Linux runtime for dependency audit
+        run: sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+      - name: Assemble, audit and publish separate platform releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 -B tools/publish_desktop.py --work "$RUNNER_TEMP/desktop-publication"

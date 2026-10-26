@@ -16,8 +16,16 @@ Windows compilation, dependency-loader checks and ZIP auditing passed in [CI run
 
 This preserves the hybrid GBA runtime and PC presentation/control enhancements from the October 15 camera-weather campaign checkpoint. It is not a complete native/static port. The separate limited PC-native Amon Hen prototype is not merged.
 
+The next build adds **F10 / Escape → Display → Camera Smoothing**, with a
+60/120/144/165 Hz presentation-rate selector. Camera interpolation uses the
+expanded battlefield. **Gameplay → Sprite Cache** separately controls the
+experimental rendering cache. These preferences apply immediately and save
+between launches. They are not in the previously linked October 26 executable.
+
 Source builds are optional: see the [portable Windows build and package guide](docs/WINDOWS-RELEASE.md) or the [private-input source build instructions](docs/BUILD.md). The portable build loads owned inputs at runtime; the original private-input build has different developer requirements. Earlier validation JSON files remain historical records of the checks available when they were written.
 
 See the [roadmap](docs/ROADMAP.md), [preparation changes](PREPARATION-CHANGES.md), [licensing inventory](LICENSING-INVENTORY.md), [portrait provenance and rights notice](assets/PORTRAIT-NOTICE.md), and [Ringbearer notice](assets/FONT-NOTICE.md).
 
 No additional project-wide license is granted. Existing framework and component licenses and notices remain in force, including the framework's PolyForm Noncommercial terms. Project-specific licensing and provenance choices remain documented in the licensing inventory. Portrait and font rights are separate from code licenses. Publication is not a claim of legal clearance or unrestricted open-source rights and does not override third-party rights.
+
+HD Preset in **F10 / Escape → Video** starts with the captured expanded battlefield, HD panels, portraits and custom colors. **Advanced** exposes individual visual choices. Turning HD off/on remembers customizations and leaves resolution, fullscreen, UI size, refresh rate, audio and gameplay preferences unchanged. Existing settings retain their individual choices. The captured values are in [docs/HD-PRESET.json](docs/HD-PRESET.json). Camera smoothing and sprite caching remain separate live controls.

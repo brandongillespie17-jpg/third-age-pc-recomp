@@ -1,9 +1,14 @@
 {
   "files": [
     {
+      "path": ".github/workflows/publish-desktop.yml",
+      "bytes": 2513,
+      "sha256": "58198b15ad8192b37e7e5522fc0657baded8993f29f10ff1afc78f7a8205d117"
+    },
+    {
       "path": ".github/workflows/windows-release.yml",
-      "bytes": 5868,
-      "sha256": "a3a3c06605949fb32093b6bb01b979ba8f5c252ea1f9a0005a1c46afaede21d6"
+      "bytes": 6331,
+      "sha256": "fb269f3453b9136b98951c622cb39a3bcfb79a7798b58b04dc27a9638e3d1297"
     },
     {
       "path": ".gitignore",
@@ -17,8 +22,8 @@
     },
     {
       "path": "CMakeLists.txt",
-      "bytes": 3131,
-      "sha256": "408b2e090e5cf8b5acf1632d69cfc8097bfb74e563377180ab1911afd5762b51"
+      "bytes": 4273,
+      "sha256": "f40ba51e0692fca61e19d357c8aa2e7a1bf1de4b906e14ae368a370a71920337"
     },
     {
       "path": "DEPENDENCIES.json",
@@ -29,6 +34,11 @@
       "path": "DISTRIBUTION-NOTICE.md",
       "bytes": 3322,
       "sha256": "718f7d41f7a328c87a5d374924a51d8885dcadf3f5ee9b8ad025f8db3d4af13f"
+    },
+    {
+      "path": "HD-PRESET-VALIDATION.json",
+      "bytes": 752,
+      "sha256": "d7063d09ca93d71abdbd174799446a1afd71a09a9db1ff598a3b7e692cfc2f01"
     },
     {
       "path": "LICENSING-INVENTORY.md",
@@ -46,9 +56,14 @@
       "sha256": "51075f06717e57fa7691fc33a085bdbc5fc3e2183f0b2f7034e194bca62e5496"
     },
     {
+      "path": "PRESENTATION-SETTINGS-VALIDATION.json",
+      "bytes": 1513,
+      "sha256": "681ff02ac97a277abf50f7c1fa4ccfe695f8839360c9ccdd726075b8d44a3e91"
+    },
+    {
       "path": "README.md",
-      "bytes": 2980,
-      "sha256": "51c0412cec5437f2292c85301dc7fb0c7dcba52fc76472d89849fa801ee72d75"
+      "bytes": 3873,
+      "sha256": "2a45b235036e203ed4196f29e7da5313273fcd27d36641de899ab3d0e3c877a4"
     },
     {
       "path": "RELEASE-VALIDATION.json",
@@ -77,8 +92,13 @@
     },
     {
       "path": "docs/BUILD.md",
-      "bytes": 4292,
-      "sha256": "a26a5de6578af980a816ecec4c926c4c994a09e6add3410d308148b96ac90159"
+      "bytes": 5957,
+      "sha256": "e3d68032a31a081c9cb82372cfb6c2fa925c61bdc1533bca241ddee53d08feb2"
+    },
+    {
+      "path": "docs/HD-PRESET.json",
+      "bytes": 1241,
+      "sha256": "a785161109b6a2185967212ab5f4231c440e1ae4d283a0d410d133983efaa261"
     },
     {
       "path": "docs/PRESENT_DIAGNOSTICS.md",
@@ -156,6 +176,11 @@
       "sha256": "18a678ebb882193787be38124e10f85fb5ea1a90eecf7f8e4cb59155262196c9"
     },
     {
+      "path": "tests/presentation-settings.cpp",
+      "bytes": 9237,
+      "sha256": "325c49938f3a9edbff0adf8f9d7cf00126822860219a9b1429db805656f75e76"
+    },
+    {
       "path": "tests/test-present-diagnostics.py",
       "bytes": 3426,
       "sha256": "0a9d37509670633dba2d8d889d9a74a704e62ac8092992d1811cb8b69449b503"
@@ -201,9 +226,14 @@
       "sha256": "496d3d002703951eabcbcfbf23c467f84a6fbc7bd2ff3fb1d87f94c318c0ca1d"
     },
     {
+      "path": "tools/package_linux.py",
+      "bytes": 8703,
+      "sha256": "0d65fc224cc0c39b40614edfaa3a958634523f18dff90b2317bf444a63a9988f"
+    },
+    {
       "path": "tools/package_windows.ps1",
-      "bytes": 18678,
-      "sha256": "bca3908fda7b9b2d249f06827dbd2cc7c07d13868063782ec9bf1bc8dfd27df7"
+      "bytes": 19209,
+      "sha256": "3039fc07c1209fe0fbae397b2be098897dc535e3c441a4a7c3ae94330b788a33"
     },
     {
       "path": "tools/preflight.py",
@@ -211,9 +241,19 @@
       "sha256": "b466268b17bb78c133e68eb36cc1e6d1d83b9b46ef33e9ea2b94f27c83528305"
     },
     {
+      "path": "tools/prepare_release_assets.py",
+      "bytes": 2075,
+      "sha256": "e620f0dc2f5750371bf40686d66bc83e604a414e98999cb018afd8eb7b0250dc"
+    },
+    {
       "path": "tools/profile-turns.py",
       "bytes": 4484,
       "sha256": "59891162106247532b868a0c7ed24122327f406aa94271577ad5fdc2c5d84063"
+    },
+    {
+      "path": "tools/publish_desktop.py",
+      "bytes": 6011,
+      "sha256": "67222170e55947012816c87835275c74556e698c36ff23089d5e093cd7ab0b8a"
     },
     {
       "path": "tools/reference_frame.c",
@@ -2182,18 +2222,18 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.cpp",
-      "bytes": 5358,
-      "sha256": "ec052476c0697b452e8733660b6f4b69dd1117af7468155ab4add2f661be408d"
+      "bytes": 5409,
+      "sha256": "09aab36290f84a24a47e200c4560247c24d3431da44aa8175d48496a6a39b6b7"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.h",
-      "bytes": 3195,
-      "sha256": "7ff20983136e52cfe427a20a78e3c34f41184a916dd897805ca9e02119be8dd1"
+      "bytes": 3332,
+      "sha256": "b30f02c9590a38b5a64c9af7c188a497ce7e733e8c25a6eb6ac2afcc1a4a1742"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_window.cpp",
-      "bytes": 175966,
-      "sha256": "ed4fcb54d809995e7f1e3be45a60b63ed9859cd22fb73c7b1613e33dd35b7d0a"
+      "bytes": 176547,
+      "sha256": "3ff108e868107d373651b4fd85cc27dc23ce3631114487fb8b00c3644c5acb31"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_window.h",
@@ -2412,8 +2452,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/runtime.cpp",
-      "bytes": 229043,
-      "sha256": "12a0bf14cb280da87f55494ab4aba33452f5abe54e0931a3a0e574fa86ca8493"
+      "bytes": 229216,
+      "sha256": "2d66931511afe669472ed2b67a05d702b875254eba669a75b40ee18e5a131d33"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/runtime.h",
@@ -2537,8 +2577,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_overlay.h",
-      "bytes": 24465,
-      "sha256": "c22680f1a35f95ec5123bb070eb0f7a4234fabb2e9ca70a0669681a45c275cab"
+      "bytes": 26232,
+      "sha256": "a2b472e7ffc4e17f0c6d4423e9c29eea97d1ec591f951929ac15f52343c72616"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_panel_theme.h",
@@ -2562,8 +2602,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_refresh_clock.h",
-      "bytes": 7134,
-      "sha256": "09e694e8b898d68cb2b8335701b5bebf8c668cfc7c524c1c046d946bb374b2f3"
+      "bytes": 7935,
+      "sha256": "ef6b4926e88e6d6bfd652bd4d05e85aa9e7c837e8caa5f3ecfe5592cbd54034d"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_runtime_decode.inc",
@@ -2577,8 +2617,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_settings.h",
-      "bytes": 4831,
-      "sha256": "98e29a58ba037c3772790f0bf0da013cee2d0a768ccbf09ed4fbe18d000f2f7b"
+      "bytes": 10610,
+      "sha256": "248c25c68fdd5e972c73772a47c2537136aa421562fe3bdce0a7e3ecdf74e725"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_skip_audio.h",
@@ -2607,8 +2647,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_view.h",
-      "bytes": 91634,
-      "sha256": "f7691d0f260fbf9fa87fa7eb7d8a0daf67197ddf3b5820fd5a331e5b732fd6ec"
+      "bytes": 91724,
+      "sha256": "de5f0ca7de895f9ac8196f56e09ae98c7bc81a2c3df1f4c9f8b151d6e4b2c1e5"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_weather.h",
@@ -3236,5 +3276,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 647
+  "count_excluding_inventory": 655
 }

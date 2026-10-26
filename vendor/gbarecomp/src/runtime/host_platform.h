@@ -44,7 +44,9 @@ public:
     // Block until the next frame's deadline. Call once per presented
     // frame. No-op while uncapped.
     void wait_for_next_frame();
-    void set_wait_service(std::function<void()> service){wait_service_=std::move(service);}
+    void set_wait_service(std::function<void()> service,std::function<bool()> enabled={}){
+        wait_service_=std::move(service);wait_service_enabled_=std::move(enabled);
+    }
 
     // Realign the deadline to "now". Call after any non-real-time jump
     // (startup, save-state load) so the pacer doesn't try to catch up.
@@ -61,6 +63,7 @@ private:
     clock::time_point next_{};
     bool uncapped_ = false;
     std::function<void()> wait_service_;
+    std::function<bool()> wait_service_enabled_;
     bool raised_timer_res_ = false;
     // HP-002: Windows high-resolution waitable timer (HANDLE, void* here to
     // keep windows.h out of this header). sleep_until quantizes to the 64 Hz

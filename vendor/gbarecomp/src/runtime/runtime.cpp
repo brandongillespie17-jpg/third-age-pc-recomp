@@ -4012,8 +4012,10 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
     };
     if (args.window) {
         runtime_set_host_service_hook([&]() { service_window(1); });
-        if(third_age_game&&third_age_present_hz()&&pacer)
-            pacer->set_wait_service([&](){service_window(2);});
+        // Register even when smoothing starts off: the overlay can enable it
+        // later. Keep the original sleeping path while the preference is off.
+        if(third_age_game&&pacer)
+            pacer->set_wait_service([&](){service_window(2);},[](){return third_age_present_hz()!=0;});
     }
     // Present-in-place (structural fix for frame-boundary resume dispatch-misses).
     // When windowed, register a hook so the per-VBlank frame-present yield presents

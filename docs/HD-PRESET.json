@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "description": "Visual preferences captured from the existing playtest. No window, monitor, audio, control or gameplay preferences.",
+  "settings": {
+    "blend": 1,
+    "smooth": 0,
+    "expanded_view": 1,
+    "hd_unit_panel": 1,
+    "hd_command_panel": 1,
+    "hd_battle_menus": 1,
+    "ability_descriptions": 1,
+    "hd_portraits": 1
+  },
+  "colors": {
+    "hd_color_background_top": "00100D",
+    "hd_color_background_bottom": "121E18",
+    "hd_color_border_light": "B39B63",
+    "hd_color_border_dark": "786943",
+    "hd_color_portrait_border": "938254",
+    "hd_color_name_text": "F0DEB4",
+    "hd_color_health_text": "DEDED0",
+    "hd_color_stat_text": "DEDED0",
+    "hd_color_sword_icon": "F0DEB4",
+    "hd_color_bow_icon": "F0DEB4",
+    "hd_color_foot_icon": "F0DEB4",
+    "hd_color_health_fill": "18DB18",
+    "hd_color_low_health_fill": "FF0000",
+    "hd_color_health_track": "000000",
+    "hd_color_spirit_text": "87CBD5",
+    "hd_color_turn_text": "F0DEB4",
+    "hd_color_spirit_icon": "87CBD5",
+    "hd_color_turn_icon": "F0DEB4",
+    "hd_color_free_move_outline": "338B48",
+    "hd_color_rally_outline": "B98AF0",
+    "hd_color_disorder_outline": "EF6565",
+    "hd_color_onslaught_outline": "F0A24B"
+  }
+}

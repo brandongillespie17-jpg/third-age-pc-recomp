@@ -20,7 +20,7 @@ struct ThirdAgeOverlay {
     bool open=false,release_block=false;
     int tab=0,row=0,hover=-1;
     int pointer_x=-1,pointer_y=-1;
-    bool panel_colors=false;
+    bool panel_colors=false,advanced_video=false;
     int color_part=0,color_row=0,drag_channel=-1;
     mutable ThirdAgeHdPanel panel_preview_;
     void finish_color_drag(){if(drag_channel>=0&&settings)settings->save();drag_channel=-1;}
@@ -34,7 +34,7 @@ struct ThirdAgeOverlay {
         else if(direction>0)exit_game();
     }
     static bool hit(int x,int y,int l,int t,int w,int h){return x>=l&&y>=t&&x<l+w&&y<t+h;}
-    int rows()const{return tab==2?2:tab==1?10:tab==3?6:tab==4?4:5;}
+    int rows()const{return tab==2?2:tab==1?(advanced_video?10:2):tab==3?7:tab==4?6:5;}
     int row_step()const{return tab==1?22:24;}
     int row_height()const{return tab==1?20:22;}
     void exit_game() {
@@ -46,8 +46,11 @@ struct ThirdAgeOverlay {
     bool enabled(int r)const{
         if(r==rows())return false; // Exit is an action, not an adjustable setting.
         if(tab==0 && r>0 && r<4)return settings->mouse&&(r==1||settings->edge_camera);
-        if(tab==1 && r==8 && third_age_original_portraits())return false;
+        if(tab==1&&!advanced_video&&r==1)return settings->hd_enabled;
+        if(tab==1&&advanced_video&&!settings->hd_enabled)return false;
+        if(tab==1 && advanced_video && r==8 && third_age_original_portraits())return false;
         if(tab==4 && r==1)return !display.draft.fullscreen;
+        if(tab==4 && r==5)return settings->camera_smoothing;
         if(tab==4 && r==3)return display.draft!=ThirdAgeDisplay::get(*settings);
         return true;
     }
@@ -56,16 +59,27 @@ struct ThirdAgeOverlay {
         auto& s=*settings;
         if(tab==0){if(row==0)s.mouse=!s.mouse;else if(row==1)s.edge_camera=!s.edge_camera;
             else if(row==2)s.outside_scroll=!s.outside_scroll;else if(row==3)s.edge_speed=std::clamp(s.edge_speed+direction,1,6);else s.native_ai=!s.native_ai;}
+        if(tab==1&&!advanced_video){
+            if(row==0)s.set_hd_enabled(!s.hd_enabled);
+            else{advanced_video=true;row=0;return;}
+            s.save();return;
+        }
         if(tab==1){if(row==0)s.blend=!s.blend;else if(row==1)s.smooth=!s.smooth;
             else if(row==2)s.fps=!s.fps;else if(row==3)s.expanded_view=!s.expanded_view;else if(row==4)s.hd_unit_panel=!s.hd_unit_panel;else if(row==5)s.hd_command_panel=!s.hd_command_panel;else if(row==6)s.hd_battle_menus=!s.hd_battle_menus;else if(row==7)s.ability_descriptions=!s.ability_descriptions;else if(row==8)s.hd_portraits=!s.hd_portraits;else{panel_colors=true;color_row=0;return;}}
         if(tab==2){if(row==0)s.volume=std::clamp(s.volume+5*direction,0,100);else s.mute=!s.mute;}
         if(tab==3){if(row==0)s.skip_combat=!s.skip_combat;else if(row==1)s.native_graphics=!s.native_graphics;else if(row==2)s.fast_path=!s.fast_path;
-            else if(row==3)s.combat_skip_button=!s.combat_skip_button;else if(row==4)s.damage_numbers=!s.damage_numbers;else if(row==5)s.fast_combat_skip=!s.fast_combat_skip;}
+            else if(row==3)s.combat_skip_button=!s.combat_skip_button;else if(row==4)s.damage_numbers=!s.damage_numbers;else if(row==5)s.fast_combat_skip=!s.fast_combat_skip;else if(row==6)s.sprite_cache=!s.sprite_cache;}
         if(tab==4){
             if(row==0)display.draft.fullscreen=!display.draft.fullscreen;
             else if(row==1)display.draft.resolution=std::clamp(display.draft.resolution+direction,0,5);
             else if(row==2)display.draft.ui_scale=std::clamp(display.draft.ui_scale+25*direction,75,150);
-            else if(window){confirm_keep=false;display.apply(s,window);}
+            else if(row==3&&window){confirm_keep=false;display.apply(s,window);}
+            else if(row==4){s.camera_smoothing=!s.camera_smoothing;s.save();}
+            else if(row==5){
+                static constexpr int rates[]={60,120,144,165};int index=0;
+                while(index<3&&rates[index]!=s.presentation_hz)++index;
+                s.presentation_hz=rates[std::clamp(index+direction,0,3)];s.save();
+            }
             return;
         }
         s.save();
@@ -109,6 +123,7 @@ struct ThirdAgeOverlay {
         if(e.type==SDL_KEYDOWN&&!e.key.repeat&&(e.key.keysym.sym==SDLK_F10||e.key.keysym.sym==SDLK_ESCAPE)){
             finish_color_drag();
             if(panel_colors&&open&&e.key.keysym.sym==SDLK_ESCAPE){panel_colors=false;return true;}
+            if(tab==1&&advanced_video&&open&&e.key.keysym.sym==SDLK_ESCAPE){advanced_video=false;row=1;return true;}
             panel_colors=false;
             open=!open;if(open)display.edit(*settings);release_block=true;hover=-1;return true;
         }
@@ -151,7 +166,7 @@ struct ThirdAgeOverlay {
             int x,y;if(!point(x,y))return true;
             const bool click=e.type==SDL_MOUSEBUTTONDOWN&&e.button.button==SDL_BUTTON_LEFT;hover=-1;
             if(hit(x,y,528,55,132,32)){hover=rows();row=rows();if(click)exit_game();return true;}
-            if(hit(x,y,528,402,132,34)&&click){open=false;release_block=true;return true;}
+            if(hit(x,y,528,402,132,34)&&click){if(tab==1&&advanced_video){advanced_video=false;row=1;return true;}open=false;release_block=true;return true;}
             for(int t=0;t<5;++t)if(hit(x,y,60+t*120,104,112,38)&&click){tab=t;row=0;}
             for(int r=0;r<rows();++r)if(hit(x,y,60,158+r*row_step(),600,row_height())){
                 hover=r;row=r;if(click)change(x<530?-1:1,window);
@@ -226,7 +241,7 @@ struct ThirdAgeOverlay {
         label(r,74,380,572,20,hint,note_font,0,muted);
         label(r,74,403,438,16,status,note_font,0,settings->save_failed?SDL_Color{255,140,120,255}:gold);
         label(r,74,421,438,16,panel_colors?"F10: RESUME   ESC: BACK   ARROWS: ADJUST":"F10 / ESC: RESUME   TAB: CATEGORY   ARROWS: ADJUST",note_font,0,muted);
-        button(r,528,402,132,34,"RESUME",row_font);
+        button(r,528,402,132,34,tab==1&&advanced_video&&!panel_colors?"BACK":"RESUME",row_font);
     }
     void draw_panel_colors(SDL_Renderer* r)const{
         panel_preview_.set_hd_portraits(settings->hd_portraits);
@@ -265,14 +280,17 @@ struct ThirdAgeOverlay {
         const char* tabs[]={"CONTROLS","VIDEO","AUDIO","GAMEPLAY","DISPLAY"};
         for(int t=0;t<5;++t)button(r,60+120*t,104,112,38,tabs[t],tab_font,t==tab);
         if(panel_colors){draw_panel_colors(r);return;}
-        static const char* labels[5][10]={{"MOUSE CONTROLS","EDGE-ONLY CAMERA","OUTSIDE-WINDOW SCROLL","EDGE SCROLL SPEED","NATIVE AI LOOKUP"},{"DISPLAY BLENDING","SMOOTH SCALING","FPS IN TITLE BAR","EXPANDED BATTLEFIELD","UNIT PANEL","COMMANDER PANEL","BATTLEFIELD MENUS","ABILITY DESCRIPTIONS","HD PORTRAITS","HD PANEL COLORS"},{"VOLUME","MUTE"},{"AUTO-SKIP COMBAT","FAST GRAPHICS DECODING","FAST PATHFINDING","PRESS SPACE TO SKIP","SKIPPED COMBAT RESULTS","FAST COMBAT RESOLUTION"},{"WINDOW MODE","WINDOW RESOLUTION","OVERLAY SIZE","APPLY DISPLAY SETTINGS"}};
+        static const char* labels[5][10]={{"MOUSE CONTROLS","EDGE-ONLY CAMERA","OUTSIDE-WINDOW SCROLL","EDGE SCROLL SPEED","NATIVE AI LOOKUP"},{"DISPLAY BLENDING","SMOOTH SCALING","FPS IN TITLE BAR","EXPANDED BATTLEFIELD","UNIT PANEL","COMMANDER PANEL","BATTLEFIELD MENUS","ABILITY DESCRIPTIONS","HD PORTRAITS","HD PANEL COLORS"},{"VOLUME","MUTE"},{"AUTO-SKIP COMBAT","FAST GRAPHICS DECODING","FAST PATHFINDING","PRESS SPACE TO SKIP","SKIPPED COMBAT RESULTS","FAST COMBAT RESOLUTION","SPRITE CACHE"},{"WINDOW MODE","WINDOW RESOLUTION","OVERLAY SIZE","APPLY DISPLAY SETTINGS","CAMERA SMOOTHING","PRESENTATION RATE"}};
         const auto& s=*settings;
         std::string values[5][10]={{s.mouse?"ON":"OFF",s.edge_camera?"ON":"OFF",s.outside_scroll?"ON":"OFF",std::to_string(s.edge_speed),s.native_ai?"ON":"OFF"},
           {s.blend?"ON":"OFF",s.smooth?"ON":"OFF",s.fps?"ON":"OFF",s.expanded_view?"ON":"OFF",s.hd_unit_panel?"HD":"ORIGINAL",s.hd_command_panel?"HD":"ORIGINAL",s.hd_battle_menus?"HD":"ORIGINAL",s.ability_descriptions?"ON":"OFF",third_age_original_portraits()?"FORCED OFF":s.hd_portraits?"ON":"OFF","EDIT"},
-          {std::to_string(s.volume),s.mute?"ON":"OFF"},{s.skip_combat?"ON":"OFF",s.native_graphics?"ON":"OFF",s.fast_path?"ON":"OFF",s.combat_skip_button?"ON":"OFF",s.damage_numbers?"ON":"OFF",s.fast_combat_skip?"ON":"OFF"},{display.draft.fullscreen?"BORDERLESS":"WINDOWED",display.draft.fullscreen?"DESKTOP":ThirdAgeDisplay::label(display.draft.resolution,s.scale),std::to_string(display.draft.ui_scale)+"%","APPLY"}};
+          {std::to_string(s.volume),s.mute?"ON":"OFF"},{s.skip_combat?"ON":"OFF",s.native_graphics?"ON":"OFF",s.fast_path?"ON":"OFF",s.combat_skip_button?"ON":"OFF",s.damage_numbers?"ON":"OFF",s.fast_combat_skip?"ON":"OFF",s.sprite_cache?"ON":"OFF"},{display.draft.fullscreen?"BORDERLESS":"WINDOWED",display.draft.fullscreen?"DESKTOP":ThirdAgeDisplay::label(display.draft.resolution,s.scale),std::to_string(display.draft.ui_scale)+"%","APPLY",s.camera_smoothing?"ON":"OFF",std::to_string(s.presentation_hz)+" HZ"}};
+        if(tab==1&&!advanced_video){
+            values[1][0]=s.hd_enabled?"ON":"OFF";values[1][1]="OPEN";
+        }
         for(int i=0;i<rows();++i){const bool en=enabled(i),over=en&&hot(60,158+i*row_step(),600,row_height());box(60,158+i*row_step(),600,row_height(),over?SDL_Color{66,83,59,255}:i==row?SDL_Color{40,58,51,255}:SDL_Color{24,35,33,255});
-            label(r,74,158+i*row_step(),318,row_height(),labels[tab][i],row_font,0,over?SDL_Color{255,214,82,255}:en?white:muted);
-            const bool number=(tab==0&&i==3)||(tab==2&&i==0)||(tab==4&&i<3);
+            label(r,74,158+i*row_step(),318,row_height(),(tab==1&&!advanced_video?(i==0?"HD PRESET":"ADVANCED"):labels[tab][i]),row_font,0,over?SDL_Color{255,214,82,255}:en?white:muted);
+            const bool number=(tab==0&&i==3)||(tab==2&&i==0)||(tab==4&&(i<3||i==5));
             const int y=158+i*row_step();
             if(number){
                 if(en)button(r,402,y,28,row_height(),"-",row_font);else label(r,402,y,28,row_height(),"-",row_font,1,muted);
@@ -280,14 +298,14 @@ struct ThirdAgeOverlay {
                 if(en)button(r,622,y,28,row_height(),"+",row_font);else label(r,622,y,28,row_height(),"+",row_font,1,muted);
             }else label(r,430,y,216,row_height(),values[tab][i],row_font,2,over?SDL_Color{255,214,82,255}:en?gold:muted);
         }
-        static const char* hints[5][10]={{"HOVER AND CLICK MENUS AND BATTLEFIELD.","OFF RESTORES THE ORIGINAL CURSOR-FOLLOW CAMERA.","CONTINUE PANNING PAST THE WINDOW EDGE WHILE FOCUSED.","CAMERA PAN SPEED. GAMEPLAY SPEED STAYS NORMAL.","EXPERIMENTAL: FASTER AI NODE SEARCH. OFF USES ORIGINAL."},{"SMOOTHS FLICKERING MARKERS. MAY SOFTEN MOVING SPRITES.","OFF KEEPS PIXELS SHARP. THIS DOES NOT REPLACE ARTWORK.","SHOW PRESENTATION RATE IN THE WINDOW TITLE.","EXPANDED 320 X 180 CANVAS. GAMEPLAY SPEED IS UNCHANGED.","HD UNIT CARDS. REQUIRES EXPANDED BATTLEFIELD.","HD PORTRAIT, SPIRIT AND TURN POINTS. EXPANDED VIEW REQUIRED.","HD ITEMS, ABILITIES, PROMPTS AND TUTORIAL TEXT.","SHOW THE SELECTED MOVE OR ITEM DESCRIPTION IN A SIDE PANEL.","SWITCH APPROVED HD PORTRAITS ON OR OFF. APPLIES IMMEDIATELY.","CUSTOMIZE PANEL, TEXT, ICON AND HEALTH BAR COLORS."},{"HOST AUDIO LEVEL. GAME TIMING IS UNCHANGED.","SILENCE AUDIO WITHOUT CHANGING YOUR VOLUME SETTING."},{"RESOLVE COMBAT OFFSCREEN. A SHORT PAUSE MAY REMAIN.","EXPERIMENTAL: DECODE ORIGINAL ARTWORK FASTER.","EXPERIMENTAL: BATCH ORIGINAL PATH SEARCH CALCULATIONS.","SPACE SKIPS THIS FIGHT. TURN AUTO-SKIP OFF TO WATCH FIRST.","SHOW HP LOST AND CONFIRMED MISSES AFTER SKIPPED COMBAT.","SHORTEN HIDDEN ANIMATION WAITS WHEN SKIPPING A FIGHT."},{"BORDERLESS USES DESKTOP RESOLUTION. WINDOWED USES PRESET.","LARGE WINDOWS FIT YOUR WORK AREA. ARTWORK STAYS ORIGINAL.","RESIZE THIS OVERLAY WITHOUT CHANGING THE GAME HUD.","PREVIEW FOR 15 SECONDS. KEEP OR AUTOMATICALLY REVERT."}};
+        static const char* hints[5][10]={{"HOVER AND CLICK MENUS AND BATTLEFIELD.","OFF RESTORES THE ORIGINAL CURSOR-FOLLOW CAMERA.","CONTINUE PANNING PAST THE WINDOW EDGE WHILE FOCUSED.","CAMERA PAN SPEED. GAMEPLAY SPEED STAYS NORMAL.","EXPERIMENTAL: FASTER AI NODE SEARCH. OFF USES ORIGINAL."},{"SMOOTHS FLICKERING MARKERS. MAY SOFTEN MOVING SPRITES.","OFF KEEPS PIXELS SHARP. THIS DOES NOT REPLACE ARTWORK.","SHOW PRESENTATION RATE IN THE WINDOW TITLE.","EXPANDED 320 X 180 CANVAS. GAMEPLAY SPEED IS UNCHANGED.","HD UNIT CARDS. REQUIRES EXPANDED BATTLEFIELD.","HD PORTRAIT, SPIRIT AND TURN POINTS. EXPANDED VIEW REQUIRED.","HD ITEMS, ABILITIES, PROMPTS AND TUTORIAL TEXT.","SHOW THE SELECTED MOVE OR ITEM DESCRIPTION IN A SIDE PANEL.","SWITCH APPROVED HD PORTRAITS ON OR OFF. APPLIES IMMEDIATELY.","CUSTOMIZE PANEL, TEXT, ICON AND HEALTH BAR COLORS."},{"HOST AUDIO LEVEL. GAME TIMING IS UNCHANGED.","SILENCE AUDIO WITHOUT CHANGING YOUR VOLUME SETTING."},{"RESOLVE COMBAT OFFSCREEN. A SHORT PAUSE MAY REMAIN.","EXPERIMENTAL: DECODE ORIGINAL ARTWORK FASTER.","EXPERIMENTAL: BATCH ORIGINAL PATH SEARCH CALCULATIONS.","SPACE SKIPS THIS FIGHT. TURN AUTO-SKIP OFF TO WATCH FIRST.","SHOW HP LOST AND CONFIRMED MISSES AFTER SKIPPED COMBAT.","SHORTEN HIDDEN ANIMATION WAITS WHEN SKIPPING A FIGHT.","EXPERIMENTAL: REUSE MATCHING SPRITE DATA TO REDUCE RENDER WORK."},{"BORDERLESS USES DESKTOP RESOLUTION. WINDOWED USES PRESET.","LARGE WINDOWS FIT YOUR WORK AREA. ARTWORK STAYS ORIGINAL.","RESIZE THIS OVERLAY WITHOUT CHANGING THE GAME HUD.","PREVIEW FOR 15 SECONDS. KEEP OR AUTOMATICALLY REVERT.","SMOOTHER CAMERA MOTION IN EXPANDED BATTLEFIELD. APPLIES NOW.","MATCH YOUR DISPLAY REFRESH RATE. GAMEPLAY SPEED STAYS NORMAL."}};
         if(tab==4){
             if(window&&output){int ww=0,wh=0,dw=0,dh=0;SDL_GetWindowSize(window,&ww,&wh);SDL_GetRendererOutputSize(output,&dw,&dh);
                 label(r,74,336,572,20,"WINDOW "+std::to_string(ww)+" X "+std::to_string(wh)+" / OUTPUT "+std::to_string(dw)+" X "+std::to_string(dh),note_font,0,white);
             }
             label(r,74,358,572,20,display.status,note_font,0,gold);
         }
-        footer(r,row==rows()?"CLOSE THE GAME WINDOW.":tab==1&&row==8&&third_age_original_portraits()?"REMOVE THE ORIGINAL-PORTRAITS LAUNCH OPTION TO ENABLE HD.":hints[tab][row],s.save_failed?"COULD NOT SAVE SETTINGS. CHECK FOLDER PERMISSIONS.":(tab==4?"DISPLAY CHANGES SAVE ONLY AFTER KEEP.":"PREFERENCES SAVE AUTOMATICALLY."));
+        footer(r,row==rows()?"CLOSE THE GAME WINDOW.":tab==1&&advanced_video&&row==8&&third_age_original_portraits()?"REMOVE THE ORIGINAL-PORTRAITS LAUNCH OPTION TO ENABLE HD.":tab==1&&!advanced_video?(row==0?"TOGGLE HD VISUALS. YOUR ADVANCED CHOICES ARE REMEMBERED.":"TWEAK INDIVIDUAL HD SETTINGS. ENABLE HD TO EDIT."):hints[tab][row],s.save_failed?"COULD NOT SAVE SETTINGS. CHECK FOLDER PERMISSIONS.":(tab==4&&row<4?"DISPLAY CHANGES SAVE ONLY AFTER KEEP.":"PREFERENCES SAVE AUTOMATICALLY."));
         if(display.pending){
             box(40,38,640,406,{10,16,16,240});box(80,164,560,168,{24,35,33,255});
             label(r,104,177,512,30,"KEEP THESE DISPLAY SETTINGS?",23,1,gold);

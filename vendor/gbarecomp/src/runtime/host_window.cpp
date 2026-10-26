@@ -3180,6 +3180,16 @@ void HostWindow::apply_third_age_settings() {
     auto* b=static_cast<Backend*>(impl_);auto* s=b->third_age_overlay.settings;if(!s)return;
     const Uint32 flags=SDL_GetWindowFlags(b->window)&SDL_WINDOW_FULLSCREEN_DESKTOP;
     b->fullscreen=flags==SDL_WINDOW_FULLSCREEN_DESKTOP?1:flags?2:0;
+    const int present_hz=s->camera_smoothing?s->presentation_hz:0;
+    third_age_set_present_hz(present_hz);
+    if(b->refresh_clock.set_hz(present_hz)){
+        // Never reuse a camera tween or source image from before a toggle/rate
+        // change. The next completed guest frame seeds the presentation again.
+        b->refresh_frame.clear();b->camera_present.release();
+        b->damage_present=ThirdAgeDamagePresent{};
+        b->frame_blend.reset();
+        std::fprintf(stderr,"third_age_presentation smoothing=%s target_hz=%d\n",present_hz?"ON":"OFF",present_hz);
+    }
     if(linear_filter()!=s->smooth)set_linear_filter(s->smooth);
     if(b->blend_frames!=s->blend){b->blend_frames=s->blend;b->frame_blend.reset();}
     const int gain=s->mute?0:s->volume;if(volume()!=gain)set_volume(gain);

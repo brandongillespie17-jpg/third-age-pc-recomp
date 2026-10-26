@@ -137,7 +137,7 @@ class ThirdAgeView final : public gba::GbaPpu::PresentationObserver {
     static bool dither_option(const char* name){
         const char* value=std::getenv(name);return value&&std::strcmp(value,"1")==0;
     }
-    const bool dither_cache_enabled_=dither_option("THIRD_AGE_DITHER_OAM_CACHE");
+    bool dither_cache_enabled_=dither_option("THIRD_AGE_DITHER_OAM_CACHE");
     // Count and time in separate diagnostic runs; clean benchmarks set neither.
     const bool dither_stats_enabled_=dither_option("THIRD_AGE_DITHER_OAM_STATS");
     const bool dither_timing_enabled_=dither_option("THIRD_AGE_DITHER_OAM_TIME");
@@ -1094,7 +1094,10 @@ public:
     void bind(const uint8_t* iw,const uint8_t* ew,const uint8_t* rom,size_t size,ThirdAgeSettings* s){invalidate_dither_oam_cache();live_iw_=iw;live_ew_=ew;rom_=rom;rom_size_=size;settings_=s;}
     void restored()noexcept override{invalidate_dither_oam_cache();weather_frame_.clear();weather_candidate_=weather_valid_=false;motion_positions_.clear();motion_keep_=0;motion_frame_.clear();video_capture_.restored();capture_ppu_=nullptr;menu_fade_.clear();menu_mask_={};menu_tail_=0;pause_art_ready_=pause_art_frame_=false;hd_menu_={};menu_strings_.clear();command_ready_=command_complete_=command_capture_=false;hd_command_={};command_portraits_.clear();pending_health_={};native_left_ready_=native_left_complete_=false;corner_ready_=corner_complete_=corner_context_=false;reset_hd();idle_.clear();visual_ticks_.clear();ready_=drawing_=false;lines_=0;identity_=0;tiles_.clear();sprites_.clear();}
     void scanline(const gba::GbaPpu& ppu,uint32_t y,uint16_t display,const uint8_t* io,const uint8_t* vram,const uint8_t* oam,const uint8_t* pal)override{
-        if(y==0)invalidate_dither_oam_cache(); // All frame/mode/early-return paths.
+        if(y==0){
+            invalidate_dither_oam_cache(); // All frame/mode/early-return paths.
+            if(settings_)dither_cache_enabled_=settings_->sprite_cache;
+        }
         if(ThirdAgeVideoCapture::enabled()){
             capture_ppu_=&ppu;
             video_capture_.scanline(ppu.frame_count(),y,display,live_iw_,live_ew_,io,vram,oam,pal,ppu.presentation_affine_state());

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26",
+  "scope": "Persistent in-game camera smoothing, presentation rate and sprite cache",
+  "build": "Linux Release portable runtime, GCC; exit 0",
+  "binary_sha256": "9706add2863af81ecaef027c06efb82ab10bfba58a8cd40cefca2ce8777b0384",
+  "live_sdl_settings_test": "PASS; actual HostWindow/overlay keyboard and mouse, 60/120/144/165 Hz, off/on, enabled wait-service predicate, persistence, invalid values, legacy environment migration and window recreation",
+  "menu_layout": "Display and Gameplay renders inspected at 1440x960; labels and footer fit",
+  "camera_render_regression": "Baseline, changed, and diagnostic SDL calls, texture bytes and geometry identical",
+  "300_frame_headless_boot": {
+    "exit_code": 0,
+    "matches_original_portable_build": true,
+    "sha256": {
+      "save.sav": "c976d8f5c8858aaf2c0ee53ef640f48195efc2b16a65ccae98e20e6a7b915846",
+      "frame.bmp": "22d86559295caeb6f78f7849571ddae0831f4e2e08e35461edd65d8044e23074"
+    }
+  },
+  "existing_diagnostic_suite": "Camera and ring stages pass. Full script stops compiling its extracted frame-phase fixture: missing g_prof_scanline_* / g_runtime_state_epoch declarations. Reproduces unchanged on baseline; no claim of full-suite pass.",
+  "windows": "Workflow now builds and runs the SDL settings regression before packaging. Updated Windows compilation and native gameplay not yet run; previously published EXE unchanged.",
+  "live_linux_campaign": "Original Downloads executable and campaign saves unchanged."
+}

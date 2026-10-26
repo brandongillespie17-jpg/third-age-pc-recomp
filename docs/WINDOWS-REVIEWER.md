@@ -1,6 +1,6 @@
 # Windows preview setup and reviewer checklist
 
-**[Download the Windows x64 preview ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip)** · [Release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26)
+**[Download the Windows x64 preview ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3-ringbearer.zip)** · [Release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26)
 
 This is the end-user package. You do not need a compiler, Python, CMake, an SDK or a dependency installer. Building from source is optional; developers can use [WINDOWS-RELEASE.md](WINDOWS-RELEASE.md) or the separate [private-input build instructions](BUILD.md).
 
@@ -17,10 +17,10 @@ Required owned inputs:
 - ROM: 16,777,216 bytes; SHA-1 `0a7a704d2ba167eb2dc03ad5dcfa0f09ea982a54`.
 - BIOS: 16,384 bytes; SHA-1 `300c20df6731a33952ded8c436f7f186d25d3492`.
 
-The ZIP is 254,565,945 bytes. SHA-256:
+The ZIP is 254,774,349 bytes. SHA-256:
 
 ```text
-a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12
+cc49d2ff3b0077e7751144c332714a35cd273a46c78158d478a25dc0766a84cb
 ```
 
 ## What has been verified

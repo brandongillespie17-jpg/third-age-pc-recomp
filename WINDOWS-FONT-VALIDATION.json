@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26",
+  "scope": "Windows release now loads the chosen Ringbearer font automatically",
+  "runtime_build_commit": "4beaa8d235b3e40549c675fceb1d0218431459e9",
+  "package_assembly_commit": "e1610b9c055af0469686583d246580bda50305f3",
+  "font": "Ringbearer Medium v1.00",
+  "font_sha256": "22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b",
+  "active_path": "assets/fonts/ringbearer.ttf",
+  "original_files": "All nine original files and unchanged archive preserved; TTF alias is byte-identical",
+  "native_windows_font_probe": "PASS: actual unchanged font loader selects the packaged font without environment overrides and decodes its glyphs",
+  "native_windows_run": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40409605880",
+  "run_limit": "The native font check, archive audit and upload checksum verification passed; a subsequent release-note refresh hit CRLF handling. The already-published correction note and verified archive remained intact. Follow-up verification avoids rebuilding bytes.",
+  "local_ui": "SDL settings regression passed with Ringbearer; Advanced menu render visually reviewed",
+  "exe_dll": "Preserved from the previously tested Windows CI base",
+  "zip": "third-age-pc-windows-x64-preview-4beaa8d235b3-ringbearer.zip",
+  "bytes": 254774349,
+  "sha256": "cc49d2ff3b0077e7751144c332714a35cd273a46c78158d478a25dc0766a84cb",
+  "linux_release": "Unchanged",
+  "completed_verification_run": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40410026615"
+}

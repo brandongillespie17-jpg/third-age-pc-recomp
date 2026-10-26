@@ -1,12 +1,12 @@
 # Windows x64 preview build and package
 
-**For players and reviewers: [download the released Windows ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip) or open the [release page](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26).** Extract it and run `third-age-pc.exe`; no compiler, Python, CMake or dependency installer is required. Supply your own matching ROM and BIOS. See [WINDOWS-REVIEWER.md](WINDOWS-REVIEWER.md) for setup and acceptance checks.
+**For players and reviewers: [download the released Windows ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3-ringbearer.zip) or open the [release page](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26).** Extract it and run `third-age-pc.exe`; no compiler, Python, CMake or dependency installer is required. Supply your own matching ROM and BIOS. See [WINDOWS-REVIEWER.md](WINDOWS-REVIEWER.md) for setup and acceptance checks.
 
 ## Current release status
 
 Windows and Linux compiled and passed the actual SDL overlay/preset/persistence regression with dummy drivers in [CI](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931), built from `4beaa8d235b3e40549c675fceb1d0218431459e9`. The Windows dependency-loader and both archive content/checksum audits passed. Physical display smoothness, audio devices and full-campaign gameplay remain untested by CI; native Windows gameplay acceptance remains pending. The separately [completed publication run](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676) verified both uploaded archives.
 
-Final ZIP: 254,565,945 bytes. SHA-256: `a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12`. Includes the executable, SDL2, 68 approved portraits and the complete original Ringbearer distribution, loaded automatically from assets/fonts/ringbearer.ttf.
+Final ZIP: 254,774,349 bytes. SHA-256: `cc49d2ff3b0077e7751144c332714a35cd273a46c78158d478a25dc0766a84cb`. Includes the executable, SDL2, 68 approved portraits and the complete original Ringbearer distribution, loaded automatically from assets/fonts/ringbearer.ttf.
 
 ## Optional developer build and packaging workflow
 

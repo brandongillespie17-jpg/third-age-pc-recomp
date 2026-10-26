@@ -77,13 +77,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 4315,
-      "sha256": "c89d92a43932934f30c0a235c5b997369110244189bda6d652149e982c3e8645"
+      "bytes": 4326,
+      "sha256": "cb7290313ab9f7408d287bfa1446048528d952228f90e167be80c0e98f6ab38d"
     },
     {
       "path": "RELEASE-VALIDATION.json",
       "bytes": 2467,
       "sha256": "956aa0cd4d63fd0a506dadddcc09f6556d639e9f5118a068ba1506e023c5d3b4"
+    },
+    {
+      "path": "WINDOWS-FONT-VALIDATION.json",
+      "bytes": 1566,
+      "sha256": "5ab74127133dd4c94ab74adea3bd1a37a47ebf416e1fadc91123e14d13975e23"
     },
     {
       "path": "assets/FONT-MANIFEST.json",
@@ -132,13 +137,13 @@
     },
     {
       "path": "docs/WINDOWS-RELEASE.md",
-      "bytes": 18070,
-      "sha256": "4a910d3472dedbda3b3f49a59de9fc4d5152ab39570c1dd994b1c7451a937f6d"
+      "bytes": 18081,
+      "sha256": "caa99f9964027f00e4e2ec6bfa4b037e3722bca675fb634489d13ee1aa10e642"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
-      "bytes": 4834,
-      "sha256": "76649b786340f54764ec35a47444f4a00405dbce0e5458c95d4997d1252deb42"
+      "bytes": 4845,
+      "sha256": "5c10cfba56680296f8b7aba7fdbf935e86c80db1676e1d88878579ba2f9b0867"
     },
     {
       "path": "inputs/new-game.csv",
@@ -3306,5 +3311,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 661
+  "count_excluding_inventory": 662
 }

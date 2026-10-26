@@ -1,6 +1,6 @@
 # The Third Age GBA PC recomp
 
-**[Windows x64 ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip)** · [Windows release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26)
+**[Windows x64 ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3-ringbearer.zip)** · [Windows release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26)
 
 **[Linux x86_64 tar.gz](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/linux-preview-hd-2026-10-26/third-age-pc-linux-x86_64-preview-4beaa8d235b3.tar.gz)** · [Linux release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/linux-preview-hd-2026-10-26)
 

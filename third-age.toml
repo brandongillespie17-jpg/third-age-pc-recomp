@@ -1,0 +1,16 @@
+# Initial conservative discovery configuration. Not a complete game integration.
+[program]
+name = "The Lord of the Rings: The Third Age (GBA)"
+id = "third_age_b3ae_rev0"
+load_address = 0x08000000
+size = 0x01000000
+entry_pc = 0x08000000
+speculative_literal_harvest = false
+
+[identity]
+sha1 = "0a7a704d2ba167eb2dc03ad5dcfa0f09ea982a54"
+
+[[data_range]]
+start = 0x08000004
+end = 0x080000C0
+note = "Cartridge logo and header; entry branch at 0x08000000 jumps to 0x080000C0."

@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "Private split round-trips exactly to original portrait implementation/data and font bytes.",
+    "Private migration rejects unknown input hashes and existing output directories.",
+    "Configure route preserves spaced arguments, disables fetching and rejects existing build directories.",
+    "Mocked launcher selects Linux, Windows and Windows Release binaries with interpreter/no-compiler policy; no binary executed."
+  ],
+  "windows_compile": false,
+  "game_executed": false,
+  "fresh_project_build": false,
+  "native_windows_runtime_test": false,
+  "scope": "Historical v1/v2 tooling checks. Superseded for build status by BUILD-VALIDATION.json in v3."
+}

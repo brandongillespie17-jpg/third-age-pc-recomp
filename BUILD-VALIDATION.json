@@ -1,0 +1,35 @@
+{
+  "compiled": true,
+  "game_launched": false,
+  "platform": "linux",
+  "executable_sha256": "aa4c181b50be4ad295f2d5434be32a0b5d3714d56b8fd6014813ec6dd8b6b22f",
+  "executable_bytes": 11417320,
+  "rom_sha1": "0a7a704d2ba167eb2dc03ad5dcfa0f09ea982a54",
+  "bios_sha1": "300c20df6731a33952ded8c436f7f186d25d3492",
+  "font_sha256": "22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b",
+  "old_generated_inputs_used": false,
+  "toolchain": {
+    "compiler": "GCC 16.2.1 20260810",
+    "cmake": "4.4.4",
+    "ninja": "1.13.2",
+    "python": "3.14.8",
+    "sdl2": "2.32.74"
+  },
+  "portrait_generation": {
+    "portrait_pixel_sets_matched": 136,
+    "ordered_patterns_matched": 136,
+    "total": 136,
+    "font_sha256": "22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b"
+  },
+  "graphics_translation_generation": {
+    "exact_original_body_match": true,
+    "generated_instructions": 203,
+    "body_bytes": 32649,
+    "body_sha256": "d96f5ed3506f76e2ba85312118542560122cdb27a79b18c575ab7e86acadc732"
+  },
+  "windows_compile": false,
+  "windows_runtime": "pending reviewer",
+  "packages_installed": false,
+  "network_fetches_required": false,
+  "note": "Fresh source tools, generated inputs and runtime built. No game/runtime smoke, audio, save or gameplay test performed."
+}

@@ -1,0 +1,13 @@
+{
+  "gbarecomp": {
+    "base_commit": "ecc9c55557e84d214c9d1474c2379ea2240500f7",
+    "local_modifications_preserved": true
+  },
+  "tomlplusplus": {
+    "version": "3.4.0",
+    "recorded_commit": "30172438cee64926dc41fdd9c11fb3ba5b2ba9de",
+    "header_sha256": "6b5172ad4dd6519aec67b919181fa7a38a2234131e5b2afa232dfe444819783e",
+    "license": "MIT"
+  },
+  "runtime_tools": "C++20, CMake>=3.20, Ninja, Python3, SDL2 development files; no tool installation performed"
+}

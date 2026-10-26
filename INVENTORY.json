@@ -1,0 +1,3170 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 428,
+      "sha256": "b3499ff7d9e32031d84263e4ec8440776cc8fd8abdea3adcdc45328a38ee2892"
+    },
+    {
+      "path": "BUILD-VALIDATION.json",
+      "bytes": 1298,
+      "sha256": "21a823757e4998aff6526b4fe784c37865753ea9bab84c17efec356c9731099e"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 2068,
+      "sha256": "90763e6afbc32eef755c88a804d0b7449a652159b9246b39a6094b442a9c1d76"
+    },
+    {
+      "path": "DEPENDENCIES.json",
+      "bytes": 469,
+      "sha256": "1522efe5a8e4c94ce8dfb07ef4ff9659282542c9eeff15d9b1f6c507e20e25bc"
+    },
+    {
+      "path": "DISTRIBUTION-NOTICE.md",
+      "bytes": 2639,
+      "sha256": "132ed0613724898c2081bcf7af738903bad7db86cb108a451da891b441174aa4"
+    },
+    {
+      "path": "LICENSING-INVENTORY.md",
+      "bytes": 5394,
+      "sha256": "7b3e4c73dc06d682bff5d214de2c95072f92babb9fc5e35bce4e84360c6dd60e"
+    },
+    {
+      "path": "PREPARATION-CHANGES.md",
+      "bytes": 2283,
+      "sha256": "74a67867a7c6405473107e5781adf5ceae8b60f3edec0c10726092f002cbf6d3"
+    },
+    {
+      "path": "PREPARATION-VERIFICATION.json",
+      "bytes": 680,
+      "sha256": "51075f06717e57fa7691fc33a085bdbc5fc3e2183f0b2f7034e194bca62e5496"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1694,
+      "sha256": "b62811ba891bce869c7db42e6da8740ce1e4bb0f55638dd838938d2affe09af1"
+    },
+    {
+      "path": "docs/BUILD.md",
+      "bytes": 4292,
+      "sha256": "a26a5de6578af980a816ecec4c926c4c994a09e6add3410d308148b96ac90159"
+    },
+    {
+      "path": "docs/PRESENT_DIAGNOSTICS.md",
+      "bytes": 9531,
+      "sha256": "bcb1b9a9c5aff4229cb25d6d51ddfdeae6f9371752cb865e993b2f4d1de5a65d"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "bytes": 1428,
+      "sha256": "1079418ef1263c4bd841da2ce6b3b20a8b4176cd21581aab8cef85a699eee437"
+    },
+    {
+      "path": "docs/WINDOWS-REVIEWER.md",
+      "bytes": 6097,
+      "sha256": "0e7263ce01d1c5c2efc4f4e12972a9eda4031ae1eeae50c09544cdadd18c037d"
+    },
+    {
+      "path": "inputs/new-game.csv",
+      "bytes": 103,
+      "sha256": "2c120e5d2b55c43960a52cae5f3ea02e77c82790597c7e29b6a0470a0c404d88"
+    },
+    {
+      "path": "inputs/open-menu.csv",
+      "bytes": 79,
+      "sha256": "f2556a6232c241bf5e0a17fe7ce1d36f35bda36dae9e983933aaf751d51e1dae"
+    },
+    {
+      "path": "inputs/open-tutorial.csv",
+      "bytes": 175,
+      "sha256": "3129c9ce994b3d7d6c3709da6b841c1b332d0339ba23de51e4edca817c524138"
+    },
+    {
+      "path": "inputs/play-tutorial.csv",
+      "bytes": 247,
+      "sha256": "d0a5490b05dad1a31573544a1bd00249e4c2fe56aab944dc1add5ab5e53ac910"
+    },
+    {
+      "path": "inputs/select-commander.csv",
+      "bytes": 127,
+      "sha256": "8337ae63996cf3ba5a49a87e93600bb31b7e34fd28c2b581eb5df51abad9254a"
+    },
+    {
+      "path": "inputs/select-english.csv",
+      "bytes": 55,
+      "sha256": "2b9bfc6fa8567ec75422eefbe70e67b93881e93a397fc6e18ba4535e493c8e78"
+    },
+    {
+      "path": "inputs/start-campaign.csv",
+      "bytes": 151,
+      "sha256": "7f42cbd9fb4062969cab871a42e642d22b3b12cb9dc08cac622e693584497c6d"
+    },
+    {
+      "path": "src/main.cpp",
+      "bytes": 806,
+      "sha256": "2e33b9005bfd93652f69bf3389d281359b45b7e721872bb2358dc21cc6e5410c"
+    },
+    {
+      "path": "tests/diagnostic-ring.cpp",
+      "bytes": 1289,
+      "sha256": "7091ea1775e1b69b9215dd2f4949ddc0cb3d76c939f9988b8bdc2ae478cc96de"
+    },
+    {
+      "path": "tests/present-diagnostics.cpp",
+      "bytes": 4746,
+      "sha256": "18a678ebb882193787be38124e10f85fb5ea1a90eecf7f8e4cb59155262196c9"
+    },
+    {
+      "path": "tests/test-present-diagnostics.py",
+      "bytes": 3426,
+      "sha256": "0a9d37509670633dba2d8d889d9a74a704e62ac8092992d1811cb8b69449b503"
+    },
+    {
+      "path": "third-age.toml",
+      "bytes": 470,
+      "sha256": "4d5e16bcdcc9b45830451090d63a9f7638cfc2559329bb3b40904c6d7163f9fa"
+    },
+    {
+      "path": "tools/analyze-turn-profile.py",
+      "bytes": 8042,
+      "sha256": "dd1fef0edb77d4752c3b1ca07bf1aef759cd436ab357e7e48cdfdcfca3a5ce3c"
+    },
+    {
+      "path": "tools/build_from_inputs.py",
+      "bytes": 4771,
+      "sha256": "beafb7ba98733ef6564bca7556363fdbfc1ba27fe8b6965c169850cc27b5ef6a"
+    },
+    {
+      "path": "tools/configure_local.py",
+      "bytes": 2594,
+      "sha256": "b5f94b73162703999fabc63ddc97ba68a878302342daa284b9bf1c3e170f4088"
+    },
+    {
+      "path": "tools/generate_decode.py",
+      "bytes": 5865,
+      "sha256": "22d21a5aaef037351b41601df96e54272f21f539481ad77057a6f82b66e01df0"
+    },
+    {
+      "path": "tools/generate_private_assets.py",
+      "bytes": 6735,
+      "sha256": "1b4af86c04d695f598e92ce8056ae13637223cd242e0fdf62a6883bb9302115c"
+    },
+    {
+      "path": "tools/launch.py",
+      "bytes": 1379,
+      "sha256": "496d3d002703951eabcbcfbf23c467f84a6fbc7bd2ff3fb1d87f94c318c0ca1d"
+    },
+    {
+      "path": "tools/preflight.py",
+      "bytes": 2547,
+      "sha256": "b466268b17bb78c133e68eb36cc1e6d1d83b9b46ef33e9ea2b94f27c83528305"
+    },
+    {
+      "path": "tools/profile-turns.py",
+      "bytes": 4484,
+      "sha256": "59891162106247532b868a0c7ed24122327f406aa94271577ad5fdc2c5d84063"
+    },
+    {
+      "path": "tools/reference_frame.c",
+      "bytes": 1966,
+      "sha256": "24f6fa0f21546d3876223a3d0d7e4fcfc970a48ba17d745269f34c5102d6cb6f"
+    },
+    {
+      "path": "vendor/gbarecomp/.gitattributes",
+      "bytes": 767,
+      "sha256": "09fbf05ee4584e57a184e2b73e2321d5c16cd9b5d311a684941665ec0d2ddc58"
+    },
+    {
+      "path": "vendor/gbarecomp/.gitignore",
+      "bytes": 2511,
+      "sha256": "419d7a0e0fe25d186f88f708e31b982287c431cf0ff29b5e69445d93b1bba840"
+    },
+    {
+      "path": "vendor/gbarecomp/.gitmodules",
+      "bytes": 470,
+      "sha256": "81c33f8cfcc99ea53b9ffdc9b624a88a02210d6ac8b1958165918329337673f9"
+    },
+    {
+      "path": "vendor/gbarecomp/CLAUDE.md",
+      "bytes": 6868,
+      "sha256": "5610487ebcdd190b59fa2edbb9ccba2b30c23b0da6530dbd7557c34e5852d637"
+    },
+    {
+      "path": "vendor/gbarecomp/CMakeLists.txt",
+      "bytes": 49627,
+      "sha256": "07c0aa41c44ca611734913625f4e3d5d3f248f3a2bf33b0d51389c38d101a001"
+    },
+    {
+      "path": "vendor/gbarecomp/COSIM_ORACLE.md",
+      "bytes": 23603,
+      "sha256": "b2ec5473bb0e26f992a2b741c1a8f0a5f73978442c332dcf8e1922eadfaf6dbc"
+    },
+    {
+      "path": "vendor/gbarecomp/DEBUG.md",
+      "bytes": 7401,
+      "sha256": "be45dc94c96243f8a2c29504fb40c01fb69522276f06384cd91493058f2c44b7"
+    },
+    {
+      "path": "vendor/gbarecomp/ENHANCEMENTS.md",
+      "bytes": 7220,
+      "sha256": "7890565166b91f2077e59161a22a0bbb4c335520340b8a12490990f01ee5ea2d"
+    },
+    {
+      "path": "vendor/gbarecomp/GBA_ACCURACY_BURNDOWN.md",
+      "bytes": 43405,
+      "sha256": "4d07c2c8af4005b84863739806f01980ccd07d876d6bfee37be19dda0eb0b894"
+    },
+    {
+      "path": "vendor/gbarecomp/ISSUES.md",
+      "bytes": 22997,
+      "sha256": "dd0ecce9a197be0702d3e53cf8606f653cf299823558627b627bc49f5d1faead"
+    },
+    {
+      "path": "vendor/gbarecomp/LICENSE",
+      "bytes": 3855,
+      "sha256": "5299c743afb90ac7c82a662f3c2e1eafc9adaced7f8d89158566d66668e55f19"
+    },
+    {
+      "path": "vendor/gbarecomp/PRINCIPLES.md",
+      "bytes": 19955,
+      "sha256": "a359aadf60cc9b9110ca7983a0856bd7033255efb2d0bee2d9146acea760e63d"
+    },
+    {
+      "path": "vendor/gbarecomp/README.md",
+      "bytes": 19498,
+      "sha256": "d648d97a44e487bd43406509d019bbcbcb3e39ecf809d6860b170d9c3031ef8c"
+    },
+    {
+      "path": "vendor/gbarecomp/RELEASE_NOTES.md",
+      "bytes": 3187,
+      "sha256": "26a6be38d23769901d4807cf72fe94c523ff616958d16422cb866ec1d1e0d9c7"
+    },
+    {
+      "path": "vendor/gbarecomp/TCP.md",
+      "bytes": 13314,
+      "sha256": "e237730e05d74648d3de6c1a6f924a1cdf9f1c42faeb44dc785ec1c088ddf230"
+    },
+    {
+      "path": "vendor/gbarecomp/THIRD_PARTY_ATTRIBUTION.md",
+      "bytes": 4152,
+      "sha256": "af64526647bdb920cde54a16755e57069f652b05e3ad210fef6f5cec93bb917c"
+    },
+    {
+      "path": "vendor/gbarecomp/bios/README.md",
+      "bytes": 2178,
+      "sha256": "2b3dcbf6a3fe94c0fa7d928c5d89b004a0d56336dd18905b67f6aaf82afe8c3d"
+    },
+    {
+      "path": "vendor/gbarecomp/bios/gba_bios.toml",
+      "bytes": 14767,
+      "sha256": "02e404781085504fbb3fa62efdf813286cd258249e251591a8e26bb66d6dee22"
+    },
+    {
+      "path": "vendor/gbarecomp/bios/gba_bios_excltest.toml",
+      "bytes": 9149,
+      "sha256": "41e2275c33cc9d6468099aa3d4d9a281b8a17393e467895244b6e45a2db35d5e"
+    },
+    {
+      "path": "vendor/gbarecomp/cmake/GbaLinkProbe.cmake",
+      "bytes": 2316,
+      "sha256": "01412da8caa5b4c2e396b742984f0507b313310b600b41a7d66342eedf5b71da"
+    },
+    {
+      "path": "vendor/gbarecomp/cmake/GbaNetplay.cmake",
+      "bytes": 9594,
+      "sha256": "c8a82184a8002ec5f0b3c7bdef74637c50d52a64e5aa9773d31b532440a20396"
+    },
+    {
+      "path": "vendor/gbarecomp/cmake/GbaNetplayIdentity.cmake",
+      "bytes": 2640,
+      "sha256": "9c5f48cecbc087f4f450eea023237f136efb7414e729c21a90a67d0c375d3126"
+    },
+    {
+      "path": "vendor/gbarecomp/cmake/runtime.cmake.in",
+      "bytes": 5222,
+      "sha256": "3a8c3aaa3443df7c68c942af9d079b5d0f2a753d6152c42ba37daed6deb77b78"
+    },
+    {
+      "path": "vendor/gbarecomp/cmake/toolchains/clang-mingw.cmake",
+      "bytes": 1453,
+      "sha256": "d408b06d3ce7617208a8c2901b478617aed652f36dd8562086313aedb11f2b9b"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/ARCHITECTURE.md",
+      "bytes": 8320,
+      "sha256": "ff601d0a81b5a5f92a67fd34d0396867644afe826fb6b7efb9612e897a3a0449"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/BUILD_PERFORMANCE.md",
+      "bytes": 2626,
+      "sha256": "75c288c15cef552b1937f6ba60a7d7bb9d12f29485ddcd4e5a86f624ae9553f1"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/CPU_TIMING.md",
+      "bytes": 5194,
+      "sha256": "e80f1e3f87847bf369dc4981bb5e73f7e373d2ee266d3bab405b9964e6ff3633"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/DEBUGGING.md",
+      "bytes": 4285,
+      "sha256": "41239149b117888c06ef0a7db38e50de2427ca51bccb060e22b3e8057af1962a"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/FOREIGN_SCREEN_OVERLAY.md",
+      "bytes": 2318,
+      "sha256": "1abdc93044f3b9a05cede595813dd1f0945b5283cf9770f452add957a5a779f0"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/GBA_REFERENCE_NOTES.md",
+      "bytes": 11260,
+      "sha256": "aa39cc086bae6b394f1dd29531c5386b333163bb84ea514f983ca95288139da3"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/MIXED_CARTRIDGE_MULTIPLAYER.md",
+      "bytes": 12738,
+      "sha256": "b035cea82a67159738b00170af6a2e70d5852f52a88fa8069db54cd5898048e6"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/MOD_AUDIO.md",
+      "bytes": 3606,
+      "sha256": "efe48cec5b3cc3c4cf67ab8e832cd678b47dcc86dd52e02bc367f5397bc7face"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/MOD_PACKAGES.md",
+      "bytes": 12437,
+      "sha256": "b4fbe9fb9b5373b654ed45c395651ae7162bf055b80cacb046d90f3c77ff00a4"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/MULTIPLAYER.md",
+      "bytes": 43410,
+      "sha256": "81c43307400ad5196074c54bdbb2d3cd63d096054e0b2827f9d0d665ca847c1e"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/ROADMAP.md",
+      "bytes": 23506,
+      "sha256": "542088ae0f989b2ff5ce9ddb9834be50e8baf046d1a04d46a0265f3b7e3373cc"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/RUNTIME_PERFORMANCE.md",
+      "bytes": 10275,
+      "sha256": "8f736a0125b99987015222b1b2e2a21608353fa46e67c428eaea63f6eb77c7cb"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/SYMBOL_OVERLAY.md",
+      "bytes": 7876,
+      "sha256": "7c291ae6fcec4cbd16afb9415eca3377bf8e54419fd06d05b711bba4d8ee817e"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/TCC_BACKEND.md",
+      "bytes": 7356,
+      "sha256": "ac1eef663732572712d6744f74331a4d3ad6df0238ee14cfb2ef2dd3aa6c9420"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/TOML_SCHEMA.md",
+      "bytes": 23800,
+      "sha256": "a9f748cd7648fc472108f740fde12bfa5a7f92348a13fa0994519ce1b8c4f80b"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/WIDESCREEN_STEPC_PLAN.md",
+      "bytes": 8464,
+      "sha256": "af4bb51c1f7d77dd738d08d44db20710372fd8195913f79187f76e5faf425bfe"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/WINDOWS_GAME_SETUP.md",
+      "bytes": 7431,
+      "sha256": "a112d16f314eb23926b66e135e5e6288fb2282f4b24bd86d9906dbbb799f19c0"
+    },
+    {
+      "path": "vendor/gbarecomp/docs/WIRELESS.md",
+      "bytes": 7147,
+      "sha256": "0b4cb78a91bd20a3f52233c35f9eb5c10ec393e044488bb85e7569610f83d49c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/CMakeLists.txt",
+      "bytes": 509,
+      "sha256": "9e36fbe09b530a8d9d3fb631faf2844ec8be7face954e19b094e154797b5ef84"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/LICENSE",
+      "bytes": 1072,
+      "sha256": "676252c9efb0849cc08cdba279318b4d62ae144c19a52a0aa7ab5ca845ae5ddc"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/PROVENANCE.md",
+      "bytes": 306,
+      "sha256": "36501c530aac189c625d30732da4eace9a9e0f32394c6a38a276b3b41a1a65d5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/README.md",
+      "bytes": 1840,
+      "sha256": "7fe0dbdb40b0dea87127a01e718b7f1fae605c6a4b819868e6c0a7fff795b52f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/cmake/ArmRecompCore.cmake",
+      "bytes": 1901,
+      "sha256": "75a6a780b18e2241a8741d6068fb31e5b7dcdbb26a1d1173ecd06f23c1510ebc"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/arm_decode.cpp",
+      "bytes": 21691,
+      "sha256": "0621f326324745159f4c44bdf768f2e2568f0b5046f6729e0d70725ede1b51f2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/arm_decode.h",
+      "bytes": 2216,
+      "sha256": "e0720db91b9fe7c425ac7959eb3c7c64c29e08542d781791aa0bb785feca330f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/arm_ir.cpp",
+      "bytes": 14972,
+      "sha256": "8e8ac017087aeaddca2e12a43ed4c93d466ba55cab9e3d9d8bfad9987cc96c12"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/arm_ir.h",
+      "bytes": 10979,
+      "sha256": "b498b1f05a5c0a0114a3be183f920b3fe582073efe8ccb2966b0dd8d58b770b6"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/bus.h",
+      "bytes": 2218,
+      "sha256": "892a760812363d9f9c717843a0344cb7e9137a76cf99bd9fc754db1746d90069"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/condition_codes.h",
+      "bytes": 1574,
+      "sha256": "c5478fd2eee9d624004a8eff8f6cb160824f2deda8db5db010dbb25ae6c53885"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/cpu_state.h",
+      "bytes": 2984,
+      "sha256": "51018f9b2dc478d2a75ad7656f6a547041f1ad3d068cda0b56ddb971c627c75f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/interpreter.cpp",
+      "bytes": 57723,
+      "sha256": "1b00b35423ce4285da3f8bc1045f3ae491ac873f94b24b1e28fb8a0ba4417d7b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/interpreter.h",
+      "bytes": 4486,
+      "sha256": "9b2c4397457acd507a362a039d92cd0dbfc4aa3883dba350ac9fa44c261ba137"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/pipeline_semantics.h",
+      "bytes": 1263,
+      "sha256": "057c2ef15cad713a084390eee804ef7d8bcd8aecc21bd14863cbc9e19983c578"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/runtime_arm_types.h",
+      "bytes": 2033,
+      "sha256": "b356fc36d3be43691505fbe7b2fdcfcd178c443dcbd63464da8daabba007c356"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/thumb_decode.cpp",
+      "bytes": 19879,
+      "sha256": "e6f8a18ebbfce25bff2e5863cfba601e7d2a99b6c7f147d14d3de4532febd56d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/common/thumb_decode.h",
+      "bytes": 1986,
+      "sha256": "a6e9df6b99fefb402e06569df897eaf08500a3ae1511d71f21c4319c35c4a02e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_codegen.cpp",
+      "bytes": 77804,
+      "sha256": "b6d2cd38c793ebadc28dba03c222b4ee13bb108da6deea02618a14de2d9bf3fa"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_codegen.h",
+      "bytes": 4433,
+      "sha256": "6aec48f6ba24a57e3ff10bed2f5219dfa370d90435dbf2157cd5ea766eaad67f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_decode.cpp",
+      "bytes": 14346,
+      "sha256": "bafd40237ce705384a68c34ae176959bd0b762c4a832776ca14246d62abfaf97"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_decode.h",
+      "bytes": 1767,
+      "sha256": "518efafc642155b4cd10051f7b961d30bea3130fe927f138bb304d8e97e02b2b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_ir.cpp",
+      "bytes": 12371,
+      "sha256": "24460c49215f9d97c160daa57a79ddfab1d0b2d777870a462f9fc9c20d6033cb"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/arm_ir.h",
+      "bytes": 9831,
+      "sha256": "d1d612bb02aea0ef3b5271d2dd6d1777a1e668e957481de0b710739393eb6ee6"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/bus.h",
+      "bytes": 2872,
+      "sha256": "594102c3ffe76866ca135bf0cc79b3091c17f6c6868673ea6c90c5cb3f75aefd"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/condition_codes.h",
+      "bytes": 1574,
+      "sha256": "c5478fd2eee9d624004a8eff8f6cb160824f2deda8db5db010dbb25ae6c53885"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/cpu_state.h",
+      "bytes": 2849,
+      "sha256": "cefdc5471b28661094d87ce365834180d76bf6e220f464ca3d6d0e2a5dfb9c46"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/interpreter.cpp",
+      "bytes": 53910,
+      "sha256": "dcd28c1402aebb82afb2777ffe97854cffc35af466e914df6d5f59aa9352c399"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/interpreter.h",
+      "bytes": 4550,
+      "sha256": "8a0a1a86b959c455c02ad2ead7174434662f8bfd1cc2d2e5844cc1d30806f136"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/pipeline_semantics.h",
+      "bytes": 1263,
+      "sha256": "057c2ef15cad713a084390eee804ef7d8bcd8aecc21bd14863cbc9e19983c578"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/runtime_arm_types.h",
+      "bytes": 3819,
+      "sha256": "720d4cfaea549b48320b4f5830736cf86b18ee8d6b405d7a111f76ded278663b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/thumb_decode.cpp",
+      "bytes": 19593,
+      "sha256": "672cf50b809dda75ec4d6b1192590dc7bcbbdeab6ee1797ed92d4808edd45eff"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv4t_gba/thumb_decode.h",
+      "bytes": 1986,
+      "sha256": "a6e9df6b99fefb402e06569df897eaf08500a3ae1511d71f21c4319c35c4a02e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv5te_nds/arm_codegen.cpp",
+      "bytes": 101155,
+      "sha256": "34d4020e44a4c1d3ea0caf898d8350d93f8a3e015823634ef05b07ad78bc3aa1"
+    },
+    {
+      "path": "vendor/gbarecomp/external/arm-recomp-core/profiles/armv5te_nds/arm_codegen.h",
+      "bytes": 2944,
+      "sha256": "f0b431c679ae80439335d650e82cf11223657f8ea4118fb11252ffcfef0cf115"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/.gitignore",
+      "bytes": 142,
+      "sha256": "a00eb8c220064571449d643624bbb45b8aa748fae0820e79f1a8c1f91a66aa67"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/CMakeLists.txt",
+      "bytes": 1672,
+      "sha256": "3e13a2ca41fd5eabd73670f4a3fb8c317f2615702b353b673e6672db055850f2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/LICENSE",
+      "bytes": 1086,
+      "sha256": "3d1abf9e12bf0de1d7ff86407eb151796feb1b44f5d6d2a4cc21333f79870603"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/README.md",
+      "bytes": 2419,
+      "sha256": "11d70ea466506dfc9ace6923e29e4b176fe31426c25df22ba4cdfcdcda7cae8a"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/docs/host_integration.md",
+      "bytes": 1549,
+      "sha256": "b24cb5f2fe2361148cabd69c20602d0f5efa646ec5581b6e0a91323d53159746"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/include/retcomm_rbengine/mono_ms.h",
+      "bytes": 381,
+      "sha256": "cc62207a3f8838ab5e608e9a4cf042014729a8440cd88cfc6fa86cfa285a6162"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/include/retcomm_rbengine/retcomm_rbengine.h",
+      "bytes": 687,
+      "sha256": "bb9ba724626432acf650b06f23ad26220a4ed085a410d9345513202e09a744ff"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/include/retcomm_rbengine/snap_ring.h",
+      "bytes": 3075,
+      "sha256": "41868c5b12dc790e2badae7236fcc03e8edff6036c340b24e43578fe71260e7a"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/src/snap/rbe_snap_ring.c",
+      "bytes": 5665,
+      "sha256": "362e3cb763ba3e609565741c6a0af56a5444b46006aad80e2042bd0c363710f5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/src/util/rbe_mono_ms.c",
+      "bytes": 560,
+      "sha256": "3a473a0ccb171b176bbf1face8d5fac218f608f6c3e9cf89448e4002d9c74b61"
+    },
+    {
+      "path": "vendor/gbarecomp/external/rbengine/tests/snap_ring_test.c",
+      "bytes": 3030,
+      "sha256": "ecef6e738c871b21f7f5d0e8a149f022a4ca666406e5e1396f11c4ae49abc2a2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/.gitignore",
+      "bytes": 340,
+      "sha256": "147578a39cc3310c7c42bd8009d7e6d99c0cc3e4343762502b25d81530b9b45d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/CMakeLists.txt",
+      "bytes": 16293,
+      "sha256": "e48f1b9e52ec322794f5bcdce6b50d5a230c0f1ef45a9e6b771bb8957914b359"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/LICENSE",
+      "bytes": 1080,
+      "sha256": "cc98a0caf9b8279f318a1befb17b530433ad647375d789f211e0223d4697a882"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/README.md",
+      "bytes": 9362,
+      "sha256": "8930c427ce2f2c81ca1b93cee2bf9d80c0a170219fc8d7188ee0f451be7c48c6"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/cmake/FindLibjuice.cmake",
+      "bytes": 2483,
+      "sha256": "5c63ff57ea03e0e106d91763b9a2fe038e0fd63c284c6902511daffb146ae829"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/cmake/RnetApiLinkTest.cmake",
+      "bytes": 4117,
+      "sha256": "875ed1eeaa3baf494a5b80a9365e736115e1e7d10398611f06ae99691b085f71"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/data/chat_filter_words.txt",
+      "bytes": 5417,
+      "sha256": "17756f32a5394756df19c80575878b1d0e3246b38088f5cd73f9abc8652897d7"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/address_discovery.md",
+      "bytes": 4290,
+      "sha256": "06ac8f0e80d1a5c06717e19b67891a1490f55860d417b4285d313b73dbe6456f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/architecture.md",
+      "bytes": 3712,
+      "sha256": "3f952c918c525150f5f7b80818d0687801e23ba2da4008d5dcd13cfc98e68e8e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/host_integration.md",
+      "bytes": 3723,
+      "sha256": "2a7b72e24d8c9a149a25f7f461215048c0a80b6452f1c130e4f2dd764a83ecc8"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/lan_beacon.md",
+      "bytes": 774,
+      "sha256": "ed44f3094eddf62095c7effd0d92feb749f7e74b833b5ca3f47fbf22dfcdd08d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/lobby.md",
+      "bytes": 7463,
+      "sha256": "5e5f674d6ed59af60e209b66daa07e841a232c4d44d62bd4efdb749be8d4dc8b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/protocol.md",
+      "bytes": 15187,
+      "sha256": "bcf36b77d3fb54cf61fb1aa88a14db5344599a92cd5bd7fce77addc35c1e6ebf"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/rollback.md",
+      "bytes": 38404,
+      "sha256": "ee7a624f7609af3a872259a35ca26c6c7ee9d05657c8d9b8d61b6b505edf0fc1"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/docs/signaling.md",
+      "bytes": 1732,
+      "sha256": "08507bf51bb0d4d4db059aae07cc0ad1831b3fde180ddb6472072e1f873b6da5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/examples/ice_manual_signaling/main.c",
+      "bytes": 5477,
+      "sha256": "97e964f1ea69ae6f22c971626cdd657b63e379b3f56e8abe2ceddea44720170c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/examples/lan_delay_2p/main.c",
+      "bytes": 4065,
+      "sha256": "8144d5d708ddc2db5cbc694df7cc983f8a0d34ccba2c4efa180f590d6785454f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/address.h",
+      "bytes": 3461,
+      "sha256": "9fdbfa88f0f87333764916d2ec3d959680e8d7ebd44f75475d2d5405be069037"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/auth.h",
+      "bytes": 3476,
+      "sha256": "f9293d623211606a2fbbaef95869432f6ce2139d1fa94ebbc966234356efe293"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/chat_filter.h",
+      "bytes": 1872,
+      "sha256": "378eccf2da81fcf0c65900a3e05f84d479f90d221e59941f01bb4b7ca7ad4707"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/chat_report.h",
+      "bytes": 5047,
+      "sha256": "a6b0f1521d3a3852ad4c8f82b5cde9867bd37849383a714e5c2273a43397a831"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/config.h",
+      "bytes": 3504,
+      "sha256": "bc2694ca7c32a67080c57f1b428588d7e7dcfe66b24b531dd404bb068475cf35"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/hash_confirm.h",
+      "bytes": 2179,
+      "sha256": "a509d44d77a88617504175eae4f555526881676b2d3b059d1994cc6a2265f77c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/ice.h",
+      "bytes": 2074,
+      "sha256": "69c38d3422dbec308ee75134bd5c0ce3c6ea2207d1c269f53fccad96afef0dd9"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/ice_rtt.h",
+      "bytes": 1436,
+      "sha256": "bddf85715f925aaa7c1c3be1aea4298eb8ab36b5ada01f2a51d239efcaaa30ab"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/ice_xfer.h",
+      "bytes": 2255,
+      "sha256": "655e481deef4c114be2e765085104a150b39552bbe2056118efad58881757fac"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/input.h",
+      "bytes": 848,
+      "sha256": "fc20dd97f642791c158e697be5295e1d7c7d7fb8f3061b03d9c22d13e04d48f8"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/input_contract.h",
+      "bytes": 7540,
+      "sha256": "5ee6f4beb7e47f3949162d1d2e18d7936fd9f749014dc54be123138cb9b330f0"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/input_hist.h",
+      "bytes": 2516,
+      "sha256": "501401de068da9bfdbccb532744f4a3d95d375d3829b4688edbc7b4fb0f94870"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/lan_beacon.h",
+      "bytes": 4413,
+      "sha256": "83a15b55812753af776852736fe01e9829b7b8d131be013524a0fc2e655eb18d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/lan_direct.h",
+      "bytes": 8702,
+      "sha256": "52ea5f1db2d58535cb80ae92b5153097b76cbb0ee291865c2c66506c3d5952f4"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/lan_lobby.h",
+      "bytes": 3869,
+      "sha256": "433f9879611efd1e503df1a9609e306510c0d3026db0f4dd0394d3d068fc0e32"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/lobby_client.h",
+      "bytes": 41560,
+      "sha256": "ba2405f61d6c2c6b13dec80dd38fb15eb5b4914d65605104f08b9e8378d97619"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rb_driver.h",
+      "bytes": 17231,
+      "sha256": "eaed54f2438ebc1e15a8ea376640fbbcd3d40a2097047bd372324aea3e0d527b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rb_post.h",
+      "bytes": 615,
+      "sha256": "864975b7c8ae4c6299e1672ce1b7922eac2cc93ab96df66c5df7093fff0449cc"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/recomp_net.h",
+      "bytes": 980,
+      "sha256": "03204c29e74571586bfee7d4db526228c02ddd01d94efd28a1aa272127f228f7"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rnet_sha1.h",
+      "bytes": 225,
+      "sha256": "1bc5180e11c3bb8b4ebf1790ae75f6e53af1edc5e0931726365fcb748d000abb"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rnet_ws.h",
+      "bytes": 3179,
+      "sha256": "053d885d14b316238afc98e8b02d048daac0f5175ba6c60f356515d4308e8486"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rollback.h",
+      "bytes": 18154,
+      "sha256": "68bcf9085a7d7978587a52fde4b6b86c2eb3740620f11d9d3dfec22ed8ffa1a7"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/rtt_probe.h",
+      "bytes": 1990,
+      "sha256": "c6aeb87ee4f51c8e6c7ba2520f9055d54b27812a2bbb13ace50a846c76d1c6d1"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/sched.h",
+      "bytes": 4137,
+      "sha256": "7972794d42e3469f3cc4fe67b7e17e41d4753cafdacb7c2553ee5e38ed958a07"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/session.h",
+      "bytes": 28567,
+      "sha256": "08a939b3a7e68eb2996d6bb16161af2eedff6a90adba8a562abba9192a19134f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/transport.h",
+      "bytes": 342,
+      "sha256": "10a2f0ec7200d8e8be0cbfbbc0ea0612ced33721f4d32bfc807291b89fe88264"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/include/recomp_net/types.h",
+      "bytes": 406,
+      "sha256": "0486274d3082ee2170e58ab81ce6576a688bbe428cc78b61f6aec2b486e08d94"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/auth/rnet_auth.c",
+      "bytes": 27420,
+      "sha256": "c879fd86018a489fcf5417386e1f880a06bca82fb0947352410fe895aa1da7fb"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/auth/rnet_open_url.c",
+      "bytes": 8141,
+      "sha256": "206bbbef15bee6257547a020cc56ef57c0f28347601d9d72999bdb5f73bfc81c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/auth/rnet_open_url.h",
+      "bytes": 314,
+      "sha256": "4e9d9f4ed1827b2c6b5e08d286065a7efc835da94d3f62b6868a2ef8beaf4831"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/auth/rnet_sha256.c",
+      "bytes": 3639,
+      "sha256": "35d182dc0a0b2c86d34572872e7275dc583c7686d14e4ba30c0a5d9235307411"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/auth/rnet_sha256.h",
+      "bytes": 583,
+      "sha256": "0091e4d68c18432fd1cb007f92af445210b12efa8361f7b7408e6adfb774aa89"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/chat/rnet_chat_filter.c",
+      "bytes": 11718,
+      "sha256": "aeaa1b72090a4cd8a0f1a3337f38cf64f7b5f5331c5e35b20372e7de02b168b9"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/chat/rnet_chat_filter_words.inc",
+      "bytes": 9136,
+      "sha256": "0a0fcb49952c74ce0db19d70bad5adc21324ae78637debf1ee87f24fe41f6b07"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/chat/rnet_chat_report.c",
+      "bytes": 4723,
+      "sha256": "95e1f7c71ab1794f2b805534b1342c24d4a7816571f5428c5f1cf95dc127e431"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/ice/rnet_ice_agent.c",
+      "bytes": 25316,
+      "sha256": "e1795119902a42968f39f5643b241fdaa1a69f9997d61a5fa092eb8e7ff820c9"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/ice/rnet_ice_internal.h",
+      "bytes": 4216,
+      "sha256": "bbcb59a04263872a3a7cd992e22eddd3ee7210ec146f798d446e42cab7b101ff"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/ice/rnet_ice_state.c",
+      "bytes": 513,
+      "sha256": "a772f2036d0bf847a7650ddd7734a4290a6c41b542ee1ec21fe30a9b980c892c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/input/rnet_input_contract.c",
+      "bytes": 21617,
+      "sha256": "65f4a695de6cffa0adf0b29dcbeae3fba280bd2718a5557e748fc0be4fd3b3ad"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/input/rnet_input_hist.c",
+      "bytes": 4050,
+      "sha256": "480038036d15d0fb93af9a9d76ddf89806737baef47333fc11f937fa6ba9b185"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/input/rnet_rings.c",
+      "bytes": 1278,
+      "sha256": "67fdfb5030fd48cb19560b04631d319695d3e23683446e0d31faa95378ddd2c6"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/input/rnet_rings.h",
+      "bytes": 558,
+      "sha256": "7c43a4ec487c1f506852d8d3f56a73f037d15aaa50f977048908724957371b31"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_ice_rtt.c",
+      "bytes": 7486,
+      "sha256": "13ded0b25d39a320d6d554f79a85c80dc2b5e57f53be405bc86c376586b34c5a"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_ice_xfer.c",
+      "bytes": 14154,
+      "sha256": "e4aadaf675a6eeb26595f1986299efd710fe20e78fe5454464781e0973d6cdc2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_lan_beacon.c",
+      "bytes": 13163,
+      "sha256": "24e27b831c698de1b8a106d8ffc8f1f78b78c057250aba6095acee5bf58307e8"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_lan_direct.c",
+      "bytes": 44045,
+      "sha256": "132881fd37b9ab9b11dc10637e475c6aa5932b56e70fff806879de7a070bce20"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_lan_lobby.c",
+      "bytes": 9044,
+      "sha256": "e16f17e5378b4f7da9bdd4c25584edd666c627773484f7b0a570fc8ff451ddb2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_lobby_client.c",
+      "bytes": 186189,
+      "sha256": "4b0b4a14eee657e2ed869be81f832eaf0e14f7d45c6889a7dccb8f7fa17c3ee9"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby/rnet_rtt_probe.c",
+      "bytes": 8329,
+      "sha256": "ffbd187d927076e0adedabe7119544a628b5dfe926dc48f7eb5ddcfc9a1791e5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby_ws/rnet_sha1.c",
+      "bytes": 3074,
+      "sha256": "2469a47c662622815a1440969e8c60a7b9a37ca3a8e72ed1005483c9b3659556"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/lobby_ws/rnet_ws.c",
+      "bytes": 8269,
+      "sha256": "bf63932b95b72a6da6d0b6231027b73af22560c960b5aa0b6676fb6d58d8170e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_address.c",
+      "bytes": 14071,
+      "sha256": "6fde08789d9d07ed4f2a6f5785265a38d21810f6771f8fcb69b49ad53b1a2d2e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_address_internal.h",
+      "bytes": 853,
+      "sha256": "a4335529b7c87d7cddd56e7d87d72c0e3dabea1b797a0bdd08acc5191d6408a2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_platform.c",
+      "bytes": 12840,
+      "sha256": "1abeceb9c4806b7662f6ac8de8dd5bfc79e1e80ed22d88541c8e7cd45df3cd38"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_platform.h",
+      "bytes": 1965,
+      "sha256": "364ecf6e721aa7f826b93d899a9777fd562a11b2f5efc0adde4c2119e0031dd3"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_stun.c",
+      "bytes": 15202,
+      "sha256": "bbae14d0c347448e669e5d119e21e180aa63fab74eb8ecd78661b710ed2bcdf8"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/platform/rnet_stun_internal.h",
+      "bytes": 848,
+      "sha256": "70698b730c6f1db59e6932f38e48c0393f82fe6c822875fe890615d0c6947966"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/protocol/rnet_protocol.c",
+      "bytes": 26420,
+      "sha256": "47a987f5c7b95b25b8635a4aef706cd19148d056bd587335d7812e675717b1ec"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/protocol/rnet_protocol.h",
+      "bytes": 13871,
+      "sha256": "2a0b83ab4ea5d35ac909667e778494a6e42d242b53715d95f686665832f8594f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/rollback/rnet_hash_confirm.c",
+      "bytes": 4669,
+      "sha256": "b6e58adc5a6436ca4dd2408cc5ce539b8ea890689ae1bcc87c16e5276a8a9785"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/rollback/rnet_rb_driver.c",
+      "bytes": 190471,
+      "sha256": "3c504e119a0ac065f933e04250f0445743b8c75b9b976e9b363e9a56a13023a1"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/rollback/rnet_rollback.c",
+      "bytes": 25995,
+      "sha256": "82bb7d9ca1dce36a5a7995bde3af798d6135d077273db8827ab2c2d6e4119c1d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/sched/rnet_sched.c",
+      "bytes": 82336,
+      "sha256": "06a25204616047c83427f0c397ed55682b5052038cc4d116773d9ca05d5ae1ba"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/session/rnet_session.c",
+      "bytes": 146355,
+      "sha256": "2bc6bd4a21eefe67b2873b156743f109b7e529db03831b4a39d6b75e87db70b0"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/transport/rnet_netsim.c",
+      "bytes": 8824,
+      "sha256": "1c456a29b2f671c8f8d522fd40fcbac6d5e1f27344af8fb313aeb5b9d37e98a6"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/transport/rnet_netsim.h",
+      "bytes": 4245,
+      "sha256": "44901f373d811cdd94fa472aa829468839631836ee680bd38eec05bed6919c85"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/transport/rnet_transport.c",
+      "bytes": 10960,
+      "sha256": "a26dfebcf480a700faad31d81093e6aff0afab10d1debf552155709c4d9983a8"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/src/transport/rnet_transport.h",
+      "bytes": 1974,
+      "sha256": "854193ba634e24771d32e6257345ff79bc6b0aeed5558ad0c06b9470bfb7e9c1"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/address_test.c",
+      "bytes": 4222,
+      "sha256": "6d9e7017f2c33668977d36dfe0820edb21f5bfe6ed11a73ee3a3293656111432"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/chat_filter_test.c",
+      "bytes": 2379,
+      "sha256": "a466b6aba0890892e3b8d004d1db26a0b279cea430a16f224e4be25e48ca882a"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/hash_confirm_test.c",
+      "bytes": 2753,
+      "sha256": "fe9082ff0b67acf32786483de8b42476ccc0cbf8cd7e811165dc17273d7fb749"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/hostport_test.c",
+      "bytes": 1955,
+      "sha256": "fd93982bc7b45017593212ce4985e086e242f3721d02a9e634cd614fb027119b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/input_contract_test.c",
+      "bytes": 5576,
+      "sha256": "29664d19e1e213f029a018e0ac803cedd33f16f288caf470438a4a3c71aec2e5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/input_hist_test.c",
+      "bytes": 4280,
+      "sha256": "8f934fd3999473222b8636c3c3fe89c89ff132649b08b1065b5f64ad234b9fab"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lan_beacon_test.c",
+      "bytes": 5789,
+      "sha256": "ab5fdcf2b1747392ff48ca57c94043d2e30a69936b0078c734c73b36936e13fe"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lan_chat_test.c",
+      "bytes": 7121,
+      "sha256": "d7234870d1f34307bbd2a257d4620038a239303df52a8673571eddfbb26f61cb"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lan_lobby_test.c",
+      "bytes": 3923,
+      "sha256": "66002c419a0616e0c6d64065cdf1098ac778cbb4bfba7177e340b21d51effe34"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lan_rematch_test.c",
+      "bytes": 13142,
+      "sha256": "83367d227b94dddf70fed8cf72f71474b604d30887e75b9aac815b2a1f31e302"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lobby_client_test.c",
+      "bytes": 64673,
+      "sha256": "1a453ced72c284ac49cc9133b9e91709afd71463feaefa19425f634cacfc049d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/lobby_ws_backlog_test.c",
+      "bytes": 13104,
+      "sha256": "1fe52b08e96b5ce000674b546c74ed45326cc759f4d6e1134416d431aae52f1e"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/open_url_test.c",
+      "bytes": 7440,
+      "sha256": "a7fcc937c8aef4a44b674394030d1a386b0ba2b53c3dc778c6a07ae5966a205a"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/rb_driver_test.c",
+      "bytes": 44994,
+      "sha256": "78e5b3aed3f95f60daea5bc05aa393ca367928a42e2e766f23c627893396f52f"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/rb_post_test.c",
+      "bytes": 1020,
+      "sha256": "0dce71558af66d3099aea1a798c39a2b1435bae794e4ac82d893b410e9a7c5ed"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/rb_wire_test.c",
+      "bytes": 4950,
+      "sha256": "325f8b9af9457655c109ca4c0e9fb04c46344be2ac35685dcfd5eeb0a661130d"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/ring_admit_test.c",
+      "bytes": 2173,
+      "sha256": "f5c197da9b8391d882e2374040475f60a8cd82e28837f9be649811fbb6a0efa2"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/rollback_episode_test.c",
+      "bytes": 33917,
+      "sha256": "46f081c0634e90f1b2ca9f17056d0ca6349bdaf73e180b89467c69a10b62a4d4"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/sched_smoke_test.c",
+      "bytes": 2344,
+      "sha256": "9004463488567fe20a548aef987d4988ab02d69dd4917696d72fd1aebb707b7b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/session_observer_test.c",
+      "bytes": 7370,
+      "sha256": "4ce68cdcb472e4a94e89e8d86726a66654489483e26f7545f83d6529194d9253"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/session_state_test.c",
+      "bytes": 63788,
+      "sha256": "a5f9d5acbf2afa70360b568d2dcd26452c1b87f00190638e1d7ee454ca7752a5"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/state_replay_test.c",
+      "bytes": 4697,
+      "sha256": "9af45708cd73ecf155f731131ec054b87122c1c39a61fd72092c11887ad9190b"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/stun_test.c",
+      "bytes": 8092,
+      "sha256": "0835ac1a899e5a56d777e47a0d5accfbc3fc87b731b18bcd76294690a723271c"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/udp_port_test.c",
+      "bytes": 1782,
+      "sha256": "ad2314df882a9721219698c48f018d079520ce14a8604df85e5bfe24da344bdf"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tests/wire_map_test.c",
+      "bytes": 1333,
+      "sha256": "bb284f7b93a8de401dd1699b5c1c78e2713630363640423bbc568e71f0a42d12"
+    },
+    {
+      "path": "vendor/gbarecomp/external/recomp-net/tools/gen_chat_filter_words.py",
+      "bytes": 1014,
+      "sha256": "47a08d818a2528470cd7b56e886926c4b6909f88b4c305de52b2e587d2cea88f"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/CMakeLists.txt",
+      "bytes": 1899,
+      "sha256": "bd583c3124e577181d5385466bc99a3960a21d8410271f5238e317d3f4eb0c21"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/README.md",
+      "bytes": 1151,
+      "sha256": "507dc820c691283c47f4fb05b15f0f6ede82e2781d53bf39a7e8dff9de9b104b"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/audio_io_probe.py",
+      "bytes": 8872,
+      "sha256": "7ca177bf95e62387e5858f606501b5c6438e21a0ab298a4543a4473b5758a92d"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/build_instruction_coverage.py",
+      "bytes": 8893,
+      "sha256": "7d1f3c5a42f13b848d75cc45f3bf8598ff7ffbf26dac4802afe77a2c8bf2f74c"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/check_hang.py",
+      "bytes": 5213,
+      "sha256": "2d3b0724a2c1953c65b0025cb73bf67f6e3620e6df25f4bd93e175de8403f316"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/cycle_onset.py",
+      "bytes": 5778,
+      "sha256": "ca47bd43eaa4df6ba11bb49978299e983e2b7bd2cedec8c8ea1f627f0b6b6bc0"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/determinism_probe.py",
+      "bytes": 7403,
+      "sha256": "8baf4ac917c7229998e4277b7f4038a1ffa50b2ee65bca6532cee995907e2741"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_anim.py",
+      "bytes": 7821,
+      "sha256": "9f57cd1bd0f2460fec3a1ac17e2ea6a5dc43205ba1690717684a90e02f4d73e8"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_audio.py",
+      "bytes": 8912,
+      "sha256": "0742f52f8af9d18a373d48d4120106679397a767d47e672f4963d3fb345210a8"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_audio_drift.py",
+      "bytes": 17935,
+      "sha256": "5624ee5b7fc87dff4a39e569932cd08de7995a97823ecad20b213d16f808e693"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_cart.py",
+      "bytes": 8109,
+      "sha256": "c1ee375251ab442a395171bb64cf58150664a0a74d82640863b43eef34e7afc0"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_counters.py",
+      "bytes": 6898,
+      "sha256": "d487f3d064b0e7845b82d524a2a19402e933a0cacf7cea6dd6665083774755d9"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_cycle_nba.py",
+      "bytes": 7715,
+      "sha256": "eed7df521ba6441276a3feed65dedb1eee9fcdd11f6183aedd0cc6282b455be1"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_cycle_trace.py",
+      "bytes": 14521,
+      "sha256": "b5760e982e2ee7efcf5d3b77ae27c843d53035effeecdc1151061c0e90c4a4a5"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_frame.py",
+      "bytes": 7917,
+      "sha256": "a4fb7206ff94097dc3e8e52af90d669f859eca8f5aee280e10980622e9ebd6b1"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_interp.py",
+      "bytes": 4869,
+      "sha256": "54ea998de35be96a3a2a4b083ceac7b6e92fc9af0bbe000e7cd41dedf0e8cc4b"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_intro.py",
+      "bytes": 4885,
+      "sha256": "17013fcd8af3f4c239a967bdc4270167e7082956c2b8405e033ba3935fb6eede"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_io.py",
+      "bytes": 5948,
+      "sha256": "ff995cba71d9056a94db4abf071ccc3fa086cf55fafaf7eb001108d9817389a7"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_irq_nba.py",
+      "bytes": 11141,
+      "sha256": "e288751a0a9b10e462cff1a88ea051262d2b00606dd63bc113ed8252aafdb9c7"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_iwram.py",
+      "bytes": 11662,
+      "sha256": "41b788cce805bf35a8ac1aa85fb50129551f37fef85bf01cc68f0edc85c2d342"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_m4a.py",
+      "bytes": 14663,
+      "sha256": "6a4ab8294a61a241ba378d93ed9ba424d2ad6e9ecb55591c635e0099d4789344"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_mmio_nba.py",
+      "bytes": 9218,
+      "sha256": "38913605b8b251e67ca61a6e5c1a8e11c188b277f789e5ea4e3ee74c46974c67"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/diff_video_nba.py",
+      "bytes": 10155,
+      "sha256": "4b0f7b5bea589f96ab4460db5d13e79d06479dfbabdbe1f4804c4b3e8cf5e9f3"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/dual_drive.py",
+      "bytes": 6392,
+      "sha256": "64616ce160846b3506acce0b8c3d40594c6a3541b88053d2781cef898bcf118d"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/dump_regions.py",
+      "bytes": 4742,
+      "sha256": "7c83de2e1a49e5800664b45b7627aba07ba29dab0ac0481340395c062bb42d5b"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/find_animobj.py",
+      "bytes": 2625,
+      "sha256": "f338805035e84566b3e3586a8be60a01221c6fa05b24eb20b9cd38c20bbe96c0"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/find_first_diverge.py",
+      "bytes": 7355,
+      "sha256": "23c482aebad0222e8bd2e0a43b4b3c2bfa3260fd246c4d7a956262659010c571"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/fp_cycle_diff.py",
+      "bytes": 10964,
+      "sha256": "aafdfbec6bcf75682e718a799b920cdb6fb22f92b484fcea72b087963b22f83e"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/fp_pair_diff.py",
+      "bytes": 3844,
+      "sha256": "a1a796542bb95bbba6476ee130140735226689e053f136ba970bbf7cc17de4cc"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/gba_cosim.py",
+      "bytes": 12120,
+      "sha256": "e6522869fdf61d3ea834ba7a34560c0ecd9936da5b9c62636e308374d2c86fb1"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/gba_tcp.py",
+      "bytes": 11436,
+      "sha256": "344948ba1d3591a88f6bfe1cbcead18c27f0d5927f2a829c4530fb060e63d576"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/inst_per_frame.py",
+      "bytes": 4585,
+      "sha256": "424fba032af3d87c52c80ed87b0089da960601edc38e48a48f30cb6590a2c11d"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/irq_sources.py",
+      "bytes": 3727,
+      "sha256": "90ce94dd93c30345dbfac840c628a47cc64e724bdf158bcadf65264247f1edbc"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/link/CMakeLists.txt",
+      "bytes": 865,
+      "sha256": "403af5b028c1bc04b47e46d948877313ac055b52643739260b527b8efd9dc91c"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/link/compare.py",
+      "bytes": 3082,
+      "sha256": "198d727b54b1a1d83a6a2a32fed7670d1fcc068f0698bc78ed7b9bc44aefc4c0"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/link/main.c",
+      "bytes": 8056,
+      "sha256": "1ff46fb1b915c74210ad9d9602b425ae8a40337ea91c0dae128a267fa27e6489"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/main.cpp",
+      "bytes": 43082,
+      "sha256": "2a1177afddfdf05388d8490a3b525b24800927a3d9b0d0e254fd3015735e2515"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/mem_diff.py",
+      "bytes": 5223,
+      "sha256": "93fcc8995dd1f7fa69e3efbc77e833f4ca4443b827585226d2534745fee0d7bc"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/nba_common.py",
+      "bytes": 11377,
+      "sha256": "a94c348051cb47bce0434a86a7b2904cbb5ef825e70643ebd4e682126d99f71a"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/patches/0001-msys2-as-windows.patch",
+      "bytes": 654,
+      "sha256": "aff5137042be9b71b68c2d757df3beb4fb85cdee36a2d9389f00690cdbdc97f1"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/patches/0002-windows-no-sigtrap.patch",
+      "bytes": 399,
+      "sha256": "6f8783b3d1b6021cff32eb5e9f337891538b3ca53c051ca4196b4e99582243b6"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/phase_probe.py",
+      "bytes": 4111,
+      "sha256": "5446b7625814edf62c30bf8445699fd500e6bda73693e619b394d9f79365ba61"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/recomp_paths.py",
+      "bytes": 2028,
+      "sha256": "56e56eacd7258c21740cae03d3ccb04e776ce7623ca64ab53c9ad7db77d2b675"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/ref_diff.py",
+      "bytes": 4273,
+      "sha256": "86cea51de36496cc6c18d1270983d5e6c32faa962b0ddb3e146d18959773a585"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/setup-mgba.sh",
+      "bytes": 2851,
+      "sha256": "5cd9c5a613586573a6dbe97d1648c106fa76b0902995355ae0b0b42b6935c3d5"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/spin_mem_diff.py",
+      "bytes": 6582,
+      "sha256": "ccf11bc62693553346ec4929dcf4424cf32210823f5d2a21a8981a4a74f9e20b"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/timing/CMakeLists.txt",
+      "bytes": 879,
+      "sha256": "263ca9249f9678ede32486c8543bd4aac03b2f8a173b89c5d14aae267243b8ba"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/timing/compare.py",
+      "bytes": 2135,
+      "sha256": "d40be2e944f9ff3d0f1725a025674dcad954d73cdf1ada6a57f4d001b7821b6e"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/timing/frame_budget.py",
+      "bytes": 2862,
+      "sha256": "e0111deb9b6b26b9bb300e0be278b0222a604e2e655e90a6394689270a7a9458"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/timing/main.c",
+      "bytes": 4084,
+      "sha256": "5acf757d5ad4b7433bc0933cdeb31ab3aa43afef7a33e45bf395cecbf9905d4b"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/trace_at_write.py",
+      "bytes": 5656,
+      "sha256": "bff0e8c20271171d5c609e9c734b640cbb6c577f5f5828826ab993b7b967c341"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/track_bytes.py",
+      "bytes": 4270,
+      "sha256": "6a99557c0ae30f72fd2bffc8678047ea29ecda13f6bdb529a79e3f9dddcdc51a"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/watch_addrs.py",
+      "bytes": 3494,
+      "sha256": "93590cef2b620d2ce4a9f5f9e303dd14ef59825ae139bc1c51dfb8f812188555"
+    },
+    {
+      "path": "vendor/gbarecomp/oracle/wp_drive.py",
+      "bytes": 4595,
+      "sha256": "9563e394044dc41cfcd77c9aee8a02c51f3e49487f1238c013c510f6ece5c3ad"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/README.md",
+      "bytes": 4073,
+      "sha256": "6e9c414f080418ebeed5a4f11bf2addf2612858593d8067b9569f3fbfafa2244"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/flatpak/build_flatpak.sh",
+      "bytes": 11049,
+      "sha256": "073cce67882f17f4e640027a9c8454c7ff69593a42607bd3e1051e001d0e47c5"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/flatpak/manifest.builder.template.yml",
+      "bytes": 7647,
+      "sha256": "9efb14510bf26e3e0544b9ec797a7bd1ef58989c32e669b070bfd209c47b1a5d"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/flatpak/manifest.template.yml",
+      "bytes": 5066,
+      "sha256": "00f566b2c69454a00653dbc6bf929c556518753c595ad7447ad69bf37483ea40"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/package_linux.sh",
+      "bytes": 7495,
+      "sha256": "14a02db4812b5d61c7d34b8e04ace7dd92358305d2f179cf79714f18ab1d2fce"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/package_macos.sh",
+      "bytes": 8568,
+      "sha256": "52fa6323b41d2673b06f0a9fc9b4f009e8da84bc29bbd716df72741e5ffcbfac"
+    },
+    {
+      "path": "vendor/gbarecomp/packaging/tests/test_generation.sh",
+      "bytes": 4260,
+      "sha256": "9fba480718f46dce62cb11ea9295dc54be8aaccbebf7130e122f8b49753a4603"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/AndroidManifest.xml",
+      "bytes": 3506,
+      "sha256": "a378da4e4c9298f426b82e1ab9b0a2c4ecc7224210d693e004a63386f4926221"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/cpp/CMakeLists.txt",
+      "bytes": 1151,
+      "sha256": "2052e1c3b623dd2284cce7db49b62ff046e1ae0c90ac30eee1e0162b4dd1a748"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/debug/AndroidManifest.xml",
+      "bytes": 413,
+      "sha256": "2a7de679a6771a7723afe314a62fbf008694d6a8303ed8dde758bc230d86c2d8"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/gbarecomp-app.gradle",
+      "bytes": 12845,
+      "sha256": "9a6dc44c69efb1814d6cfc80bc15d456536807e25ef80227254c47b715e31e52"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/java/org/gbarecomp/GbaGameActivity.java",
+      "bytes": 8015,
+      "sha256": "f29b5da3e258d0abd71e4f3d23f93d650e5b1bd8de429e2e2f8487dbff56c28b"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/java/org/gbarecomp/GbaGameConfig.java",
+      "bytes": 2709,
+      "sha256": "facd0bbf3fc2c87a180be48888c19da2858df43ef48b85704c1d9ff286d665fc"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/java/org/gbarecomp/GbaNative.java",
+      "bytes": 1047,
+      "sha256": "207ed08700e069ccd9d19ceda5f8bda8fe7fb894def4b39ecbdee9411f261b8f"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/java/org/gbarecomp/GbaSetupActivity.java",
+      "bytes": 21589,
+      "sha256": "69473225c81eeb4c4f3db9eae8e40048392057e7b641fa150fbd48e2f67f20ba"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/res/values/styles.xml",
+      "bytes": 325,
+      "sha256": "e39b3ea1a7b348f8fb5e4bea9d2b8203a7a1263535dff2fc19e11158bb1c4a6e"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/tools/README.md",
+      "bytes": 4926,
+      "sha256": "b3bf07ee338c5cfaf73f771d0028769db16c92ec11c320f6ba8cb5deb0ec7ec6"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/tools/android-validate.ps1",
+      "bytes": 24939,
+      "sha256": "db2d90f4279facbb1ec8351211c233f1084a2cc29bdb8b5bf6ff8dcfccc7201f"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/tools/avd-bootstrap.ps1",
+      "bytes": 13200,
+      "sha256": "590cd8b1453c5d65a86d6f3e71a366d953b95122483177fa9e0a3ac0b8c28164"
+    },
+    {
+      "path": "vendor/gbarecomp/platform/android/tools/build-apk.ps1",
+      "bytes": 6718,
+      "sha256": "e13075eb93829554135174ad1c4730a892137a9de198987776ebfcc46dd0b0ba"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/arm_codegen.h",
+      "bytes": 90,
+      "sha256": "68e5ca653838e5938480d6acdba0a151e67ba37e96563ca9fd43173be51a84be"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/arm_decode.h",
+      "bytes": 89,
+      "sha256": "cfdf02029b61ed255e1579eebbc9979c5610ebc69d1ea44c0a308ebb66ea04b9"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/arm_ir.h",
+      "bytes": 85,
+      "sha256": "b81829c672071294cdcf68783a41182cd32e65e932e82162acb7402fb77c8252"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/bus.h",
+      "bytes": 82,
+      "sha256": "ed56ce72cdada81943e0ca595f04da8f2bbe04ad2fde5d96fde74029294491d6"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/condition_codes.h",
+      "bytes": 94,
+      "sha256": "98f8f026ad48a6fd25ef526adb760558db2bab22ae0355a381318c1da966ce5e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/cpu_state.h",
+      "bytes": 88,
+      "sha256": "4b76c5b3fc3af542777500818d061753d2c4ced548125ce868f4e11e881259ed"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/interpreter.h",
+      "bytes": 90,
+      "sha256": "2a0b7e3d0207fa24329d348e51f88290e50ca02729e26a559c443a8e2a0cc729"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/pipeline_semantics.h",
+      "bytes": 97,
+      "sha256": "55dfc6ba8e3155d83a2fe9c488489120e3115bec4e6fde3e6b226fe8a6f00db4"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_arm.cpp",
+      "bytes": 70972,
+      "sha256": "fa4242578d95ed7383d017c925c674a7313046fb649d62689679eb8822fb9a21"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_arm.h",
+      "bytes": 27794,
+      "sha256": "3d78c699e15409838c28f8b6dbb6fd9361ee9823aee53f1a9687fb22e0ff05f4"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_arm_types.h",
+      "bytes": 96,
+      "sha256": "b29d80e212a481a1e5b6762203554aab9e9f0a2f759e7e71e06f27977c7f284b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_context.h",
+      "bytes": 3195,
+      "sha256": "9a34b52faf2b8d64d45616536444e17da2212d27cc6c157e095d93e16f28fa43"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_wait_inline.h",
+      "bytes": 2007,
+      "sha256": "a39428a15c4c543e5c09420f754c0c91949e6ab395b25e1be9ff712e67a45b3f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/runtime_wait_model.h",
+      "bytes": 2822,
+      "sha256": "c2ce9e52290f47f0e71edbc610082cb2adc1c234a312b52a6c2c36a21dd76548"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/symbol_lookup.cpp",
+      "bytes": 3109,
+      "sha256": "a9b75c4379adf118937cd1cb284e458c11bbf54a3ed1cff245bae119fc05a503"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/symbol_lookup.h",
+      "bytes": 2743,
+      "sha256": "bbee2f34e96b3504534b87c5b4b7fc35bdcf9ed742867cfdc6d52733035a70c3"
+    },
+    {
+      "path": "vendor/gbarecomp/src/armv4t/thumb_decode.h",
+      "bytes": 91,
+      "sha256": "aa5e64c5864b94a569e15cd0cebd1d322979cae6a683de72f78731bfd3d96f31"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/cosim.cpp",
+      "bytes": 13932,
+      "sha256": "59ebe9ab4e105532d24c171c91f289fe19eec086c8a1cfffa103e9b1c017160c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/cosim.h",
+      "bytes": 742,
+      "sha256": "7d040cefcfd6af66250596a13e5a7e67aeeac1f70df8df76b848910015bbfb85"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/cosim_state.cpp",
+      "bytes": 5979,
+      "sha256": "05fc74e665f16805c32c0516a447ae78eca172d85d062dbacdfbcc13e0cc6864"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/cosim_state.h",
+      "bytes": 2916,
+      "sha256": "a69881858195b303192389545821aecdd3040f5076d5adf4232eb72aaf2c8e17"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/mod_state.cpp",
+      "bytes": 14193,
+      "sha256": "5e8ebd633c82c0c27756d5f7a5992bc5b5789ee0f802738f29e6420983aad5cc"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/mod_state.h",
+      "bytes": 4256,
+      "sha256": "dad4e9bc0caae8fea736b9141fee49641c489c609f98472f55aecb45c3b319e0"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/snapshot.cpp",
+      "bytes": 13970,
+      "sha256": "a51902f324dc7fdd6f19e15b67b90a358e3667b08bbdb3a2a6b08f15bdab407d"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/snapshot.h",
+      "bytes": 6141,
+      "sha256": "16e300c954fe26faeec4aba07ba391c03876d4e197d1ce5757c78b65d38c9073"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/tcp_debug_server.cpp",
+      "bytes": 52960,
+      "sha256": "1c998aa68a02755f121aaaab9b4c9475d0c5b3b0179fbee0539ae3dbd46fbbdd"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/tcp_debug_server.h",
+      "bytes": 5283,
+      "sha256": "b24a76f721d05b5d4e029f782271fd219cbf466746f3a3ce35c4fc4b71f3c793"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/trace_ring.cpp",
+      "bytes": 126,
+      "sha256": "2e3511dd17e42f6e1bc34b4665b9d8d1140e8fa5e4f9ab515c89178b93f84199"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/trace_ring.h",
+      "bytes": 505,
+      "sha256": "e5d88c153a26f1a05f3c9ba5348a5842e37cb378c4e50fe293b02e7a9dbaf552"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/ws_provenance.cpp",
+      "bytes": 11439,
+      "sha256": "d585374452ffc58efa63fe613bd1e534b870c87dabe7fb2363177ec1ef0fe61a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/ws_provenance.h",
+      "bytes": 2392,
+      "sha256": "80d85fb2c49df2f15102e60696a2d8c508a3544ce75c7d840dc59c031bfeac7a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/ws_sidecar.cpp",
+      "bytes": 28813,
+      "sha256": "c239c9537a27f49411f33a5112675dc0b48f7bb459c59675c47d820d03d86601"
+    },
+    {
+      "path": "vendor/gbarecomp/src/debug/ws_sidecar.h",
+      "bytes": 3655,
+      "sha256": "0b734cc34873ccf34851472737911bd6e503742b45dba6f92b0937ebbb419afb"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/audio_shadow.cpp",
+      "bytes": 6615,
+      "sha256": "937fa9bcb4c0b90bb3876810fed18a5039fc88f71879704f31b9bfc04936544b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/audio_shadow.h",
+      "bytes": 4329,
+      "sha256": "7feae8e3577ed7488cd4e3fee9ebbcf9342364be2d76d6e2b5ce779b86ff2a51"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/crc32.cpp",
+      "bytes": 796,
+      "sha256": "bae680f2ba5f6061d7b4cd3b8b9986c65412db733a12aa1a80cedfcf7cce72e8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/crc32.h",
+      "bytes": 545,
+      "sha256": "9cde4a3af9268dc90f0e558f35baf4f21efa8f9671880e28ac70271da0188a4a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/foreign_obj_focus.h",
+      "bytes": 6015,
+      "sha256": "07a197617cdc4799f62bd57fa829c02511e624105c512bed172d94659098f790"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/foreign_presentation_internal.h",
+      "bytes": 834,
+      "sha256": "a3750c396c2d8cae096fbe1a7cae3cbadcbff3c7a1a8201a860778a2bb84de0a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/foreign_screen_overlay.h",
+      "bytes": 1580,
+      "sha256": "3cfd720da0debcebbc5feb370931c5c2822a78c170fe5e6f60a2142a9c6cdf2d"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_audio.cpp",
+      "bytes": 40841,
+      "sha256": "489f8840373713379c1da6c1f2546e30ae5f0140a00a819a07b8be56fb5ad137"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_audio.h",
+      "bytes": 15572,
+      "sha256": "dd5afed7f3184d379f0a5b3630290cec265a98b850d07578d5f5f0acae3230b4"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_bios.cpp",
+      "bytes": 2151,
+      "sha256": "06afbd74ea214894e289131923aeb9e43f2e6a14f647c7c858ba09c5827ed38c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_bios.h",
+      "bytes": 2325,
+      "sha256": "b06f25b0b689a62f7076d4244ad766be248f7e35898a830801547acad2649308"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_bus.cpp",
+      "bytes": 26103,
+      "sha256": "c36ee81a0d273bc4b416f8f8f35749f08370c4bf1da4facb4c677db30e944464"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_bus.h",
+      "bytes": 15179,
+      "sha256": "18a2fc50e046e4619160d2c15524a76668658e9e4f645fa584940f4f75956319"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_dma.cpp",
+      "bytes": 98,
+      "sha256": "11212b5733be6099fd0070cf7d78358755ae0f80c40fa2aa9325586ecc6f91ff"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_dma.h",
+      "bytes": 624,
+      "sha256": "a3232826e5eceebf8ddd68cad80982fdaaa959dd0dd80fecd7af3f77e63387ff"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_gpio.cpp",
+      "bytes": 2476,
+      "sha256": "95bfbc23668f5933d582711b8058048e750d627d96b004788e3eec36e54f2bcf"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_gpio.h",
+      "bytes": 3987,
+      "sha256": "0bcf1b53fff393d41d8c61ec12c643b243a71479377a16e65128cf53c4d4e04b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_gyro.cpp",
+      "bytes": 2705,
+      "sha256": "f9fdf43fe8d2b36946f97d349d2f7654fc399575c72707da840dcbea6acd054c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_gyro.h",
+      "bytes": 1381,
+      "sha256": "3108cb68fe86b7cb6ba27f79ac37abb4e70d3bdb0f235077e77b26938db61d52"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_input.cpp",
+      "bytes": 108,
+      "sha256": "3685394f9a1f0ea3163a53954459a4e6cfc8952e72eb9ce057e823cd03c27573"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_input.h",
+      "bytes": 345,
+      "sha256": "4ba1cb390511c95fda4c0ec6cfa7455e555c6cfda7613d140a8a17243903249a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_io.cpp",
+      "bytes": 37018,
+      "sha256": "e299fbdd3cce784073bd2ce860c9b5edd9c4f0faa18aaca29c809f5714594636"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_io.h",
+      "bytes": 13400,
+      "sha256": "0e9a86910917548aa57c360acff40e7d76330147b95222dcdb978b26aa4fa371"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_irq.cpp",
+      "bytes": 98,
+      "sha256": "30e46b41d7a07f17312bca0d42edd48d57a5c804a9cc444ead826a08223efc5a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_irq.h",
+      "bytes": 1396,
+      "sha256": "8bca97151dc97f60ca8d80f09f0f59bbca0a3c246a2e9c8bda908b879e02bd34"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_link_hub.cpp",
+      "bytes": 12558,
+      "sha256": "cf35722df0f9fd6e691f6e0d63c946cfe57be2fa6177aef3c905a547826febf2"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_link_hub.h",
+      "bytes": 2717,
+      "sha256": "3b638435477793d29c1685a176043a056bc4eabe4762df76c8f435bbdc82cd4d"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_m4a.cpp",
+      "bytes": 7577,
+      "sha256": "07e59db4ebeb7e4c8b994ff40fdf9f63c422798de47047bb6efe3abab41a8359"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_m4a.h",
+      "bytes": 3133,
+      "sha256": "5bf6871905b1889683af9c833f5fe293d753f617634573d040c2b159a49ad558"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_matrix_memory.cpp",
+      "bytes": 5487,
+      "sha256": "128ced8be13caa02f685be85cc92745773f0355f7c987f068c9f47d01f6e4d22"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_matrix_memory.h",
+      "bytes": 3063,
+      "sha256": "070cae4b9d6ccfb9f3ce8a09946ac22a3df50676572316da80ee7450ccc416bd"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_memory.cpp",
+      "bytes": 3923,
+      "sha256": "d4c59ca06846fdeb3e65ca4338d3e3fd4a91f43240221ff474c145060181e2f0"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_memory.h",
+      "bytes": 4586,
+      "sha256": "36e7ce62b79e080941c993fc7ad2b5e290b55652e883c83e91ee500cc98ffc34"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_ppu.cpp",
+      "bytes": 118930,
+      "sha256": "9ab1fad7fb6789c24687222123c3e622179a1df0e9cf2a6cceca3922cfe9f74e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_ppu.h",
+      "bytes": 16823,
+      "sha256": "1356ccf62fde86cfcf5797621db6466a6bd46b1dc6724abbc0e4eb81b70704eb"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_rom_header.cpp",
+      "bytes": 5699,
+      "sha256": "d7b6c7bbb29462bb34a08840b94bcb1e53205277c1deca883769cede6c4fab1e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_rom_header.h",
+      "bytes": 2915,
+      "sha256": "b5f4414e7db18d3a41071bdfa8f227bcdeef1456328dca59c8bdeeb5b2e19bc0"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_rtc.cpp",
+      "bytes": 13450,
+      "sha256": "160ae83fdd6805a00ea776c6b93f72373d10ac20ddeb9c0ec578da25fb12c52b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_rtc.h",
+      "bytes": 4366,
+      "sha256": "614bddf1e48bb398dec10194070ca1af913c57139a47c59b070992b46ee90d34"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_save.cpp",
+      "bytes": 13628,
+      "sha256": "ee2253bc886ba8381cc84f026c525f5ee050617e8b8b784134a75a5d51db92b9"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_save.h",
+      "bytes": 5171,
+      "sha256": "d0f38c8e80c4160f10ef043e100b98fc7d75942545894bdad6b8bf4940ea7dc1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_scheduler.cpp",
+      "bytes": 128,
+      "sha256": "cedd521b0638bbce87b68e7eddb2eda7da2f297034770a04e0ca38fb454332cc"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_scheduler.h",
+      "bytes": 625,
+      "sha256": "75c09c151d01cd5848d7341b84e04f9583a296711476a4a16bf43c54e0849579"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_serial_device.cpp",
+      "bytes": 975,
+      "sha256": "469a3e352d829813e58e0eb53266276e08de86d5a77edaa8271cf9262e86e99f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_serial_device.h",
+      "bytes": 1330,
+      "sha256": "7764fb682539874e3436895fb1e9d38b9ed1d91ab8eaeb908386cb07a6a8430f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_simulation_state.cpp",
+      "bytes": 7146,
+      "sha256": "d47d7ddfc2bc5d96e4e16d234c056e55ac0c74726457417fa9e68b44516e8df9"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_simulation_state.h",
+      "bytes": 578,
+      "sha256": "e92008152d63ee29f43d2901354eaa9c8de4de6b8449aabf758f0c39a7393c4b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_solar.cpp",
+      "bytes": 2375,
+      "sha256": "69c7d4dd303a93958e7464d61bb6a7519c760049b4729334616fd6a6cab463d8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_solar.h",
+      "bytes": 4974,
+      "sha256": "a2b01adcf8877995d2c606b9537ec59ae6218fede0cadac50a100aee62d7d403"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_timers.cpp",
+      "bytes": 113,
+      "sha256": "440e3c64818fc3895789e429acdf2a14c3bdc71f6272a595884845c080e68b77"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_timers.h",
+      "bytes": 548,
+      "sha256": "11d0241469be9264f5bb9d92e89172242c7ba2c576affbed68419dc7e2650c6a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_waitstates.cpp",
+      "bytes": 3740,
+      "sha256": "a8b117aa7b1c930cb1ff53d908b4e42e88bf96aa04e186a893346303cc76e18e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_waitstates.h",
+      "bytes": 2377,
+      "sha256": "2cd00937f505af96feb7ae98dc4ef1118a8915213bc14261b602010995e8e073"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_wireless.cpp",
+      "bytes": 18878,
+      "sha256": "926908d4284c2b392202bb6c6cbb74cc73990e1912dcc0bb55a6daf5f4ed4eff"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/gba_wireless.h",
+      "bytes": 3320,
+      "sha256": "c251928502e19991274b9f3a2205be59cdccc02b82a7637d6381a848356a2e73"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/mod_audio.cpp",
+      "bytes": 11153,
+      "sha256": "c8c2e70a61ea495489fa8c776e074c0d7efeb7e9514763b8b3025a23c5eac286"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/mod_audio.h",
+      "bytes": 4993,
+      "sha256": "f60f95e4f672ee57b95a89595295c8d7da3cb0619fc50ab73b950d645c0b0174"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/mp2k_shadow.cpp",
+      "bytes": 12053,
+      "sha256": "b795a13d65d72cec81e6774c7ef3077a60e6e77c0cda48b5a53e0989cf275f50"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/mp2k_shadow.h",
+      "bytes": 4758,
+      "sha256": "c792e4fc60a7cb70f0b16f45ad24377e879784cffdc9e11e2852723bbc562a66"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/sha1.cpp",
+      "bytes": 2779,
+      "sha256": "9cc902ece3ebe3258030d6ddece061e016a5e98a62d7946a9c019255c82f5b55"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/sha1.h",
+      "bytes": 566,
+      "sha256": "8248854491939b549a4c2acc407d743360bdebbc68724c7cb86760be86a0968e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/gba/simulation_archive.h",
+      "bytes": 3898,
+      "sha256": "2c460eb610ee9abcb39c9a8038e3acf1de1819bb3371d46c577ba491bc5b7366"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/codegen_shards.cpp",
+      "bytes": 550,
+      "sha256": "3f5cd09704fbad32054b66b277cd2adb46edfb5d6b378a36e1926200c6752194"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/codegen_shards.h",
+      "bytes": 656,
+      "sha256": "e9e1f39f4da09aee66483751743cbd132838652305582b504f34a12c6e3d347d"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/dispatch_table_entries.cpp",
+      "bytes": 1443,
+      "sha256": "3a8847ffbcd4ef5ad86a16a9fbb804de6144ac249f7e5fd9b77a77fb9636cf60"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/dispatch_table_entries.h",
+      "bytes": 659,
+      "sha256": "07616396fdc19812edf556ce0cd44c3ddeb50b105e6eef21318488158e2a4fab"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/emit_function.cpp",
+      "bytes": 26883,
+      "sha256": "9f9235fa7630e9a5aeeaf3442e82814dbbf0a409b59fb34f6e190888cdf63632"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/emit_function.h",
+      "bytes": 2633,
+      "sha256": "732828105d137f6f5e94dab70ec171decb589bd4b20530860496a26d3c58133f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/function_finder.cpp",
+      "bytes": 96674,
+      "sha256": "d3f9ecef7079d6aae2d8396a68a296453b95bb9f64be623c961a31738ad7f3cd"
+    },
+    {
+      "path": "vendor/gbarecomp/src/recompile/function_finder.h",
+      "bytes": 15576,
+      "sha256": "8a5c63c3ad9ebba4d148c0598befb3ea37c4e3e2923b9a2c61eebc2737119b59"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/arm_cpu_bridge.cpp",
+      "bytes": 1729,
+      "sha256": "3a24b347214a5ccc1abb9bdd2df1a79cb23fdc597f31a88cb696553c2f482655"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/arm_cpu_bridge.h",
+      "bytes": 1591,
+      "sha256": "7a15d80bc46e6175c84ab3166c176bd634adbc597aec85b207fa8d0d1372075a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/asset_picker.cpp",
+      "bytes": 8317,
+      "sha256": "5ba229c892a77c4af1edbc310403febfa42d0f002c1bdceec3fabc0a48da98a2"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/asset_picker.h",
+      "bytes": 3391,
+      "sha256": "87d93b85845c309d37c486e041b237598f832b6f66591e2bcef1a12b6206b030"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/bios_hle.cpp",
+      "bytes": 23100,
+      "sha256": "39775aca1b4f2aa4151ee78b5d400063f2963fa19b82b31a6bc093e51be1ec93"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/bios_hle.h",
+      "bytes": 2695,
+      "sha256": "29543c3e4e6490c00e8a51ad0f95cb043a01b7d144115916f60a3ebfa349c7de"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/color_lut.cpp",
+      "bytes": 8443,
+      "sha256": "1eab48169a0d972da7c4933635a58cc8e26e1db48f9305e95dc67b6f29b1213a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/color_lut.h",
+      "bytes": 2973,
+      "sha256": "ff364e69d84a51a405659dcc02c39bc0c606cd88755a0214cbc4cb1c59901c3d"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/generated_bios/.gitignore",
+      "bytes": 569,
+      "sha256": "14c7a8b40c1e1211e10353ed9debdff155be19287ccd95a0ecdfb15605a1b04a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/generated_bios/bios_dispatch_stub.cpp",
+      "bytes": 514,
+      "sha256": "3927f4c4bd1fd91cd6ab62d4c39045dbb11ecbf7255f098fe4b0e8fcf249392e"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/generated_dispatch.cpp",
+      "bytes": 442,
+      "sha256": "10e2388465e91872e8609d03d1ad398fbe65eb976a1c35b489f00dd24364b3aa"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/generated_dispatch.h",
+      "bytes": 730,
+      "sha256": "d0eb2a7177402a3d06d891f12806bfc4bcb64f3cdc92ab73f45b14e7a84d5f04"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/heal_gate.cpp",
+      "bytes": 8151,
+      "sha256": "279cbad99224292a5599a631e45ab637f491955c90c077a36a26f028a887bff4"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/heal_gate.h",
+      "bytes": 5922,
+      "sha256": "536479b4ea29fc7912caee35bf1edb4b9216fe51f52ab0c836394b5aa7e0cc74"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/host_overlay.h",
+      "bytes": 3486,
+      "sha256": "1c78c14d8a1e3135be0945003a4516d3fe465056cbc0efa4d6189f2a4a9d5935"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/host_platform.cpp",
+      "bytes": 5341,
+      "sha256": "37c7257527c58818680b4e911633a66480185e099faed732f065998613b32c87"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/host_platform.h",
+      "bytes": 3195,
+      "sha256": "7ff20983136e52cfe427a20a78e3c34f41184a916dd897805ca9e02119be8dd1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/host_window.cpp",
+      "bytes": 175964,
+      "sha256": "bc6454c54afddf6ae68bcc727c8ec4046bd7c192bb0b9d6bbff74ace7db3f5ca"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/host_window.h",
+      "bytes": 13180,
+      "sha256": "883f1a5fb69bc0171792a2bafbc4b936130c5c4d644085894b12f2164df85220"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/input_synth.h",
+      "bytes": 5665,
+      "sha256": "b66c3f1568efdf1e633b536d53aa0273afbc2eb940f03e67d3d7bc5041fb114a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/launcher_netplay_seam.h",
+      "bytes": 9249,
+      "sha256": "4bc7abf45ae60f318045536eb86ce78f191a1e93a3341da29a35a3c5ec873a95"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/launcher_seam.h",
+      "bytes": 43129,
+      "sha256": "3450f6ddbc9e15ad7a4817291cf51ec4fd10bc58e7a33bdf89b214a4f0d94902"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mini_json.h",
+      "bytes": 10460,
+      "sha256": "b24b85339640f54531d879f7c45f367b7605b042d433d4061a0d6c4bd41ab3c8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mobile_platform.cpp",
+      "bytes": 3714,
+      "sha256": "98e7413191d262bb0702ee8c2571fead1d78f3f02d949a4c77a07a32a26171c0"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mobile_platform.h",
+      "bytes": 2331,
+      "sha256": "e744745199b1051732057f8c4ca5d530ec3d2aca1007b4bd282059e569c2ec88"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mod_function_hooks.cpp",
+      "bytes": 3317,
+      "sha256": "2e55592c8d6d8e3df83d3b51301c398fcb606448ac616c934f4ec6e9b523784b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mod_function_hooks.h",
+      "bytes": 1942,
+      "sha256": "798d473b315c7f57a89fff50775aee5ca00de3f1f6de866bf81d355840947366"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mod_runtime.cpp",
+      "bytes": 88476,
+      "sha256": "bd985197b98909421685cd32fcd52a2c1f66209c4c4d3983434a4e6e51526d52"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/mod_runtime.h",
+      "bytes": 5294,
+      "sha256": "eac9606dd78c14e525644012aa822ecc92e5a4f11d05172a8bba0b8efbdedbe5"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_checkpoint.cpp",
+      "bytes": 13239,
+      "sha256": "46a6ca6936cd28ca7a4ba071f6d4090e170fb54342f9de1fbabecd51c3ea115b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_checkpoint.h",
+      "bytes": 3448,
+      "sha256": "47482079ff5ca576666454b1521b46ce7346a8c923a7b8e1e834d9e3afa89a07"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_checkpoint_file.cpp",
+      "bytes": 5292,
+      "sha256": "4ae31a033c7f3f1e6067dbe9555ae733da317a282e1a0d3a6704f736aca253ed"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_config.cpp",
+      "bytes": 3770,
+      "sha256": "5bf6459133df0ac51659ee88a492be27bd4a3612a7f21b1aadee896cf06b6b66"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_config.h",
+      "bytes": 1775,
+      "sha256": "0e77de2ffe638aea6237b5e9ea7a4c076ef13112d7b02449ed8ddf3bb02e74b1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_launch.cpp",
+      "bytes": 7671,
+      "sha256": "8f83d208469d6753bfc46b17507c68664c4dd2059f43b795c93447452695a185"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_launch.h",
+      "bytes": 4556,
+      "sha256": "c4a7478b9c733832a4d7c3ed93e88be2b0aefc09dfea0b87297c65afc9e36a83"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_match.cpp",
+      "bytes": 11001,
+      "sha256": "3f97c49a5c385d03da8cecb305c99a1932962d95f3eaf69c89c455d500df06eb"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_match.h",
+      "bytes": 4500,
+      "sha256": "2049e8c998bf984b75eaf6372d4d02fedfe31eeac58aaaf660774f9a36180b28"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_netplay.cpp",
+      "bytes": 17309,
+      "sha256": "0c8156a6775eecdc471a9c06b28266e210521ab8becf411a403f1ddad39b3ab1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_netplay.h",
+      "bytes": 7360,
+      "sha256": "b8ca0a277b6e901c0345e3c7b5710a71d79cace9c35b3c309c3c4f6fb630f8f1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_pacing.cpp",
+      "bytes": 1082,
+      "sha256": "1db1a90944f7d47f96e556ab913db66af09fd5a93deb60da1ab6fcfc298d2be8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_pacing.h",
+      "bytes": 1267,
+      "sha256": "e25727cb8947862545e76029e50ab0599223234c518e9989f92df06ad54c8f53"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_runner.cpp",
+      "bytes": 12391,
+      "sha256": "780096d5fe85378cafb31c866fb5e7714571f2f070b037a20ce90a1b6ed27304"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_session.cpp",
+      "bytes": 18073,
+      "sha256": "8d7444c0864607f2a32a974bb7c8cbee0c589a4d0e32b2ebda0194cd68b14b31"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_session.h",
+      "bytes": 3181,
+      "sha256": "2407067a2fe8269c43bff9249c54b14f4cf498998a1def02c5669308e53df2ed"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_slice.cpp",
+      "bytes": 4578,
+      "sha256": "03c05b8a3f9d4ff5c8e936ba4cf9dc88c9d8d12a91a01de19fa87b99313c2290"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_slice.h",
+      "bytes": 316,
+      "sha256": "8e054cfcf6d846ed1b8e9a75d619c4b5a28d09486e0eed72a1641b53f60cb109"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_startup.cpp",
+      "bytes": 10940,
+      "sha256": "bf4ee335a5cc104b4275551f49c75c0112491ea9f651b10b26b5f0e6e5587a97"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_startup.h",
+      "bytes": 2036,
+      "sha256": "ec5f34e8714b4748a4ecbb462abde246f33eb7b5bd489935923055fe84c53b5a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_view.cpp",
+      "bytes": 7623,
+      "sha256": "da498f8f966066e0d7f5692414fb402aa7cd8afdd47a31c8f529a24e9bec8590"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/multiplayer_view.h",
+      "bytes": 2668,
+      "sha256": "46d6aacb85bb9bd526f148b2e4620fa6f99993f56291afaa9f132f18504e0cb1"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_abi.h",
+      "bytes": 5963,
+      "sha256": "1db15bf5bbf56e0e38d6104e2824ee2cb934d944fce03872c03f90ea7983bd5b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_compile.cpp",
+      "bytes": 16595,
+      "sha256": "1427db374ab20ed53d7c0df46d95c0e3155f7390920cb85e606960fd98131605"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_compile.h",
+      "bytes": 3969,
+      "sha256": "c11dc8f67d77d7c96f6dcbe4835cbe705701fcc8ff55a15821fd8e5a5caa2fe2"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_emit.cpp",
+      "bytes": 4328,
+      "sha256": "ecb9fd7b9b833104af000e967fbdd3360eae3067d787fdc53119901d1dac2601"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_emit.h",
+      "bytes": 1114,
+      "sha256": "5fe9ae2afd3da082f7ae075f48670d4cc53997aba5207de0714f943e72a0132b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_loader.cpp",
+      "bytes": 25003,
+      "sha256": "c99af58b329e61976416e1b5f8f526563ca3d2b84755ffd214996d91d8fc039c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_loader.h",
+      "bytes": 4488,
+      "sha256": "1ddff79a6b2d43b592ab8e32a23585c8b296b11e36a463a9bae96be1e17a8313"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/overlay_runtime_arm.h",
+      "bytes": 6775,
+      "sha256": "c080f15a45fd493eac9c5fcbb7b7925c05885c1611f4bc72f7da65ede5b0b677"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/presentation_layout.h",
+      "bytes": 6585,
+      "sha256": "ba33f36c40937dd97dd46c42794d14fd080d42931954dafa7c94a8339b5f779c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/recomp_audio_drc.h",
+      "bytes": 20850,
+      "sha256": "308ab5384cad08b6ad719c8b539a64367ccda4836cf4e95b4d833ba0bce8bbb5"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/runtime.cpp",
+      "bytes": 227479,
+      "sha256": "a317f9914b6230167971af2b28bf958236359517b1d464b30798ba581901bdac"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/runtime.h",
+      "bytes": 17995,
+      "sha256": "ce133f0a4f922f7c42beda5cd2160df25cd275df2f8751e2ab73f9846e49ea90"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/runtime_arm_default_aborts.cpp",
+      "bytes": 46420,
+      "sha256": "c048ab378ad974ee591ceaf7e383ef2f1eb68f95707c855a2207f836add8f0e0"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/runtime_bus_bridge.cpp",
+      "bytes": 58746,
+      "sha256": "c2322241653dd119e65c382bd9cd1b5f5ee071dc60f515810aba4e906bedba86"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/runtime_bus_bridge.h",
+      "bytes": 1782,
+      "sha256": "f0ec8567f84dda47488df7de44aeb9c89e344b2b310b4554684afb55cac6921f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/save_config.cpp",
+      "bytes": 4111,
+      "sha256": "a13cbf6aaf8e02249655ffc72d33e1f7b7dea203a3ba217ef5440ea3bf0bce59"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/save_config.h",
+      "bytes": 1097,
+      "sha256": "87a088f8a4135316802dadd5c99456f116ef70be7f86184bb70c57d706f85939"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/self_heal.h",
+      "bytes": 4802,
+      "sha256": "5989b7433f3df0f59d46b6540ca94c1302b91195fee8e3318712dcd1925ffca2"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/self_heal_cluster.cpp",
+      "bytes": 1607,
+      "sha256": "d7636439092e393934dc2c76dfea0292736f3f3ebde87ee599a735933ffb4472"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_battle_menu.h",
+      "bytes": 12240,
+      "sha256": "bb546fbf98ae96fecb66d4dcde053e656a948faa771f829e298450b1a309a128"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_camera.h",
+      "bytes": 10485,
+      "sha256": "ce5012793f3e1308d55f43f07f4b920d36cd83e4c7108eb54c789e871c48ad43"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_camera_present.h",
+      "bytes": 17309,
+      "sha256": "72c130cbc72ad9a0f15c283f84ae1760057fb2457955f98f85225b549554416a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_combat.h",
+      "bytes": 6966,
+      "sha256": "f8af58b43a2cfaf17472d8f2f44e4dbc734ce74fb6f44084f25dcce2d0e9f844"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_command_panel.h",
+      "bytes": 4754,
+      "sha256": "a3c1d456515e1e427ba3a1417b4e0c797b74543c13af8d89be36607f1d817bca"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_damage_present.h",
+      "bytes": 1549,
+      "sha256": "1ca368e5202e996931e0f54dd63638301f35b59176f2de5f07e327934ea4be83"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_display.h",
+      "bytes": 5088,
+      "sha256": "672470b3de41c468c60d285ba1bf1d4ec0d73384183a31ca097cfbaaa09b2a9c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_fast_combat.h",
+      "bytes": 2356,
+      "sha256": "d6115792ead644cf76bb45735ab31965cc157811ad04b449853daf6d0706a530"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_fast_path.h",
+      "bytes": 4190,
+      "sha256": "8d45d200777eefe10f2b5b71a82c851a07ed6de05dc76d93b9c70b05bf3e8a4c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_hd_font.h",
+      "bytes": 7157,
+      "sha256": "c968543763adda0d4e597907174757d1f2fdfc7b49dda723988b060724de3ec8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_hd_panel.h",
+      "bytes": 34031,
+      "sha256": "3ff3790e708d62d1cb6ae01740f814e33563da21ff47926a8e8408245072cf8f"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_intro.h",
+      "bytes": 1811,
+      "sha256": "fa3269599a3dfe23a797e6c9c0a6b3660aee2bf5f7338ec5236e6fa68bb14ab3"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_mouse.h",
+      "bytes": 50204,
+      "sha256": "12dbe0633980eda9eed77e85d67df02cec4779dec683bf3ea019dbbfbf02c0b6"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_native_ai.h",
+      "bytes": 1808,
+      "sha256": "b3f944e328ab5d5775abe73166e6c0962e5a574dc0e6cc56cabd170cc0679358"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_native_decode.h",
+      "bytes": 3125,
+      "sha256": "ef170d8f0f44b4d97e9f23f6adf0fa1860a313a37940def109ccbc8263256239"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_native_portraits.h",
+      "bytes": 17948,
+      "sha256": "4f324ef97a42aaaeb4ed0e5185059547f62aa6fdd1c2a3a276251f18cfa3e969"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_overlay.h",
+      "bytes": 24465,
+      "sha256": "c22680f1a35f95ec5123bb070eb0f7a4234fabb2e9ca70a0669681a45c275cab"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_panel_theme.h",
+      "bytes": 2237,
+      "sha256": "42955acc6946e5138f8c7510a74e468cd5b7aa74d5eb2510742e1e761e0d3ae9"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_portrait_assets.h",
+      "bytes": 7451,
+      "sha256": "3b4b6116744d1fe503e7a71306668afa65be6a51dc69b03f196fe0863078329a"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_present_diagnostics.h",
+      "bytes": 5578,
+      "sha256": "2fabf2c4ad918bcc5ebef16c1928db593eb2c811e19a22b43532d9d3c369f115"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_profile.h",
+      "bytes": 7121,
+      "sha256": "46c54b7c0dc75f62271dd84eb563bea0348cd9817d7974e8e49bcfc1ddce9ef5"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_refresh_clock.h",
+      "bytes": 7134,
+      "sha256": "09e694e8b898d68cb2b8335701b5bebf8c668cfc7c524c1c046d946bb374b2f3"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_settings.h",
+      "bytes": 4831,
+      "sha256": "98e29a58ba037c3772790f0bf0da013cee2d0a768ccbf09ed4fbe18d000f2f7b"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_skip_audio.h",
+      "bytes": 3211,
+      "sha256": "f733cbe23d7a8051de28e20cc223c2808c89d855a59c474e36c19ab9fdbbee53"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_state.h",
+      "bytes": 4159,
+      "sha256": "c3652a416c5e54f8db24d35b4f55dea54cc5f717efde3138de9a014edebf9229"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_unit_motion.h",
+      "bytes": 1776,
+      "sha256": "d37886db074c6de950c3ca6afe52bbee9d4a5f30f1034164e737cbe61b720440"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_unit_panel.h",
+      "bytes": 7037,
+      "sha256": "bd15b75b2f49020c7f34d74c2e7cab30dd6b4d551919053a08f1fe604c58468c"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_video_capture.h",
+      "bytes": 7690,
+      "sha256": "31ab492e150db92a9a875284d30ac070f85191eb7525cfb55aafa33888ff56b8"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_view.h",
+      "bytes": 91634,
+      "sha256": "f7691d0f260fbf9fa87fa7eb7d8a0daf67197ddf3b5820fd5a331e5b732fd6ec"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_weather.h",
+      "bytes": 486,
+      "sha256": "37a9dcfb23d3aa5841d04e9e124a86d7c56bbba2595176f8d0cb6a9b1f8fb559"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/touch_input.cpp",
+      "bytes": 35176,
+      "sha256": "f7af0c87b59bd65a5248e55189a6ed870bf365263a7b496c0efc9cd70d6043fb"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/touch_input.h",
+      "bytes": 12048,
+      "sha256": "23af94e6cf5bcf39c761feecdb1736a7fc463b480036b0b8fbe7df9093561136"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/view_config.h",
+      "bytes": 6984,
+      "sha256": "bcca38fcfe783f52633783f1a45ad1a6a6740189bfab883ad58e763134703b9a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/armv4t/decoder_smoke.cpp",
+      "bytes": 8883,
+      "sha256": "ab32f4caa3402133ebbb8a024aec776ed5b5da0b6ccb3db728a940dde0d749f3"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/armv4t/interpreter_smoke.cpp",
+      "bytes": 16150,
+      "sha256": "286881a393eb113410afff7c99d5da9bc8083143b6bb2bd0ecc6a1ab1ef4fcb9"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/armv4t/symbol_lookup_smoke.cpp",
+      "bytes": 6030,
+      "sha256": "d5edfd78dad1b4f6bcdee8e803e7cd9deb88613c376f8d06fc375cf538eb6b23"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/armv4t/test_main.cpp",
+      "bytes": 335,
+      "sha256": "e3a5f5c893924dc4592e16a24a9c1b56cbc00a303203c9ae412e9fc2c8643778"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/bus/test_main.cpp",
+      "bytes": 32653,
+      "sha256": "709aca23c97261c959d2218019f993176fced569510d9a5b54e8fd7614fd7018"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/cmake/assert_runtime_monolith_guard.cmake",
+      "bytes": 934,
+      "sha256": "31b2392c0511a76970b80bce6a99d81b1d9ba7205b8123b5e708ced942290b74"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/cmake/runtime_monolith_guard/CMakeLists.txt",
+      "bytes": 342,
+      "sha256": "d76261042cbe25db8085a0c32e02648f4918682a994a086ef1a19f95dd9e26b8"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/cmake/runtime_monolith_guard/generated/recompiled.cpp",
+      "bytes": 79,
+      "sha256": "b045e6484d2b86ace7e83f339403cd4e5ef3ec21aacaa3dee9f8a7cf3d61c43d"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/gen_codegen_tests.cpp",
+      "bytes": 6593,
+      "sha256": "de3da54e897912ee7cf60d6ca314c515b10ceb4833b77278a9513d729f961ed8"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/overlay_runtime_compile_smoke.cpp",
+      "bytes": 241,
+      "sha256": "9701488878eb7c11a1b6d67185ca58ffc89cc212a4350cd63b02e2baf3326a55"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/stubs.cpp",
+      "bytes": 10293,
+      "sha256": "fc193772b10c01f575dba2b402cc48c78621e1f529f3b43658d3e5dd0adabd5e"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/stubs.h",
+      "bytes": 1844,
+      "sha256": "8c1c2b406fa8c64aa42e098ba813ad97d6bcab053ce38a35c77619ca8f0b403f"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/test_cases.cpp",
+      "bytes": 46057,
+      "sha256": "f9ec8d687d5998032499ae471debecfe228792ac770c6bc1c2a0b3b231272de6"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/test_cases.h",
+      "bytes": 3303,
+      "sha256": "2709720572ec2f8bd933cb50deb18b1646aaaa9f9cb9904f1a8e8869c6967cd7"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/codegen/test_main.cpp",
+      "bytes": 30917,
+      "sha256": "2f3875de3fb33529bb21678c26b3b5b0a86278c25409cbaf9a0bfe6f5d484f23"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/dma/test_main.cpp",
+      "bytes": 5251,
+      "sha256": "ec9eb8c519f539123e205f0ec73f2b836edc84ab6d92a593e4b42dce5d610bca"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/gpio/test_main.cpp",
+      "bytes": 9908,
+      "sha256": "aa38ee92c3b5328c82ea96530b2aa8bf1cff72f3799fb0e6d9a310a24029b1cb"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/heal_gate/heal_gate_test.cpp",
+      "bytes": 6696,
+      "sha256": "c9c4a1e0e525981dff440f9ecd10b0e05a08ec641269e6c5be22448933381a32"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/heal_gate/runtime_stubs.cpp",
+      "bytes": 428,
+      "sha256": "6ce68d015065ab7126517e489c32ff7522981aa83e6aa4fcf78a3c576eceee7f"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/irq/test_main.cpp",
+      "bytes": 153,
+      "sha256": "26efe7dc4ae9f1779c34e7151540f213b385bca597db20632163c385ba204645"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/CMakeLists.txt",
+      "bytes": 2540,
+      "sha256": "4002d2e0a6909c58acf6d7a747b8346f440e5467607b9ea7e487a01f2c43cc83"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/application_loopback.py",
+      "bytes": 6034,
+      "sha256": "d9e01bd16f4795ca9af300ebf1c866731d0b6ad2fb81c471ad127778ca50d338"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/commercial_loopback.py",
+      "bytes": 6156,
+      "sha256": "2e08999918f83da04ac3b9be841f8e8dada48332d3f378bbb67c1926a0fe1bc8"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/emerald_battle_check.py",
+      "bytes": 5877,
+      "sha256": "4d210699cc846b034e527968b5ac617856af51a97edb4d5f24f4fd88669d509b"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/emerald_trade_check.py",
+      "bytes": 8640,
+      "sha256": "b936e054435441f33cff9a1e6cad99af866b892ad80f42070cde9d5e7bfec2d3"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/fetch_emerald_saves.py",
+      "bytes": 1084,
+      "sha256": "39c5c3620e4476f5aeff47257f98e08a3d9df4e74d6ac97e429f644446eee1f5"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/launch_test.cpp",
+      "bytes": 8106,
+      "sha256": "4fe000f38d7a59335aecd8090b825ae41d9b7be6e23df1485eefc2f7c536aeae"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/launcher_seam_test.cpp",
+      "bytes": 6328,
+      "sha256": "a72fef71e8e86c3fe4eb8951cae23005144bfe009486814ec9646faf763d303c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/link_fixture.S",
+      "bytes": 2684,
+      "sha256": "6c3c075f48ff7a43488832c0d852bebe1cae460528694602308978bb377c5ef5"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/link_fixture.toml",
+      "bytes": 231,
+      "sha256": "6fb35b0bba7fea06e2a80758885646bc9b8b9b2f95c37473c53887073ca02e5c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/loopback.py",
+      "bytes": 7135,
+      "sha256": "2741181e24ae6081e5a3efa68bfcf80aaa6268451c72769dfe8c2448c53e4cb4"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/match_peer.cpp",
+      "bytes": 6972,
+      "sha256": "e1f6cec01da3d344eb84b150c19036b3122371b86b00026c2fb9c46f574ee6e0"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/netplay_fixture.h",
+      "bytes": 3397,
+      "sha256": "769d9d49179c8dcf6481dd7fdc59121e9e6a9be2776b88af248da3077bc0084d"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/netplay_peer.cpp",
+      "bytes": 14459,
+      "sha256": "3f5a451156fdbbb22d408d2e1cdea974ff3d014ce073c54a9dd83876ba73ca1c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/netplay_test.cpp",
+      "bytes": 17233,
+      "sha256": "d60aee0ec90ce3abd6d94f460400c8fdf9dac9b730df9ae664ef1ae30687b6f4"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/rom_test.cpp",
+      "bytes": 9357,
+      "sha256": "0b65cf2695605d2bb817616d03d7fa48fdfbb8c2acc5e0da5a24bc7704e34dcb"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/README.md",
+      "bytes": 13924,
+      "sha256": "1b40a12b5951a2d273db72571293424122c47704b47c3840ebb19b9723e2b380"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-after-trade-to-battle.inputs",
+      "bytes": 782,
+      "sha256": "29ba834d51c6fb137f4462a496ff56a2361a25b8a85f685d21c73c1711bf809f"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-battle-to-result.inputs",
+      "bytes": 603,
+      "sha256": "1afb718107dab473757bd292f6669d72a9ae8f067342d67d936467560e0974a4"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-load-save.inputs",
+      "bytes": 82,
+      "sha256": "3743b4de95cd1378de17d477207a2966cb65027de621b35efbae79be749c65e6"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-public-cable-desk.inputs",
+      "bytes": 1710,
+      "sha256": "410a9cfda3ed2475e28e468606f1c31619a7304be37b98adf5f9a928e2ecce4d"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-public-cable-trade.inputs",
+      "bytes": 512,
+      "sha256": "af2a7e42c13e388be170940475a1233890b2390fbe38743a77364046d076593b"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-public-saves.json",
+      "bytes": 900,
+      "sha256": "db1a14371f0be02792aa9c53b91bb771a40b5bfe2064ffda2baca4974b983058"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-trade-room-movement.inputs",
+      "bytes": 27,
+      "sha256": "94342c6ad5e2e4f41acc5e139cade545770801c131ed9f8c4429ed68a3096880"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-warm-battle-ko.inputs",
+      "bytes": 62,
+      "sha256": "cd0769dedae3be126df176e64594582c6cd98abb4ebf03f886b5480ec5949d3a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-warm-battle-result.inputs",
+      "bytes": 98,
+      "sha256": "6805a30c9ef7ffe54bc148cfff9273020b386d42f80c4ce089a244e3f26c07f7"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-warm-movement.inputs",
+      "bytes": 49,
+      "sha256": "763116149ab20dc3f51d1b83623ebf7ef2a5a8bf0b3cf63eea13bdc9a0523230"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-warm-trade.inputs",
+      "bytes": 107,
+      "sha256": "aec2882c2b52c1de090a04b63c3ccd29cb518df737c47d5bf0b9c80c582dbc74"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/emerald-wireless-union-room.inputs",
+      "bytes": 625,
+      "sha256": "364cb22c71168550a10fca437fd8fbc6f799ff4871b472c06c797f74c879f17a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/mksc-multicart-race.inputs",
+      "bytes": 271,
+      "sha256": "29992666d75b6e2b4a340ce38cb6362670dbdaa9c942d398e624131f37976b1c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/scenarios/mksc-warm-race.inputs",
+      "bytes": 50,
+      "sha256": "ff96308b8e687bac6b3e565d2a0560af7f55b002eb0f4ce8fbbb80921562bcbe"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/session_test.cpp",
+      "bytes": 16347,
+      "sha256": "171018c14a4706403b6de64abace21b64312a52cf98db2b7e96b943b443cd14c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/test_main.cpp",
+      "bytes": 10115,
+      "sha256": "466fb8b85387329677c5cccac7b371846cbbf5e9bd170764d1784a73c9441013"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/udp_relay.py",
+      "bytes": 7420,
+      "sha256": "c8b26b09cda1cb0c69d1b3dd1c6e59e56b0d1c31a0312bd5c2aaf4b2c32ec6fe"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/view_game_probe.cpp",
+      "bytes": 9078,
+      "sha256": "5b0e49a006071999a85f36350e1b9b34ef760d22a34c4d8fb057da8ad17aa799"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/view_network_loopback.py",
+      "bytes": 3903,
+      "sha256": "05934b12891e327e1f8eb715f05e4aa0db39f51ff548064559cc7694703ee25d"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/view_test.cpp",
+      "bytes": 10568,
+      "sha256": "cdf84eb4f69a340bd5f2b6b7e0bebc15685e03249ac860b49be193886086352e"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/link/wireless_test.cpp",
+      "bytes": 5860,
+      "sha256": "adc82fab0dbd663c9f5f30416123354f42096cbbe29c2d00b91c5c65c63077f0"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/mod_audio/test_main.cpp",
+      "bytes": 5549,
+      "sha256": "ef3b24da5f95184f6b3c9525cbcbf685570e92c13cb4fa237b7f4712fadec90a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/mod_runtime/ppu_provider_stub.cpp",
+      "bytes": 1100,
+      "sha256": "b3fdff05ae785d9612f6342a8b019e6a7c6ea190cc27ad652d252d27c82b2075"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/mod_runtime/test_main.cpp",
+      "bytes": 35457,
+      "sha256": "726c80d8400ed63493b467bdb3980c0c36bc3db8a81de4d9db1c3da6cdea0a98"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/mod_state/test_main.cpp",
+      "bytes": 4889,
+      "sha256": "8885a04a84433d2ed4fd516560d043d5c84a551da27d460488f9c6aaf9acd452"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/ppu_smoke/test_main.cpp",
+      "bytes": 90100,
+      "sha256": "8d70cb5f323e57ee626c548fb84acbc3611be59e78de3c0cce40b0c857a38d72"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/presentation_layout/test_main.cpp",
+      "bytes": 3124,
+      "sha256": "ab0498b295cb9f8c2636979986169e174f8593a74c17cd861782263dcf6d8353"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/recompile/codegen_shards_test.cpp",
+      "bytes": 3321,
+      "sha256": "59e86e21a32fa1509a6c1a17a5cf56bf43f11c51c0e608b9cb0b11af487c8910"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/recompile/config_overlay_smoke.cpp",
+      "bytes": 8381,
+      "sha256": "f82c486631458ec62259beada1346bc398ce48005aabe1cc0a72623b9049876a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/recompile/config_test.cpp",
+      "bytes": 2242,
+      "sha256": "fa493840be7b801efe38824093d0d59b7c3a7828aba580bee7dc0f5d0a6408c1"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/recompile/function_finder_test.cpp",
+      "bytes": 9234,
+      "sha256": "163116bbd43fca360722c6026ae8120c1540e08494b718f1d12af2ce92f479af"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/recompile/link_branch_test.cpp",
+      "bytes": 5900,
+      "sha256": "2d632fc33ff20f84ac4e13407fce6e9fc34664d051e0db32b42c126e38f9dc3b"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/rtc/test_main.cpp",
+      "bytes": 5090,
+      "sha256": "9a4d8b49f3b58e49528152da0f1856e1311f536cbc5720ede9e4b8dcc519ff69"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/runtime/audio_drc_test.cpp",
+      "bytes": 2094,
+      "sha256": "651dd10fe6d2be03f1d18516420a09d7b28381c59207501b6f919eecb1f9b821"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/runtime/color_lut_test.cpp",
+      "bytes": 1747,
+      "sha256": "d6a5d298dab52d1e512d8fec909e5bf736056b7b52b25c5b68342ad5550514b9"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/runtime/diagnostic_capture_test.cpp",
+      "bytes": 3893,
+      "sha256": "5655a42110fe0c8de43d268106c702f0bb40126ea5c383f87db0d207d09d361a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/runtime/save_config_test.cpp",
+      "bytes": 2913,
+      "sha256": "449294dcd8c07a75e5e369734e3c9c36811380e95a70e95ad9ab9eb9d945a7b6"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/selfheal/cluster_test.cpp",
+      "bytes": 3331,
+      "sha256": "f1cc47a4faa68d4f26dfae57cfcacae3d28a396a28ea2a8dd4e472d3f1a2bde7"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/selfheal/coverage_sweep.sh",
+      "bytes": 3716,
+      "sha256": "1c2c67d16eed54d069595cc56a53ebf0fb8970105e9dce4f849f3f4aa403e69c"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/selfheal/stage2_bios_identical.sh",
+      "bytes": 3912,
+      "sha256": "8392c86203561b965f898f2336645d32bc42c9ac7e4ad3a38edd4633e814afda"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/fixtures/link.map",
+      "bytes": 1352,
+      "sha256": "4988c479fd8212bcad34bf7535c58e59a08b39969be29f82319fbf9c9a227ce1"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/fixtures/readelf_sections.txt",
+      "bytes": 995,
+      "sha256": "d8d3f4fdcc9136d9b97d802cf1efa4fb9660113df1f7b6cc76473e6e8754ca99"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/fixtures/readelf_syms.txt",
+      "bytes": 1843,
+      "sha256": "b0b8157305bee00f52501979a55aaccf5d1552c99e0e151b1adc6c6e81808cb9"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/golden/TEST_symbols.toml",
+      "bytes": 1141,
+      "sha256": "a568c6972c2a26338d148f6693ab5e737fd821b240a5c133e3dd09751827818a"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/golden/function_boundaries.tsv",
+      "bytes": 217,
+      "sha256": "ab62cfb32a7597a8ab5ff29620485f598056e8f318e2b5f91856e19435da9b37"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/golden/imported_data_symbols.tsv",
+      "bytes": 383,
+      "sha256": "87f3b10c8c608f6ddc80a3e7851a7ce4a90aa8dc2ce79a1f5efd3dcf21c63690"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/golden/imported_symbols.tsv",
+      "bytes": 216,
+      "sha256": "840adcce7fa7c4a8ba05f91b1563ff64f5e58a04790b0db0330342a0cbc43029"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/symbol_import/run_golden.py",
+      "bytes": 5106,
+      "sha256": "6faf1640e0828808aad46535638f45dc61b714e1f2960e472230a13de4d8dd6e"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/thumb/test_main.cpp",
+      "bytes": 178,
+      "sha256": "c72041fabdce0eff2b013240c9a4f26d7e90ce0f5a7068ef33ab217b4e86adc3"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/timers/test_main.cpp",
+      "bytes": 3131,
+      "sha256": "7b3df78de45d00947d439fe035a0675e40a3086dddd089118a43ac03b46722db"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/timing/CMakeLists.txt",
+      "bytes": 2762,
+      "sha256": "98c8ff61aed638aa1509331edf775b0da80b44cf7f1288aec9dd9541efb638c7"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/timing/timing_fixture.S",
+      "bytes": 10116,
+      "sha256": "fea10fd4e7a46cd2a62781d0bea802078741de6ac2d998dd3e9e343bbfcedecd"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/timing/timing_fixture.toml",
+      "bytes": 8605,
+      "sha256": "e1182603ff798b69012052ddc6d60cc3ced9d83ee74471029fcbf9386d77721d"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/timing/timing_test.cpp",
+      "bytes": 5036,
+      "sha256": "1c78b9625abf96b9832a7e0b9fbf5ce47970de9e722ae61937183796dc44e5be"
+    },
+    {
+      "path": "vendor/gbarecomp/tests/touch_input/test_main.cpp",
+      "bytes": 16954,
+      "sha256": "50a70d7ad460caa8c415f747a87f358942660be42244a05eb76c8158b0e2b03b"
+    },
+    {
+      "path": "vendor/gbarecomp/third_party/MPL-2.0.txt",
+      "bytes": 16726,
+      "sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85"
+    },
+    {
+      "path": "vendor/gbarecomp/third_party/README.md",
+      "bytes": 1824,
+      "sha256": "e550d01323fc32f8c11bb2574583a89c1bd642d49015612226b2ae0dcc987558"
+    },
+    {
+      "path": "vendor/gbarecomp/third_party/tomlpp/LICENSE",
+      "bytes": 1094,
+      "sha256": "529bc3900a9571e49db285b0df432397e70b881cc3bf48de6667ae74ff4b06d8"
+    },
+    {
+      "path": "vendor/gbarecomp/third_party/tomlpp/toml.hpp",
+      "bytes": 485931,
+      "sha256": "6b5172ad4dd6519aec67b919181fa7a38a2234131e5b2afa232dfe444819783e"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/analyze_frame_phase.py",
+      "bytes": 3635,
+      "sha256": "dff794cb28851ad35022fad3079f662240ff80f1d5bf875ed68edb17eecf4f49"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/analyze_present_cadence.py",
+      "bytes": 6898,
+      "sha256": "67be596605660e54581e2b020da59ac1062b78b42a33a65c78b1756b9cc299be"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/bios_smoke/dispatch_stub.cpp",
+      "bytes": 1007,
+      "sha256": "646566a206bb26c2a854233464f2b6b19cc3aaad53a964e8f9a056acc5193cfd"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/bios_smoke/main.cpp",
+      "bytes": 52815,
+      "sha256": "4124557d9d6d6714257919bff3e92b46e858ab608403c7302decb3a07f793306"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/build_cli.py",
+      "bytes": 5477,
+      "sha256": "1f7ecc3ed559c26199aa48174d18faa7ddc95e5212364555af7725c00df47e05"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/cli.py",
+      "bytes": 10192,
+      "sha256": "908b1803105f8291e6decf9e722acb5e53cb46168eb292d64370fede9bead131"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/fetch_tcc.ps1",
+      "bytes": 3520,
+      "sha256": "3ac37a947e11bec133b0b4389b2e426c7283d78256477dad857dfb8214088957"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gba_recompile/config.cpp",
+      "bytes": 42636,
+      "sha256": "6e62567fa69020748d480b517135205e8e41310aabdc6c57b0e617c608763a2f"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gba_recompile/config.h",
+      "bytes": 7274,
+      "sha256": "29b0bb8334b23b428020fa2c4293427857523069f2d8ef98bc05b2afedbc7a1f"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gba_recompile/main.cpp",
+      "bytes": 66505,
+      "sha256": "3cdfe1174e2c9e5e06b9e101813d9fc6ab30807b590e029ccf97bd14bbc2a190"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gba_scan/main.cpp",
+      "bytes": 2782,
+      "sha256": "1e2358ad4a54bc224f9e273498a7df4057d61432ac4624608bd4fbced0d6cdf5"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gbaref/.gitignore",
+      "bytes": 336,
+      "sha256": "b2822d721a2c443d95a029bc3c2a7ff8df1157a5289b4160546f7335b5612de4"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gbaref/README.md",
+      "bytes": 4823,
+      "sha256": "aa9e35ab00e2c07c198e624d1440405b42307df9aba7d37a37c1aa3949bae6de"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gbaref/build.sh",
+      "bytes": 611,
+      "sha256": "60c4c86cb82c7a2d23ba0ed57ceb2879e3f249d811b3913bf025221a050b5483"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gbaref/frontend.cpp",
+      "bytes": 23215,
+      "sha256": "da9ffa6ba92a3dc7fdb9c86aff09f1f15de077aae04d902639040117447c7424"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/gbaref/libretro.h",
+      "bytes": 294830,
+      "sha256": "d45613a8f10b57171aae70ff3a2016d2084802a8bbe8c659b84dac958faa3379"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/import_bios_symbols/import_bios_symbols.py",
+      "bytes": 16431,
+      "sha256": "18acadc98eb63ce28e88edf15506c2cf4b07f41b620c2395124bd618fb88f00f"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/link_session/main.cpp",
+      "bytes": 15146,
+      "sha256": "b9f10760684bd7a1acd186c09b3761fbd879fb843766d8396e1b9763b75c8170"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/link_session/netplay_probe.cpp",
+      "bytes": 5365,
+      "sha256": "326c22b91b069facc73faa93288653a080ff9eed829106f6bfa1457fd0b8514b"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/link_session/netplay_probe.h",
+      "bytes": 420,
+      "sha256": "95140f0b0b207f764ae4bac57e5b16cdfee10b4eac8283cd0fc702766f71bc34"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/package_release.ps1",
+      "bytes": 1906,
+      "sha256": "a92599e6501186b0268843cb802ac99738c9fe16cfd7a2209338cecdf38fccb5"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/symbol_import/import_decomp_symbols.py",
+      "bytes": 25025,
+      "sha256": "2bfeb87e579fe9f8609ad3ad882c6b04ec2598cf3d73679fdd6adb1ffc4caf5c"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/tcp_screenshot.ps1",
+      "bytes": 2852,
+      "sha256": "21d1aa2c60e32b8c7370efb7e6e73cbbeb672dd224374e158b363c8c81b40576"
+    },
+    {
+      "path": "vendor/gbarecomp/tools/test_rom_runner/main.cpp",
+      "bytes": 5343,
+      "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
+    }
+  ],
+  "count_excluding_inventory": 633
+}

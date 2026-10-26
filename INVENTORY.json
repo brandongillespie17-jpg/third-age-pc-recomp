@@ -2,8 +2,8 @@
   "files": [
     {
       "path": ".github/workflows/windows-release.yml",
-      "bytes": 5627,
-      "sha256": "8a9fa6af6ac856ca9f0749362094babb73aef9651cde88644794927c1c7cdef9"
+      "bytes": 5648,
+      "sha256": "567a861c1c6e690e270a44b974f697b6c204a7b55e84653b36eba52f668c3637"
     },
     {
       "path": ".gitignore",
@@ -27,13 +27,13 @@
     },
     {
       "path": "DISTRIBUTION-NOTICE.md",
-      "bytes": 2639,
-      "sha256": "132ed0613724898c2081bcf7af738903bad7db86cb108a451da891b441174aa4"
+      "bytes": 3322,
+      "sha256": "718f7d41f7a328c87a5d374924a51d8885dcadf3f5ee9b8ad025f8db3d4af13f"
     },
     {
       "path": "LICENSING-INVENTORY.md",
-      "bytes": 5394,
-      "sha256": "7b3e4c73dc06d682bff5d214de2c95072f92babb9fc5e35bce4e84360c6dd60e"
+      "bytes": 6718,
+      "sha256": "71a10533295ee09a3923d6cdbf924e3d9362866ee6b08569f60595bee0e7a912"
     },
     {
       "path": "PREPARATION-CHANGES.md",
@@ -56,6 +56,26 @@
       "sha256": "956aa0cd4d63fd0a506dadddcc09f6556d639e9f5118a068ba1506e023c5d3b4"
     },
     {
+      "path": "assets/FONT-MANIFEST.json",
+      "bytes": 1622,
+      "sha256": "8473afaf9fcddafd18fa25191645558c81647eba80f8fac82415ad30b06d318f"
+    },
+    {
+      "path": "assets/FONT-NOTICE.md",
+      "bytes": 1373,
+      "sha256": "f698962865b4c5804aa4093fc7032027839dc2de27e2c3b92a12865bf309bcdf"
+    },
+    {
+      "path": "assets/PORTRAIT-MANIFEST.json",
+      "bytes": 25303,
+      "sha256": "41cc3ac7361ffb0108392f30dfc2219eb12d14f233ea26868e420a466c7cb4bd"
+    },
+    {
+      "path": "assets/PORTRAIT-NOTICE.md",
+      "bytes": 2712,
+      "sha256": "b8a6ca497ce4729ea449fb1c207442935d1c2021b9d860545f9bc9463f5e0188"
+    },
+    {
       "path": "docs/BUILD.md",
       "bytes": 4292,
       "sha256": "a26a5de6578af980a816ecec4c926c4c994a09e6add3410d308148b96ac90159"
@@ -72,8 +92,8 @@
     },
     {
       "path": "docs/WINDOWS-RELEASE.md",
-      "bytes": 11483,
-      "sha256": "769731dfebfa890553fe26c372aab978be9ca9abc9db4882b6ef6b355fafd1dc"
+      "bytes": 17060,
+      "sha256": "00fb7fedb93b811ea484aa8ce75b38e728a45a1a6e6ecbfce0e2c37433514f36"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
@@ -151,6 +171,11 @@
       "sha256": "dd1fef0edb77d4752c3b1ca07bf1aef759cd436ab357e7e48cdfdcfca3a5ce3c"
     },
     {
+      "path": "tools/assemble_windows_release.py",
+      "bytes": 15624,
+      "sha256": "67042ef5cfe006128a80ae7383ea9ff674c2d1a3c81850bc3e064c93be3baf0b"
+    },
+    {
       "path": "tools/build_from_inputs.py",
       "bytes": 4771,
       "sha256": "beafb7ba98733ef6564bca7556363fdbfc1ba27fe8b6965c169850cc27b5ef6a"
@@ -177,8 +202,8 @@
     },
     {
       "path": "tools/package_windows.ps1",
-      "bytes": 15181,
-      "sha256": "4e248420673875d75b52b59fec38e91aa37a0cc5409e98e5e3f02e37c792864e"
+      "bytes": 18678,
+      "sha256": "bca3908fda7b9b2d249f06827dbd2cc7c07d13868063782ec9bf1bc8dfd27df7"
     },
     {
       "path": "tools/preflight.py",
@@ -3211,5 +3236,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 642
+  "count_excluding_inventory": 647
 }

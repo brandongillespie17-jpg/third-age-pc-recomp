@@ -1,7 +1,7 @@
 #requires -Version 7.0
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory)][ValidateSet('AuditSource', 'Package')][string]$Mode,
+    [Parameter(Mandatory)][ValidateSet('AuditSource', 'PackageBase')][string]$Mode,
     [Parameter(Mandatory)][string]$SourceRoot,
     [string]$BuildRoot,
     [string]$Executable,
@@ -13,6 +13,8 @@ param(
 )
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
+$FontManifestSha256 = '8473afaf9fcddafd18fa25191645558c81647eba80f8fac82415ad30b06d318f'
+$PortraitManifestSha256 = '41cc3ac7361ffb0108392f30dfc2219eb12d14f233ea26868e420a466c7cb4bd'
 $SdlSha256 = 'af347939395a58b365846aaea27391e69f9ec9d4dd650d6ac40802159b418a6e'
 $SdlUrl = 'https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-devel-2.32.10-VC.zip'
 $SourceRoot = (Resolve-Path -LiteralPath $SourceRoot).Path
@@ -22,12 +24,38 @@ function Assert-RegularFile([string]$Path) {
     $item = Get-Item -LiteralPath $Path
     if ($item.PSIsContainer -or ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw "Not a regular file: $Path" }
 }
+function Get-ApprovedPortraits {
+    $path = Join-Path $SourceRoot 'assets/PORTRAIT-MANIFEST.json'
+    Assert-RegularFile $path
+    if ((Get-Sha256 $path) -ne $PortraitManifestSha256) { throw 'Approved portrait manifest hash changed; explicit review is required.' }
+    $manifest = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
+    if ($manifest.schema -ne 'third-age-approved-portrait-package-v1' -or $manifest.count -ne 68 -or @($manifest.files).Count -ne 68) {
+        throw 'Expected the exact approved 68-portrait manifest.'
+    }
+    $map = [Collections.Generic.Dictionary[string,object]]::new([StringComparer]::Ordinal)
+    foreach ($entry in $manifest.files) {
+        if ($entry.file -cnotmatch '^assets/portraits/[a-z0-9-]+\.bmp$' -or $entry.sha256 -cnotmatch '^[0-9a-f]{64}$' -or $map.ContainsKey($entry.file)) {
+            throw 'Invalid or duplicate approved portrait entry.'
+        }
+        $map.Add($entry.file, $entry)
+    }
+    return ,$map
+}
 function Assert-SourceInputs {
     $status = & git -C $SourceRoot status --porcelain --untracked-files=all
     if ($LASTEXITCODE -ne 0 -or $status) { throw 'Source must be a clean Git checkout with no untracked inputs.' }
     $files = @(& git -C $SourceRoot -c core.quotepath=false ls-files)
     if ($LASTEXITCODE -ne 0 -or !$files.Count) { throw 'Cannot inventory tracked source.' }
+    $null = Get-ApprovedPortraits # Verify the small, pinned manifest; no BMPs are required by CI.
+    if ((Get-Sha256 (Join-Path $SourceRoot 'assets/FONT-MANIFEST.json')) -ne $FontManifestSha256) { throw 'Optional font manifest hash changed.' }
+    $assetText = @('assets/PORTRAIT-MANIFEST.json', 'assets/PORTRAIT-NOTICE.md', 'assets/FONT-MANIFEST.json', 'assets/FONT-NOTICE.md')
     foreach ($relative in $files) {
+        $path = Join-Path $SourceRoot $relative
+        Assert-RegularFile $path
+        if ($assetText -ccontains $relative) {
+            if ([IO.File]::ReadAllBytes($path) -contains 0) { throw "Binary data in asset notice/manifest: $relative" }
+            continue
+        }
         # Tracked empty BIOS dispatch stub is deliberately allowed. Real translated bodies are not.
         if ($relative -match '(?i)(\.(gba|gb|gbc|nds|rom|bios|bin|elf|exe|dll|so|a|lib|o|obj|pdb|zip|7z|tar|gz|ttf|otf|png|jpe?g|webp|bmp|wav|mp3|ogg|sav|srm|state)$|\.private\.|(^|/)(assets|saves|private|build|dist|\.aws|\.ssh)/|bios_recompiled|bios_dispatch_table|third_age_ringbearer_data\.h|(^|/)launch\.json$)') {
             throw "Disallowed source input: $relative"
@@ -41,13 +69,13 @@ function Assert-SourceInputs {
             throw "Generated private source: $relative"
         }
     }
-    Write-Host "Source input audit passed for $($files.Count) tracked text files. This is a static audit, not a provenance clearance."
+    Write-Host "Source input audit passed for $($files.Count) tracked files, code and notices only; portrait BMPs and font archives are excluded. This is a static audit, not a provenance clearance."
 }
 Assert-SourceInputs
 if ($Mode -eq 'AuditSource') { return }
 if (!$IsWindows) { throw 'Packaging and PE dependency verification require Windows and preinstalled MSVC dumpbin.' }
 foreach ($value in @($BuildRoot, $Executable, $SdlRoot, $SdlArchive, $OutputDirectory, $Commit, $PublicRuntimeCMakeOption)) {
-    if ([string]::IsNullOrWhiteSpace($value)) { throw 'All Package parameters are required.' }
+    if ([string]::IsNullOrWhiteSpace($value)) { throw 'All PackageBase parameters are required.' }
 }
 if ($Commit -notmatch '^[0-9a-f]{40}$') { throw 'Commit must be an immutable full Git SHA.' }
 $head = & git -C $SourceRoot rev-parse HEAD
@@ -60,7 +88,10 @@ foreach ($entry in @("${PublicRuntimeCMakeOption}:BOOL=ON", 'THIRD_AGE_ALLOW_HEA
     $pattern = '(?m)^' + [regex]::Escape($entry).Replace('UNINITIALIZED', '(?:UNINITIALIZED|STRING)') + '\r?$'
     if ($cache -notmatch $pattern) { throw "Build contract missing from cache: $entry" }
 }
-if ($cache -match '(?im)^THIRD_AGE_PRIVATE_INCLUDE_DIR:[^=]+=.+$') { throw 'Private include directory must not be configured.' }
+# Bound the value to one line: .+ also matches the carriage return in an empty CRLF entry.
+$privateEntries = [regex]::Matches($cache, '(?m)^THIRD_AGE_PRIVATE_INCLUDE_DIR:[^=\r\n]+=([^\r\n]*)\r?$')
+if ($privateEntries.Count -ne 1) { throw 'Expected exactly one private include directory cache entry.' }
+if (![string]::IsNullOrWhiteSpace($privateEntries[0].Groups[1].Value)) { throw 'Private include directory must not be configured.' }
 if ((Get-Sha256 $SdlArchive) -ne $SdlSha256) { throw 'SDL vendor archive hash mismatch.' }
 
 # Verify the exact runtime/license bytes against the pinned archive, not a directory name.
@@ -78,7 +109,7 @@ try {
 
 if (Test-Path -LiteralPath $OutputDirectory) { throw 'Output directory must not already exist.' }
 $null = New-Item -ItemType Directory -Path $OutputDirectory
-$name = "third-age-pc-windows-x64-preview-$($Commit.Substring(0,12))"
+$name = "third-age-pc-windows-x64-preview-base-$($Commit.Substring(0,12))"
 $stage = Join-Path $OutputDirectory $name
 $null = New-Item -ItemType Directory -Path $stage
 $allowed = [Collections.Generic.List[string]]::new()
@@ -111,6 +142,11 @@ $notices = [ordered]@{
     'vendor/gbarecomp/src/runtime/bios_hle.h' = 'source/mpl/bios_hle.h'
 }
 foreach ($pair in $notices.GetEnumerator()) { Copy-Allowed (Join-Path $SourceRoot $pair.Key) $pair.Value }
+# The base carries small manifests/notices only. The local assembler adds exact assets later.
+Copy-Allowed (Join-Path $SourceRoot 'assets/PORTRAIT-MANIFEST.json') 'assets/PORTRAIT-MANIFEST.json'
+Copy-Allowed (Join-Path $SourceRoot 'assets/PORTRAIT-NOTICE.md') 'assets/PORTRAIT-NOTICE.md'
+Copy-Allowed (Join-Path $SourceRoot 'assets/FONT-MANIFEST.json') 'assets/FONT-MANIFEST.json'
+Copy-Allowed (Join-Path $SourceRoot 'assets/FONT-NOTICE.md') 'extras/Ringbearer-NOTICE.txt'
 
 # Inspect all shipped PE files, including SDL's transitive/delay-load imports.
 # Never treat "found on the build runner" as proof of availability on a user's PC.
@@ -166,6 +202,8 @@ try {
 Write-Allowed 'README.txt' @"
 Third Age PC - Windows x64 PREVIEW
 
+CODE-ONLY CI BASE: portraits are NOT included. Assemble the final ZIP before delivery.
+
 Extract the entire ZIP to a NEW writable directory and run third-age-pc.exe.
 No compiler, Python, SDK or dependency installer is required.
 Native Windows gameplay acceptance is still PENDING; this is a preview.
@@ -180,12 +218,18 @@ Keep those files and all personal inputs private.
 The interface uses an installed system font by default. An optional user-owned
 font can be placed at assets/fonts/ringbearer.ttf beside the executable, or
 selected by setting THIRD_AGE_FONT to a local TrueType font path before launch.
-No assets folder or custom font is required. An invalid explicit font path is
-reported as an error.
+No custom font is required. Create assets/fonts only for that optional font.
+An invalid explicit font path is reported as an error.
 
 New saves default to saves/third-age.sav beside the executable. Do not merge this
 preview into an existing campaign/save directory or overwrite an original save.
-No ROM, BIOS, font, artwork, personal save, or game-derived translation is included.
+The final assembled download includes the 68 exact approved BMP portraits and
+an optional unchanged complete Ringbearer archive. This CI base contains only
+their manifests/notices, NOT the images or font archive. Asset rights are separate
+from code licenses; see assets/PORTRAIT-NOTICE.md and extras/Ringbearer-NOTICE.txt.
+The optional font archive is not automatically extracted, installed or loaded.
+No ROM, BIOS, personal save, film video/music, bare TTF, or game-derived
+translation is included in either package.
 Detailed instructions:
 https://github.com/brandongillespie17-jpg/third-age-pc-recomp/blob/$Commit/docs/WINDOWS-RELEASE.md
 
@@ -204,12 +248,15 @@ $info = [ordered]@{
     target = 'third-age-pc'; architecture = 'x64'; configuration = 'Release'
     publicRuntimeCMakeOption = $PublicRuntimeCMakeOption
     msvcRuntime = 'MultiThreaded (/MT); unexpected runtime DLLs fail packaging'
+    packageKind = 'code-only-base'; ciAuditPassed = $true
+    fontArchiveIncluded = $false; fontManifestSha256 = $FontManifestSha256
+    portraitCount = 0; approvedPortraitCount = 68; portraitManifestSha256 = $PortraitManifestSha256
     sdlVersion = '2.32.10'; sdlUrl = $SdlUrl; sdlArchiveSha256 = $SdlSha256
     runnerImage = $env:ImageOS; runnerImageVersion = $env:ImageVersion
     cmake = (& cmake --version | Select-Object -First 1)
     compiler = ((& cl.exe 2>&1 | ForEach-Object { "$_" }) -join "`n")
     importedDlls = $imports
-    tests = @('clean tracked text source audit', 'SDL vendor SHA256 and shipped bytes', 'x64 PE and recursive shipped DLL imports', 'isolated PATH Windows loader/invalid-argument probe (expected exit 1)', 'ZIP entry allowlist and round-trip file hashes')
+    tests = @('clean tracked code-only source audit and pinned portrait manifest', 'SDL vendor SHA256 and shipped bytes', 'x64 PE and recursive shipped DLL imports', 'isolated PATH Windows loader/invalid-argument probe (expected exit 1)', 'ZIP entry allowlist and round-trip file hashes')
     limitations = @('No GUI/gameplay acceptance', 'Static scans cannot prove provenance or detect every embedded payload', 'Hosted runner tools change; byte-identical compiler output is not promised')
 }
 $global:LASTEXITCODE = 0
@@ -244,4 +291,4 @@ try {
     }
 } finally { $zip.Dispose() }
 [IO.File]::WriteAllText("$zipPath.sha256", "$(Get-Sha256 $zipPath)  $name.zip`n", [Text.UTF8Encoding]::new($false))
-Write-Host "Audited preview ZIP: $zipPath"
+Write-Host "Audited code-only base ZIP: $zipPath"

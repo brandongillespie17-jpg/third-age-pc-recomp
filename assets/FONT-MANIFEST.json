@@ -1,0 +1,55 @@
+{
+  "schema": "third-age-optional-original-font-archive-v1",
+  "file": "extras/Ringbearer-original.zip",
+  "sha256": "1a400cd55ece1ce992229ee167e1297c1e6373682d10ef309f8742f5b8d3d13b",
+  "bytes": 132332,
+  "automatic_install_or_load": false,
+  "default_font": "system font",
+  "entries": [
+    {
+      "file": "alphabet.gif",
+      "bytes": 24256,
+      "sha256": "6e4c4fac0e1f9de36266157b3930884568a9fcf67ea212971a461aa71e5b13b7"
+    },
+    {
+      "file": "example1.gif",
+      "bytes": 3912,
+      "sha256": "b17dce620a2d52ed889e8027267c1fa9721ec5004538463851f850245e4aca69"
+    },
+    {
+      "file": "example2.gif",
+      "bytes": 1910,
+      "sha256": "95e8f9e4fd14555cb3e47ff6f52c95e8c6f8cadf30a310485433644420def9f1"
+    },
+    {
+      "file": "example3.gif",
+      "bytes": 21967,
+      "sha256": "0a0d033eb7a722c703f8778241e7480fd0fc8b18c6bb064140dce72dacc75a96"
+    },
+    {
+      "file": "ringbearer.gif",
+      "bytes": 3181,
+      "sha256": "50b6cddf7f894d0faf4b0a2e4c59471cff97e74481f8a0b5e1129bbd95562238"
+    },
+    {
+      "file": "liesmich.html",
+      "bytes": 7749,
+      "sha256": "99da332bb4a1b42a253ca62d9bcfe75cfeac71fc25137b965140112363b64699"
+    },
+    {
+      "file": "readme.html",
+      "bytes": 6540,
+      "sha256": "807be435ccb898e62d48abd084caefb796f341e335a8e57ac61d0257544778c0"
+    },
+    {
+      "file": "RINGM___.TTF",
+      "bytes": 124496,
+      "sha256": "22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b"
+    },
+    {
+      "file": "file_id.diz",
+      "bytes": 116,
+      "sha256": "52a458d137259b3a61b8f12cc665b0e5527431ab68d87787c79542b2f3c2a334"
+    }
+  ]
+}

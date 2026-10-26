@@ -1,4 +1,4 @@
-name: Windows preview package
+name: Windows preview base package
 
 # Deliberately manual. No push/PR/tag trigger and no GitHub Release publication.
 on:
@@ -96,9 +96,9 @@ jobs:
           cmake --build $env:BUILD_ROOT --config Release --target third-age-pc --parallel 2
           if ($LASTEXITCODE -ne 0) { throw 'Windows compilation failed.' }
 
-      - name: Audit dependencies and create preview ZIP
+      - name: Audit dependencies and create code-only base ZIP
         run: |
-          ./tools/package_windows.ps1 -Mode Package -SourceRoot $env:GITHUB_WORKSPACE `
+          ./tools/package_windows.ps1 -Mode PackageBase -SourceRoot $env:GITHUB_WORKSPACE `
             -BuildRoot $env:BUILD_ROOT -Executable "$env:BUILD_ROOT/Release/third-age-pc.exe" `
             -SdlRoot $env:SDL_ROOT -SdlArchive $env:SDL_ARCHIVE `
             -PublicRuntimeCMakeOption $env:PUBLIC_RUNTIME_CMAKE_OPTION `
@@ -107,7 +107,7 @@ jobs:
       - name: Upload only audited ZIP and checksum
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: third-age-pc-windows-x64-preview-${{ github.sha }}
+          name: third-age-pc-windows-x64-preview-base-${{ github.sha }}
           path: |
             ${{ runner.temp }}/third-age-package/*.zip
             ${{ runner.temp }}/third-age-package/*.zip.sha256

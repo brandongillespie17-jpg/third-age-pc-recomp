@@ -1,29 +1,39 @@
 # Windows x64 preview build and package
 
-This workflow prepares a compiler-free **preview** of the public runtime. It does
-not publish a GitHub Release. The parent/runtime owner confirmed
+This workflow prepares an audited **code-only base ZIP** of the compiler-free
+public runtime. A separate local assembler adds the exact approved portraits and
+optional original font archive to the single final Windows **preview ZIP**. Neither
+tool publishes a GitHub Release. The parent/runtime owner confirmed
 `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output
-`<build>/Release/third-age-pc.exe`. The public build must not consume ROM, BIOS,
-private headers, Python-generated game code, Ringbearer bytes, artwork or saves.
+`<build>/Release/third-age-pc.exe`. Public compilation must not consume ROM, BIOS, private headers, Python-generated
+game code, Ringbearer bytes, artwork or saves. The separately packaged approved
+portrait images described below are external runtime assets, not embedded code.
 The original private-input build is a separate path and must never be packaged by
 this workflow.
 
 ## Status and remaining gates
 
-The workflow has **not been dispatched**. Windows compilation, the Windows loader
-probe and actual ZIP generation have not run in this Linux preparation session.
+The parent reports that Windows run 40381881402 compiled successfully, then
+packaging rejected an empty private-include cache entry because of CRLF handling.
+The packaging guard now parses a single line value explicitly, accepts blank
+LF/CRLF entries and still rejects nonblank private paths. A successful audited
+base ZIP and final release ZIP remain pending the next coordinated run. This packaging work has not dispatched CI
+or published anything.
 The runtime owner reports that Linux regressions passed. Those results, local
 source/static checks and inspection of the official SDL Windows DLL are not
 Windows build or gameplay results.
 
-The parent has authorized the initial build and audited ZIP artifact with a
+The parent has authorized the initial build and audited code-only base ZIP artifact with a
 read-only token, then will review the resulting binary package before publishing
 a preview release. There is no automated release publication. Existing
 `LICENSING-INVENTORY.md` and `DISTRIBUTION-NOTICE.md` still describe a source-only
 snapshot and unresolved integration contribution/provenance decisions; retain
 those notices and resolve applicable binary release terms in the parent's final
-review. A no-blob scan cannot settle those questions. Excluded private assets and
-unreviewed third-party binaries must not be added to get past a failed check.
+review. A static file scan cannot settle those questions. The user subsequently
+authorized inclusion of exactly the existing 68 approved photo-based portraits.
+`assets/PORTRAIT-NOTICE.md` records their separate provenance/rights status; this
+specific artwork inclusion supersedes earlier blanket artwork exclusions. Other
+private assets and unreviewed binaries must not be added to bypass a failed check.
 
 The runtime owner has confirmed the startup behavior below. Before the first run,
 the parent should review and commit the integrated runtime and packaging changes. Source-review baseline before this work:
@@ -127,11 +137,82 @@ implementation as well; a cache entry by itself cannot prove safe behavior.
    this preview into an existing campaign/save directory or copy over an original
    save. Use a disposable new save for the first review.
 
-No game, BIOS, Ringbearer font, portraits, HD artwork or personal save is supplied.
-The ZIP needs no assets folder; create `assets/fonts` only if choosing that optional
-font path. The old `WINDOWS-REVIEWER.md` private-build instructions are not the
+The existing 68 approved photo-based portraits are supplied unchanged under
+`assets/portraits`; keep that folder with the executable. No game ROM, BIOS,
+bare font, personal save, film video/music or unrelated artwork is supplied.
+The complete optional Ringbearer archive is supplied separately under `extras`,
+with its original terms; it is not installed or loaded automatically.
+Create `assets/fonts` only if choosing the optional font path. The old `WINDOWS-REVIEWER.md` private-build instructions are not the
 compiler-free end-user procedure. This remains a **preview**: native Windows
 startup, audio, input, battle and save/relaunch acceptance are still pending.
+
+## Source repository, CI base and final download
+
+The source repository contains the small portrait/font manifests and notices,
+not the 320 MB of BMPs or the original font archive. The PowerShell source audit
+rejects all tracked images, archives, bare fonts, ROM/BIOS, generated game data and
+saves. No asset download is needed in CI. `PackageBase` packages the executable,
+SDL, licenses, documentation and small asset manifests/notices only. Its README
+and BUILD-INFO.json explicitly identify it as **code-only**, with zero portraits
+and no font archive. Do not present that intermediate artifact as the finished
+download requested by the user.
+
+The Actions artifact is `third-age-pc-windows-x64-preview-base-<full-commit>`.
+Inside it are `third-age-pc-windows-x64-preview-base-<12-character-commit>.zip` and
+its `.zip.sha256`. The parent must confirm the Windows job passed and review its
+exact commit/checksum before final assembly. The assembler is offline; a supplied
+run URL records provenance but does not independently authenticate remote status.
+
+The final ZIP adds exactly 68 existing BMPs (32 Good, 36 Evil), each 1254 × 1254,
+totaling 320,967,480 bytes before compression. They are copied byte-for-byte:
+no resizing, reencoding or image conversion. Source BMPs match the approved PNG
+masters' decoded RGB pixels, and the master PNG hashes match the approval record.
+Neither those PNGs nor the separate faction backgrounds are included. Originals
+remain untouched. The portrait manifest SHA-256 is
+`41cc3ac7361ffb0108392f30dfc2219eb12d14f233ea26868e420a466c7cb4bd`.
+
+The final ZIP also carries `extras/Ringbearer-original.zip`, the complete,
+unchanged nine-file original local package, SHA-256
+`1a400cd55ece1ce992229ee167e1297c1e6373682d10ef309f8742f5b8d3d13b`.
+This optional archive is never auto-extracted, installed, embedded or loaded.
+The system font remains the default. No bare TTF is packaged. The original
+English/German READMEs and all companion files remain inside the archive; its
+separate notice paraphrases the author's free complete-archive distribution,
+private-use-only, noncommercial and no-modification restrictions. This is not a
+claim of permission to use the font in a publicly distributed game. The font
+manifest SHA-256 is
+`8473afaf9fcddafd18fa25191645558c81647eba80f8fac82415ad30b06d318f`.
+
+## Assemble the single final release ZIP
+
+Run the Python 3.11+ maintainer helper after a successful reviewed Windows job.
+Python is used only for packaging, not on the player's computer. Supply the inner
+base ZIP from the Actions artifact and the checksum/commit verified from that run:
+
+```powershell
+python tools/assemble_windows_release.py `
+  --base-zip 'C:/ReleaseInputs/third-age-pc-windows-x64-preview-base-<commit12>.zip' `
+  --expected-base-sha256 '<reviewed-base-zip-sha256>' `
+  --expected-commit '<reviewed-full-commit-sha>' `
+  --ci-run-url 'https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/<run-id>' `
+  --portraits-dir 'C:/ReleaseInputs/approved-portraits' `
+  --font-archive 'C:/ReleaseInputs/ringbearer.zip' `
+  --output-dir 'C:/ReleaseOutput/new-preview'
+```
+
+The helper accepts only the exact base entry list; rejects unsafe, duplicate or
+symlink ZIP paths; checks every base file's checksum, the expected commit, audit
+metadata, x64 PE headers and exact official SDL DLL; and verifies every selected
+BMP and the entire font archive against fixed manifests/hashes. Extra files in
+the local portrait directory are never read or copied. No recursion, network
+request, executable launch or asset transformation occurs.
+
+The output directory must be new. Output is one
+`third-age-pc-windows-x64-preview-<commit12>.zip` plus its companion `.zip.sha256`.
+The final archive includes a regenerated SHA256SUMS.txt, unchanged CI executable
+and DLL bytes, final BUILD-INFO.json, and original BASE-BUILD-INFO.json. It is
+read back and every entry hash checked before the ZIP loses its `.partial`
+filename. Native Windows GUI/gameplay acceptance remains pending after assembly.
 
 ## Package contents and audits
 
@@ -139,14 +220,18 @@ startup, audio, input, battle and save/relaunch acceptance are still pending.
 only executable files allowed are `third-age-pc.exe` and the exact vendor x64
 `SDL2.dll`. Other files are README.txt, BUILD-INFO.json, SHA256SUMS.txt, required
 license/attribution notices, and the two exact MPL-covered `bios_hle.cpp/.h` source
-files with their license. No recursive build-folder copy is used. MPL source is
+files with their license. The base contains only the small portrait/font manifests and notices. The final
+assembler adds the 68 exact BMPs, original optional font archive and base metadata. No recursive build-folder or asset-folder copy
+is used. MPL source is
 included directly and the README points to the full immutable source revision.
 
-The source preflight rejects dirty/untracked inputs, symlinks, NUL/binary data,
-asset/dump/save extensions and known private/generated input paths. It permits
-the tracked empty BIOS dispatch stub. CI runs this before fetching SDL or
-building, then repeats it before packaging. This is a static input check, not a
-proof that text contains no encoded assets or that all code has clear provenance.
+The source preflight rejects dirty/untracked inputs, symlinks, binary data,
+image/font/archive/dump/save extensions and known private/generated input paths.
+It allows only the four named asset notice/manifest text files, verifying the two
+manifest pins. It permits the tracked empty BIOS dispatch stub. CI runs this
+before fetching SDL or building, then repeats it before packaging. The final
+assembler provides the separate exact-byte image/archive exceptions. Static file
+checks cannot prove provenance or detect every encoded payload in source text.
 
 For each shipped PE, `dumpbin /headers` must identify x64; `/dependents` must
 resolve to the other bundled DLL or an explicit Windows-system/API-set allowlist.
@@ -158,16 +243,17 @@ current runtime continues startup for that argument. The probe has a 15-second
 timeout and supplies no private inputs. Dynamically loaded optional driver DLLs
 and actual graphics/audio initialization still need desktop testing.
 
-The final ZIP has sorted entries and fixed timestamps, an exact entry allowlist,
+Both ZIP stages have sorted entries and fixed timestamps, an exact entry allowlist,
 and a read-back SHA-256 comparison of every entry. SHA256SUMS.txt covers all other
-packaged files; a sibling `.zip.sha256` hashes the whole ZIP. Upload is limited to
-those two files, never build directories, logs, dumps, source caches or inputs.
+packaged files; a sibling `.zip.sha256` hashes the whole ZIP. CI upload is limited to
+its base ZIP and checksum, never build directories, logs, dumps, caches or private
+inputs. Final release publication is a separate parent-coordinated action.
 Artifacts expire after 14 days and are preview artifacts, not GitHub Releases.
 
 This is a repeatable recipe with pinned source/dependency/action revisions, not a
 claim of bit-for-bit build reproducibility: hosted image/tool versions change.
 BUILD-INFO.json records runner image, CMake/compiler version, commit, dependency
-hash and import audit. The ZIP is deterministic only for identical input bytes.
+hash and import audit. Each ZIP stage is deterministic only for identical input bytes and tool versions.
 
 ## Acceptance and failures
 

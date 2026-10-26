@@ -46,6 +46,11 @@
       "sha256": "d7063d09ca93d71abdbd174799446a1afd71a09a9db1ff598a3b7e692cfc2f01"
     },
     {
+      "path": "HD-RELEASE-VALIDATION.json",
+      "bytes": 3186,
+      "sha256": "332a085ef7854d58ab25d3af01f7906fb5769ab1fb3cfd61b5a8cf182cb6fe61"
+    },
+    {
       "path": "LICENSING-INVENTORY.md",
       "bytes": 6718,
       "sha256": "71a10533295ee09a3923d6cdbf924e3d9362866ee6b08569f60595bee0e7a912"
@@ -67,8 +72,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3873,
-      "sha256": "2a45b235036e203ed4196f29e7da5313273fcd27d36641de899ab3d0e3c877a4"
+      "bytes": 4148,
+      "sha256": "899ec961f73ede8b618ed216a0120d10d540b911595e189af5c050c41a300417"
     },
     {
       "path": "RELEASE-VALIDATION.json",
@@ -97,13 +102,18 @@
     },
     {
       "path": "docs/BUILD.md",
-      "bytes": 5957,
-      "sha256": "e3d68032a31a081c9cb82372cfb6c2fa925c61bdc1533bca241ddee53d08feb2"
+      "bytes": 5970,
+      "sha256": "e6c5ec56ef4256caf440f6821aea8b8e63ded076981567919231f3350ba82de4"
     },
     {
       "path": "docs/HD-PRESET.json",
       "bytes": 1241,
       "sha256": "a785161109b6a2185967212ab5f4231c440e1ae4d283a0d410d133983efaa261"
+    },
+    {
+      "path": "docs/LINUX-RELEASE.md",
+      "bytes": 2669,
+      "sha256": "65410809491cb6da0e7ff7ace0a4037ea92fb0ba391cb82732ba21e9cde00e44"
     },
     {
       "path": "docs/PRESENT_DIAGNOSTICS.md",
@@ -117,13 +127,13 @@
     },
     {
       "path": "docs/WINDOWS-RELEASE.md",
-      "bytes": 17063,
-      "sha256": "8ecf8d17db99f427c1994d8dd25156ec163fd7829f6c470b5177f6d0ce7a5ff1"
+      "bytes": 17675,
+      "sha256": "5088d75f519bb94fac80785528544a2d52f0fd0a431aa2145bafbc4dd45bb310"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
-      "bytes": 4358,
-      "sha256": "2550a84142c99702595540746459fa584afb0c83a309a9ae46d8f4987c2c6975"
+      "bytes": 4839,
+      "sha256": "d9886235da764c57714658b5e29d7a33272a89d285781863529528ffc3af6388"
     },
     {
       "path": "inputs/new-game.csv",
@@ -3281,5 +3291,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 656
+  "count_excluding_inventory": 658
 }

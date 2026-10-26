@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "source_commit": "4beaa8d235b3e40549c675fceb1d0218431459e9",
+  "ci_run": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931",
+  "ci": "Windows and Linux builds and live SDL dummy settings tests PASS; dependency and archive audits PASS",
+  "local_300_frame_boot": "Framebuffer and save bytes match previous portable baseline",
+  "releases": {
+    "commit": "4beaa8d235b3e40549c675fceb1d0218431459e9",
+    "run_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931",
+    "publication_run_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676",
+    "windows": {
+      "html_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26",
+      "tag_name": "windows-preview-hd-2026-10-26",
+      "target_commitish": "4beaa8d235b3e40549c675fceb1d0218431459e9",
+      "prerelease": true,
+      "assets": [
+        {
+          "name": "third-age-pc-windows-x64-preview-4beaa8d235b3.zip",
+          "size": 254565945,
+          "digest": "sha256:a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12",
+          "browser_download_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip"
+        },
+        {
+          "name": "third-age-pc-windows-x64-preview-4beaa8d235b3.zip.sha256",
+          "size": 116,
+          "digest": "sha256:7fff0ea776882b42e4ca3fac61ac67b8d49ff05a33630bb9858b815c71387c81",
+          "browser_download_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip.sha256"
+        }
+      ]
+    },
+    "linux": {
+      "html_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/linux-preview-hd-2026-10-26",
+      "tag_name": "linux-preview-hd-2026-10-26",
+      "target_commitish": "4beaa8d235b3e40549c675fceb1d0218431459e9",
+      "prerelease": true,
+      "assets": [
+        {
+          "name": "third-age-pc-linux-x86_64-preview-4beaa8d235b3.tar.gz",
+          "size": 254611003,
+          "digest": "sha256:a2feacb9584987e8f1d98be7bfe75f1939712b2e66b8e0cd31c13d1eb2aed7a8",
+          "browser_download_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/linux-preview-hd-2026-10-26/third-age-pc-linux-x86_64-preview-4beaa8d235b3.tar.gz"
+        },
+        {
+          "name": "third-age-pc-linux-x86_64-preview-4beaa8d235b3.tar.gz.sha256",
+          "size": 120,
+          "digest": "sha256:c1311cf7b9d9deb8d70b493b627512d5b5ce46e6e56a78599807959899edccc4",
+          "browser_download_url": "https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/linux-preview-hd-2026-10-26/third-age-pc-linux-x86_64-preview-4beaa8d235b3.tar.gz.sha256"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Physical display smoothness, audio devices and full-campaign gameplay are not covered by CI",
+    "Native Windows gameplay acceptance remains pending"
+  ]
+}

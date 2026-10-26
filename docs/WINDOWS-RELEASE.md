@@ -1,22 +1,16 @@
 # Windows x64 preview build and package
 
-**For players and reviewers: [download the released Windows ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-2026-10-26/third-age-pc-windows-x64-preview-b8b7714f5a38.zip) or open the [release page](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-2026-10-26).** Extract it and run `third-age-pc.exe`; no compiler, Python, CMake or dependency installer is required. Supply your own matching ROM and BIOS. See [WINDOWS-REVIEWER.md](WINDOWS-REVIEWER.md) for setup and acceptance checks.
+**For players and reviewers: [download the released Windows ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip) or open the [release page](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26).** Extract it and run `third-age-pc.exe`; no compiler, Python, CMake or dependency installer is required. Supply your own matching ROM and BIOS. See [WINDOWS-REVIEWER.md](WINDOWS-REVIEWER.md) for setup and acceptance checks.
 
 ## Current release status
 
-The October 26, 2026 preview is published. [CI run 40383530854](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40383530854), from commit `b8b7714f5a38032dcc51cf6355ea6d4189b68006`, passed Windows compilation, dependency-loader checks and base-ZIP auditing. The final assembled release ZIP contains the executable, SDL2 runtime, 68 unchanged approved portraits and the optional complete original Ringbearer archive. A system font remains the default.
+Windows and Linux compiled and passed the actual SDL overlay/preset/persistence regression with dummy drivers in [CI](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931), built from `4beaa8d235b3e40549c675fceb1d0218431459e9`. The Windows dependency-loader and both archive content/checksum audits passed. Physical display smoothness, audio devices and full-campaign gameplay remain untested by CI; native Windows gameplay acceptance remains pending. The separately [completed publication run](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676) verified both uploaded archives.
 
-Final ZIP: 257,616,570 bytes. SHA-256:
-
-```text
-6a8086fae52a2246c336826b2171bec11ef800b5e9a9dfe076902625c45d3356
-```
-
-A bounded 300-frame Wine boot/save test passed; framebuffer, save, IWRAM and IRQ/SWI logs matched the Linux reference. That test used a supported local font override in an isolated Wine prefix. **Native Windows gameplay validation remains pending the reviewer.** Wine and CI do not prove native GUI, audio, input or complete campaign behavior. Earlier validation records are preserved as historical evidence.
+Final ZIP: 254,565,945 bytes. SHA-256: `a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12`. Includes the executable, SDL2, 68 approved portraits and the unchanged optional font archive.
 
 ## Optional developer build and packaging workflow
 
-The remainder of this guide is for rebuilding the preview, not a prerequisite for using the download. The manual workflow builds a code-only base ZIP with `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output `<build>/Release/third-age-pc.exe`. A separate local assembler adds the exact approved portraits and optional complete font archive. Neither helper publishes a release automatically.
+The remainder of this guide is for rebuilding the preview, not a prerequisite for using the download. The manual workflow builds a code-only base ZIP with `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output `<build>/Release/third-age-pc.exe`. A separate local assembler adds the exact approved portraits and optional complete font archive. Those two helpers do not publish releases. The separate `publish-desktop.yml` workflow invokes the Windows build and a native Linux build, requires their SDL regression checks, reconstructs shared artwork only from hash-pinned previous public assets, audits both archives, and publishes separate prereleases through `tools/publish_desktop.py`. Only its final job has repository content write permission; the superseded-attempt cleanup job has Actions write permission. The builder/publisher runs on `release/hd-smoothing-20261026` and rejects superseded commits. `publish-tested-desktop.yml` supports the `release/hd-publication-20261026` publication retry: it reuses the exact successful platform artifacts, verifies their source SHA and job results, and checks out their exact source revision for packaging.
 
 Compilation consumes no ROM, BIOS, private generated headers, game-code translations, font bytes, artwork or saves. User-owned ROM/BIOS are loaded at runtime. The original private-input source build is a separate developer path and must not be packaged by this workflow. Source and asset metadata are versioned in Git; bulky assets live in release downloads.
 

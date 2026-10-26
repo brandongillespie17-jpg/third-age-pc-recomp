@@ -44,7 +44,7 @@ The launcher selects `.exe` on Windows and also checks a `Release` subdirectory.
 In the overlay (F10 or Escape), Display contains Camera Smoothing and a
 60/120/144/165 Hz Presentation Rate selector. The rate is remembered when
 smoothing is turned off. The expanded battlefield supplies the camera layers;
-turn on Video → Expanded Battlefield to use camera interpolation. Gameplay
+turn on Video → Advanced → Expanded Battlefield to use camera interpolation. Gameplay
 contains the separate experimental Sprite Cache toggle. None changes the
 simulation/audio target rate. Both toggles default off for existing plain
 launches, and preferences save immediately beside the selected save file.

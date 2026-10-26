@@ -1,6 +1,6 @@
 # Windows preview setup and reviewer checklist
 
-**[Download the Windows x64 preview ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-2026-10-26/third-age-pc-windows-x64-preview-b8b7714f5a38.zip)** · [Release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-2026-10-26)
+**[Download the Windows x64 preview ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-hd-2026-10-26/third-age-pc-windows-x64-preview-4beaa8d235b3.zip)** · [Release notes](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-hd-2026-10-26)
 
 This is the end-user package. You do not need a compiler, Python, CMake, an SDK or a dependency installer. Building from source is optional; developers can use [WINDOWS-RELEASE.md](WINDOWS-RELEASE.md) or the separate [private-input build instructions](BUILD.md).
 
@@ -17,17 +17,21 @@ Required owned inputs:
 - ROM: 16,777,216 bytes; SHA-1 `0a7a704d2ba167eb2dc03ad5dcfa0f09ea982a54`.
 - BIOS: 16,384 bytes; SHA-1 `300c20df6731a33952ded8c436f7f186d25d3492`.
 
-The ZIP is 257,616,570 bytes. SHA-256:
+The ZIP is 254,565,945 bytes. SHA-256:
 
 ```text
-6a8086fae52a2246c336826b2171bec11ef800b5e9a9dfe076902625c45d3356
+a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12
 ```
 
 ## What has been verified
 
-Build commit: `b8b7714f5a38032dcc51cf6355ea6d4189b68006`. [Windows CI run 40383530854](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40383530854) passed compilation, dependency-loader checks and ZIP auditing. A 300-frame headless Wine smoke test exited successfully and wrote a save; framebuffer, save, IWRAM and IRQ/SWI logs matched the Linux reference. Wine used a supported local font override because its fresh prefix lacked Windows system fonts.
+Windows and Linux compiled and passed the actual SDL overlay/preset/persistence regression with dummy drivers in [CI](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931), built from `4beaa8d235b3e40549c675fceb1d0218431459e9`. The Windows dependency-loader and both archive content/checksum audits passed. Physical display smoothness, audio devices and full-campaign gameplay remain untested by CI; native Windows gameplay acceptance remains pending. The separately [completed publication run](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676) verified both uploaded archives.
 
 **Native Windows gameplay testing remains assigned to the reviewer.** The checks above do not establish native audio, controls, rendering, camera, save/relaunch behavior or full-campaign acceptance. Historical validation records remain unchanged and describe earlier stages.
+
+## HD and smoothing controls
+
+Video → HD Preset toggles the captured visuals. Advanced tweaks panels, portraits, filtering and colors; OFF/ON remembers your choices. Display → Camera Smoothing and Presentation Rate control motion independently. Gameplay → Sprite Cache exposes the rendering cache.
 
 ## Short runtime checklist
 

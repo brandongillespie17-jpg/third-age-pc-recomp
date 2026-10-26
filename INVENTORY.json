@@ -47,8 +47,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2266,
-      "sha256": "b214f4436fa9186ae79cc7bcddf19dc8fb916d4f32888a5dcbb8887a99d9c3e2"
+      "bytes": 2980,
+      "sha256": "51c0412cec5437f2292c85301dc7fb0c7dcba52fc76472d89849fa801ee72d75"
     },
     {
       "path": "RELEASE-VALIDATION.json",
@@ -92,13 +92,13 @@
     },
     {
       "path": "docs/WINDOWS-RELEASE.md",
-      "bytes": 17060,
-      "sha256": "00fb7fedb93b811ea484aa8ce75b38e728a45a1a6e6ecbfce0e2c37433514f36"
+      "bytes": 17063,
+      "sha256": "8ecf8d17db99f427c1994d8dd25156ec163fd7829f6c470b5177f6d0ce7a5ff1"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
-      "bytes": 6097,
-      "sha256": "0e7263ce01d1c5c2efc4f4e12972a9eda4031ae1eeae50c09544cdadd18c037d"
+      "bytes": 4358,
+      "sha256": "2550a84142c99702595540746459fa584afb0c83a309a9ae46d8f4987c2c6975"
     },
     {
       "path": "inputs/new-game.csv",

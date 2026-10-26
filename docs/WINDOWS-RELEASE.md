@@ -1,45 +1,26 @@
 # Windows x64 preview build and package
 
-This workflow prepares an audited **code-only base ZIP** of the compiler-free
-public runtime. A separate local assembler adds the exact approved portraits and
-optional original font archive to the single final Windows **preview ZIP**. Neither
-tool publishes a GitHub Release. The parent/runtime owner confirmed
-`THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output
-`<build>/Release/third-age-pc.exe`. Public compilation must not consume ROM, BIOS, private headers, Python-generated
-game code, Ringbearer bytes, artwork or saves. The separately packaged approved
-portrait images described below are external runtime assets, not embedded code.
-The original private-input build is a separate path and must never be packaged by
-this workflow.
+**For players and reviewers: [download the released Windows ZIP](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/download/windows-preview-2026-10-26/third-age-pc-windows-x64-preview-b8b7714f5a38.zip) or open the [release page](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/releases/tag/windows-preview-2026-10-26).** Extract it and run `third-age-pc.exe`; no compiler, Python, CMake or dependency installer is required. Supply your own matching ROM and BIOS. See [WINDOWS-REVIEWER.md](WINDOWS-REVIEWER.md) for setup and acceptance checks.
 
-## Status and remaining gates
+## Current release status
 
-The parent reports that Windows run 40381881402 compiled successfully, then
-packaging rejected an empty private-include cache entry because of CRLF handling.
-The packaging guard now parses a single line value explicitly, accepts blank
-LF/CRLF entries and still rejects nonblank private paths. A successful audited
-base ZIP and final release ZIP remain pending the next coordinated run. This packaging work has not dispatched CI
-or published anything.
-The runtime owner reports that Linux regressions passed. Those results, local
-source/static checks and inspection of the official SDL Windows DLL are not
-Windows build or gameplay results.
+The October 26, 2026 preview is published. [CI run 40383530854](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40383530854), from commit `b8b7714f5a38032dcc51cf6355ea6d4189b68006`, passed Windows compilation, dependency-loader checks and base-ZIP auditing. The final assembled release ZIP contains the executable, SDL2 runtime, 68 unchanged approved portraits and the optional complete original Ringbearer archive. A system font remains the default.
 
-The parent has authorized the initial build and audited code-only base ZIP artifact with a
-read-only token, then will review the resulting binary package before publishing
-a preview release. There is no automated release publication. Existing
-`LICENSING-INVENTORY.md` and `DISTRIBUTION-NOTICE.md` still describe a source-only
-snapshot and unresolved integration contribution/provenance decisions; retain
-those notices and resolve applicable binary release terms in the parent's final
-review. A static file scan cannot settle those questions. The user subsequently
-authorized inclusion of exactly the existing 68 approved photo-based portraits.
-`assets/PORTRAIT-NOTICE.md` records their separate provenance/rights status; this
-specific artwork inclusion supersedes earlier blanket artwork exclusions. Other
-private assets and unreviewed binaries must not be added to bypass a failed check.
+Final ZIP: 257,616,570 bytes. SHA-256:
 
-The runtime owner has confirmed the startup behavior below. Before the first run,
-the parent should review and commit the integrated runtime and packaging changes. Source-review baseline before this work:
-`eaeead77171cc6e843fc57a99715f7221b057e09`. The build uses the **dispatched commit**,
-not that obsolete baseline. The checkout SHA is recorded in the ZIP and filename.
-Do not dispatch this preparation before that coordination is complete.
+```text
+6a8086fae52a2246c336826b2171bec11ef800b5e9a9dfe076902625c45d3356
+```
+
+A bounded 300-frame Wine boot/save test passed; framebuffer, save, IWRAM and IRQ/SWI logs matched the Linux reference. That test used a supported local font override in an isolated Wine prefix. **Native Windows gameplay validation remains pending the reviewer.** Wine and CI do not prove native GUI, audio, input or complete campaign behavior. Earlier validation records are preserved as historical evidence.
+
+## Optional developer build and packaging workflow
+
+The remainder of this guide is for rebuilding the preview, not a prerequisite for using the download. The manual workflow builds a code-only base ZIP with `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output `<build>/Release/third-age-pc.exe`. A separate local assembler adds the exact approved portraits and optional complete font archive. Neither helper publishes a release automatically.
+
+Compilation consumes no ROM, BIOS, private generated headers, game-code translations, font bytes, artwork or saves. User-owned ROM/BIOS are loaded at runtime. The original private-input source build is a separate developer path and must not be packaged by this workflow. Source and asset metadata are versioned in Git; bulky assets live in release downloads.
+
+Existing component licenses, integration licensing/provenance decisions, and separate portrait/font rights still apply. See `LICENSING-INVENTORY.md`, `DISTRIBUTION-NOTICE.md`, `assets/PORTRAIT-NOTICE.md` and `assets/FONT-NOTICE.md`. Publishing the preview does not override third-party rights or establish blanket legal clearance.
 
 ## Toolchain and pinned dependency
 

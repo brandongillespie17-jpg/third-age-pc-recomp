@@ -1,6 +1,7 @@
 // asset_picker.cpp — see asset_picker.h.
 
 #include "asset_picker.h"
+#include "utf8_path.h"
 
 #include <cctype>
 #include <cstdio>
@@ -26,22 +27,22 @@ namespace {
 
 std::string exe_dir_from(const std::string& argv0) {
     if (argv0.empty()) return ".";
-    fs::path p(argv0);
+    fs::path p=path_from_utf8(argv0);
     if (p.has_parent_path()) {
         std::error_code ec;
         auto abs = fs::absolute(p, ec);
-        if (!ec) return abs.parent_path().string();
-        return p.parent_path().string();
+        if (!ec) return path_to_utf8(abs.parent_path());
+        return path_to_utf8(p.parent_path());
     }
     return ".";
 }
 
 std::string cache_path(const std::string& exe_dir, const char* filename) {
-    return (fs::path(exe_dir) / filename).string();
+    return path_to_utf8(path_from_utf8(exe_dir)/filename);
 }
 
 std::string read_cache(const std::string& path) {
-    std::ifstream f(path);
+    std::ifstream f(path_from_utf8(path));
     if (!f) return {};
     std::string line;
     std::getline(f, line);
@@ -52,8 +53,9 @@ std::string read_cache(const std::string& path) {
 }
 
 void write_cache(const std::string& path, const std::string& asset_path) {
-    std::ofstream f(path, std::ios::trunc);
+    std::ofstream f(path_from_utf8(path), std::ios::trunc);
     if (f) f << asset_path << "\n";
+    if(!f)std::fprintf(stderr,"Could not save file selection; extract the ZIP to a writable folder.\n");
 }
 
 bool sha1_eq_lower(const std::string& got_hex, const char* expected) {
@@ -103,22 +105,24 @@ std::vector<char> copy_filter(const char* filter) {
 }
 
 std::string pick_with_dialog(const AssetSpec& spec) {
-    auto filter = copy_filter(spec.dialog_filter);
-    char path_buf[MAX_PATH] = {};
-    OPENFILENAMEA ofn{};
+    const auto narrow_filter = copy_filter(spec.dialog_filter);
+    std::vector<wchar_t> filter(narrow_filter.begin(),narrow_filter.end());
+    std::wstring title=path_from_utf8(spec.dialog_title).wstring();
+    wchar_t path_buf[32768] = {};
+    OPENFILENAMEW ofn{};
     ofn.lStructSize = sizeof(ofn);
     ofn.hwndOwner = nullptr;
     ofn.lpstrFilter = filter.data();
     ofn.lpstrFile = path_buf;
-    ofn.nMaxFile = MAX_PATH;
-    ofn.lpstrTitle = spec.dialog_title;
+    ofn.nMaxFile = 32768;
+    ofn.lpstrTitle = title.c_str();
     ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_NOCHANGEDIR;
-    if (!GetOpenFileNameA(&ofn)) return {};
-    return std::string(path_buf);
+    if (!GetOpenFileNameW(&ofn)) return {};
+    return path_to_utf8(fs::path(path_buf));
 }
 
 void show_dialog(const char* title, const std::string& body, UINT flags) {
-    MessageBoxA(nullptr, body.c_str(), title, flags);
+    MessageBoxW(nullptr,path_from_utf8(body).c_str(),path_from_utf8(title).c_str(),flags);
 }
 
 #else
@@ -133,6 +137,11 @@ AssetResult load_and_validate(const std::string& path,
     AssetResult r;
     r.path = path;
     std::string err;
+    std::error_code size_error;
+    auto length=fs::file_size(path_from_utf8(path),size_error);
+    if(size_error||length>64u*1024u*1024u||(spec.expected_size&&length!=spec.expected_size)){
+        r.error=std::string(spec.display_name)+": missing file, wrong size, or exceeds 64 MiB limit";return r;
+    }
     r.bytes = read_file(path, &err);
     if (!err.empty() || r.bytes.empty()) {
         r.error = err.empty() ? ("read failed: " + path) : err;
@@ -191,7 +200,7 @@ AssetResult resolve_asset(const std::string& argv_path,
     //    where the dev default doesn't exist.
     if (!argv_path.empty()) {
         std::error_code ec;
-        if (fs::exists(argv_path, ec) && !ec) {
+        if (fs::exists(path_from_utf8(argv_path), ec) && !ec) {
             auto r = load_and_validate(argv_path, spec);
             if (r.ok) {
                 if (spec.persist_cache) write_cache(cache, argv_path);
@@ -211,7 +220,7 @@ AssetResult resolve_asset(const std::string& argv_path,
         const std::string cached = read_cache(cache);
         if (!cached.empty()) {
             std::error_code ec;
-            if (fs::exists(cached, ec) && !ec) {
+            if (fs::exists(path_from_utf8(cached), ec) && !ec) {
                 auto r = load_and_validate(cached, spec);
                 if (r.ok) return r;
             }
@@ -257,7 +266,7 @@ AssetResult validate_asset_path(const std::string& path,
         return r;
     }
     std::error_code ec;
-    if (!fs::is_regular_file(path, ec) || ec) {
+    if (!fs::is_regular_file(path_from_utf8(path), ec) || ec) {
         AssetResult r;
         r.path = path;
         r.error = std::string(spec.display_name) +

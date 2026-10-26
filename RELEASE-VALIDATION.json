@@ -1,0 +1,80 @@
+{
+  "baseline_commit": "eaeead77171cc6e843fc57a99715f7221b057e09",
+  "release_configuration": "THIRD_AGE_PORTABLE_RELEASE=ON; Release; GCC 16.2.1; SDL2 system library",
+  "linux_build": "passed without ROM/BIOS/generated/private inputs to compiler",
+  "linux_300_frame_boot": "passed; real BIOS intro; final PC 0x0802437a; cycles 66712133; zero dispatch misses",
+  "private_reference_comparison": {
+    "frame.bmp": {
+      "bytes": 115254,
+      "sha256": "22d86559295caeb6f78f7849571ddae0831f4e2e08e35461edd65d8044e23074"
+    },
+    "save.sav": {
+      "bytes": 8192,
+      "sha256": "c976d8f5c8858aaf2c0ee53ef640f48195efc2b16a65ccae98e20e6a7b915846"
+    },
+    "iwram.bin": {
+      "bytes": 32768,
+      "sha256": "a1574e72b4fc0b772099642b7b607f509fa0c41424ade86d7d7d7779b6adfb8b"
+    },
+    "irq.bin": {
+      "bytes": 13535,
+      "sha256": "3a94197a3bfc6eafba543e90a8f18295c04d12c9f6e489ecef184ddcf2ba7d79"
+    },
+    "swi.bin": {
+      "bytes": 3089,
+      "sha256": "ae5e3de762c2788dee4c9e38e4256f3e4bae7dc65ee4c5bafafeced2aa957215"
+    }
+  },
+  "asset_differential_tests": {
+    "portrait_tables_exact": 136,
+    "original_font_glyphs_exact": 96,
+    "graphics_resources_exact": 64,
+    "checks": "registers, flags, scratch buffers, ordered writes, written-byte count and step count"
+  },
+  "startup_tests": [
+    {
+      "case": "system",
+      "exit": 0
+    },
+    {
+      "case": "ringbearer",
+      "exit": 0
+    },
+    {
+      "case": "liberation",
+      "exit": 0
+    },
+    {
+      "case": "badfont",
+      "exit": 1
+    },
+    {
+      "case": "badbios",
+      "exit": 1
+    },
+    {
+      "case": "badrom",
+      "exit": 1
+    },
+    {
+      "case": "no inputs / no cached paths",
+      "exit": 1
+    },
+    {
+      "case": "Linux Unicode and spaces in ROM/BIOS/save paths, 300-frame reference comparison",
+      "exit": 0
+    }
+  ],
+  "windows": "Not yet compiled or runtime-tested; reviewer native testing remains required",
+  "limitations": [
+    "Boot regression is not a full campaign playthrough.",
+    "Windows picker cancel/relaunch and Unicode path behavior await Windows testing.",
+    "Optional HD artwork is external and was not distributed."
+  ],
+  "executable_sha256": "049493b67ed5af69b9f4c9cadc9220659eada3db984f8acf27268ae45d441779",
+  "binary_sample_screen": {
+    "private_high_diversity_samples_checked": 547,
+    "matches": 0,
+    "scope": "Sample screen plus compiler dependency audit; not an independent legal clearance"
+  }
+}

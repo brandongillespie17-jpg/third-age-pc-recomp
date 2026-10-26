@@ -40,7 +40,7 @@ class ThirdAgeHdPanel {
         return nullptr;
     }
     static double text_width(const std::string& s,double size){
-        double w=0;unsigned prev=0;for(unsigned char c:s){w+=hd_font::kerning(prev,c)*size/2048.;if(c==1)w+=size;else if(auto g=glyph(c))w+=g->advance*size/2048.;prev=c;}return w;
+        double w=0;unsigned prev=0;for(unsigned char c:s){w+=hd_font::kerning(prev,c)*size/double(hd_font::units_per_em());if(c==1)w+=size;else if(auto g=glyph(c))w+=g->advance*size/double(hd_font::units_per_em());prev=c;}return w;
     }
     void pixel(int x,int y,uint32_t color,double alpha=1){
         if(x<0||y<0||x>=width_||y>=height_)return;
@@ -56,7 +56,7 @@ class ThirdAgeHdPanel {
             std::fill(pixels_.begin()+yy*width_+std::clamp(x,0,width_),pixels_.begin()+yy*width_+std::clamp(x+w,0,width_),color);
     }
     void text(const std::string& value,double x,double baseline,double size,uint32_t color,uint32_t outline=0,int radius=0){
-        const double scale=size/2048.;unsigned prev=0;
+        const double scale=size/double(hd_font::units_per_em());unsigned prev=0;
         for(unsigned char c:value){x+=hd_font::kerning(prev,c)*scale;prev=c;
             if(c==1){icon(3,int(std::lround(x)),int(std::lround(baseline-size*.82)),std::max(1,int(std::lround(size))),color);x+=size;continue;}
             auto g=glyph(c);if(!g)continue;

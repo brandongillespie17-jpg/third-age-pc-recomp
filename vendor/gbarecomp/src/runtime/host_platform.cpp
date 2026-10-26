@@ -1,4 +1,5 @@
 #include "host_platform.h"
+#include "utf8_path.h"
 
 #include <cstdio>
 #include <algorithm>
@@ -121,7 +122,7 @@ void FramePacer::wait_for_next_frame() {
 
 std::vector<unsigned char> read_file(const std::string& path, std::string* error) {
     std::vector<unsigned char> out;
-    std::FILE* f = std::fopen(path.c_str(), "rb");
+    std::FILE* f = fopen_utf8(path, "rb");
     if (!f) {
         if (error) *error = "open failed: " + path;
         return out;

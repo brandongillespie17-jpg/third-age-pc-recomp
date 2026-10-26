@@ -3,12 +3,17 @@
 #pragma once
 #include "third_age_portrait_assets.h"
 #include <unordered_map>
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+#include "third_age_runtime_portraits.h"
+#endif
 namespace gbarecomp {
 // Exact visible-pixel signatures from the verified 40x40 originals.
 // No approximate identification; occluded or unknown art stays native; supported fades retain HD art.
+#ifndef THIRD_AGE_PORTABLE_RELEASE
 struct ThirdAgePortraitProbe {uint16_t offset;uint32_t rgb;};
 // Private ROM-derived signatures are supplied locally; see docs/BUILD.md.
 #include "third_age_portrait_patterns.private.inc"
+#endif
 struct ThirdAgeNativePortraitHit {int id,x,y,size=40;uint8_t red=255,green=255,blue=255;int anchor_x=0,anchor_y=0;};
 class ThirdAgeNativePortraitMatcher {
     struct Probe {uint16_t offset;uint8_t index;};

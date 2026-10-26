@@ -25,6 +25,7 @@
 #include "view_config.h"
 
 #include "asset_picker.h"
+#include "utf8_path.h"
 #include "bios_hle.h"
 #include "gba_bios.h"
 #include "gba_bus.h"
@@ -41,6 +42,9 @@
 #include "third_age_profile.h"
 #include "third_age_native_ai.h"
 #include "third_age_native_decode.h"
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+#include "third_age_runtime_portraits.h"
+#endif
 #include "third_age_fast_path.h"
 #include "touch_input.h"
 #include "runtime_arm.h"
@@ -499,7 +503,7 @@ std::string resolve_config_path(const std::filesystem::path& base,
 
 bool read_file(const std::string& path, std::vector<uint8_t>* out,
                std::string* err) {
-    std::ifstream f(path, std::ios::binary | std::ios::ate);
+    std::ifstream f(path_from_utf8(path), std::ios::binary | std::ios::ate);
     if (!f) {
         if (err) *err = "could not open " + path;
         return false;
@@ -529,7 +533,7 @@ bool write_bmp(const std::string& path, const uint8_t* rgb,
     uint32_t pixel_data_size = padded_row * h;
     uint32_t file_size = 14 + 40 + pixel_data_size;
 
-    std::ofstream f(path, std::ios::binary);
+    std::ofstream f(path_from_utf8(path), std::ios::binary);
     if (!f) return false;
 
     auto put_u16 = [&](uint16_t v) {
@@ -666,7 +670,7 @@ bool write_png(const std::string& path, const uint8_t* rgb,
     chunk("IDAT", zlib);
     chunk("IEND", {});
 
-    std::ofstream f(path, std::ios::binary);
+    std::ofstream f(path_from_utf8(path), std::ios::binary);
     if (!f) return false;
     f.write(reinterpret_cast<const char*>(out.data()),
             static_cast<std::streamsize>(out.size()));
@@ -675,7 +679,7 @@ bool write_png(const std::string& path, const uint8_t* rgb,
 
 bool write_file(const std::string& path, const std::vector<uint8_t>& bytes,
                 std::string* err) {
-    std::filesystem::path p(path);
+    std::filesystem::path p=path_from_utf8(path);
     std::error_code ec;
     if (p.has_parent_path()) {
         std::filesystem::create_directories(p.parent_path(), ec);
@@ -686,7 +690,7 @@ bool write_file(const std::string& path, const std::vector<uint8_t>& bytes,
         }
     }
 
-    std::ofstream f(path, std::ios::binary | std::ios::trunc);
+    std::ofstream f(path_from_utf8(path), std::ios::binary | std::ios::trunc);
     if (!f) {
         if (err) *err = "could not open save file for write " + path;
         return false;
@@ -1400,6 +1404,10 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
                                 ? gba::GbaBios::kExpectedSha1
                                 : args.bios_sha1.c_str();
         spec.expected_crc32 = args.bios_crc32;
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+        spec.expected_sha1=gba::GbaBios::kExpectedSha1;
+        spec.hash_mismatch_is_error=true;
+#endif
         auto r = resolve_asset(args.bios, spec, argv[0]);
         if (!r.ok) {
             std::fprintf(stderr,
@@ -1431,6 +1439,11 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
         spec.expected_size  = 0;  // GBA ROMs vary in size; SHA-1 covers it
         spec.expected_sha1  = args.rom_sha1.c_str();
         spec.expected_crc32 = args.rom_crc32;
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+        spec.expected_size=16777216;
+        spec.expected_sha1=opts.builtin_rom_sha1;
+        spec.hash_mismatch_is_error=true;
+#endif
         auto r = resolve_asset(args.rom, spec, argv[0]);
         if (!r.ok) {
             std::fprintf(stderr,
@@ -1548,6 +1561,22 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
     }
 #endif
 
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+    try {
+        if(rom_sha1!=opts.builtin_rom_sha1)throw std::runtime_error("Unsupported release ROM revision");
+        if(args.save_path.empty()){
+            auto saves=std::filesystem::absolute(path_from_utf8(argv[0])).parent_path()/"saves";
+            std::filesystem::create_directories(saves);
+            args.save_path=path_to_utf8(saves/"third-age.sav");
+        }
+        initialize_runtime_portraits(rom.data(),rom.size());
+        auto font=hd_font::initialize_external_font(std::filesystem::absolute(path_from_utf8(argv[0])));
+        std::fprintf(stderr,"UI font: %s\n",font.c_str());
+    }catch(const std::exception& e){
+        std::fprintf(stderr,"Release setup failed: %s\n",e.what());return 1;
+    }
+#endif
+
     gba::GbaBus bus;
     gba::GbaPpu ppu;
     bus.set_bios(&bios);
@@ -1565,7 +1594,7 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
         args.bios_hle_keep_intro = (e[0] && e[0] != '0');
     if (const char* e = std::getenv("GBARECOMP_BIOS_SKIP_INTRO"))
         args.bios_skip_intro = (e[0] && e[0] != '0') ? 1 : 0;
-#if !defined(GBARECOMP_HAVE_BIOS_RECOMP)
+#if !defined(GBARECOMP_HAVE_BIOS_RECOMP) && !defined(THIRD_AGE_PORTABLE_RELEASE)
     if (!args.bios_hle) {
         args.bios_hle = true;
         if (!args.quiet) {
@@ -1598,9 +1627,13 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
     // dispatching generated code (device/IRQ/BIOS/clock path unchanged). This is
     // the interp side of the recomp-vs-interp first-divergence oracle; the recomp
     // side is the same binary with the flag unset. See COSIM_ORACLE.md §1.
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+    g_force_interp = 1; // Release contains no cartridge/BIOS generated dispatch.
+#else
     g_force_interp = 0;
     if (const char* fi = std::getenv("GBARECOMP_FORCE_INTERP"))
         g_force_interp = (fi[0] && fi[0] != '0') ? 1 : 0;
+#endif
     std::fprintf(stderr, "cpu_backend=%s\n",
                  g_force_interp ? "interpreter (GBARECOMP_FORCE_INTERP)"
                                 : "static-recompiled");
@@ -1835,7 +1868,7 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
 
         std::error_code ec;
         if (!args.save_path.empty() &&
-            std::filesystem::exists(args.save_path, ec)) {
+            std::filesystem::exists(path_from_utf8(args.save_path), ec)) {
             std::vector<uint8_t> save_bytes;
             if (!read_file(args.save_path, &save_bytes, &err)) {
                 std::fprintf(stderr, "[gbarecomp:runtime] %s\n", err.c_str());
@@ -1874,7 +1907,7 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
 
         std::error_code ec;
         if (!args.save_path.empty() &&
-            std::filesystem::exists(args.save_path, ec)) {
+            std::filesystem::exists(path_from_utf8(args.save_path), ec)) {
             std::vector<uint8_t> save_bytes;
             if (!read_file(args.save_path, &save_bytes, &err)) {
                 std::fprintf(stderr, "[gbarecomp:runtime] %s\n", err.c_str());
@@ -1920,7 +1953,7 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
 
         std::error_code ec;
         if (!args.save_path.empty() &&
-            std::filesystem::exists(args.save_path, ec)) {
+            std::filesystem::exists(path_from_utf8(args.save_path), ec)) {
             std::vector<uint8_t> save_bytes;
             if (!read_file(args.save_path, &save_bytes, &err)) {
                 std::fprintf(stderr, "[gbarecomp:runtime] %s\n", err.c_str());
@@ -1974,19 +2007,19 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
             return false;
         }
         std::error_code ec;
-        std::filesystem::rename(tmp, args.save_path, ec);  // REPLACE_EXISTING on NTFS/POSIX
+        std::filesystem::rename(path_from_utf8(tmp), path_from_utf8(args.save_path), ec);  // REPLACE_EXISTING on NTFS/POSIX
         if (ec) {
             // Rare filesystems refuse atomic rename-over; fall back to
             // remove-then-rename (a narrower non-atomic window, still far
             // better than writing the target in place).
             std::error_code ec2;
-            std::filesystem::remove(args.save_path, ec2);
-            std::filesystem::rename(tmp, args.save_path, ec2);
+            std::filesystem::remove(path_from_utf8(args.save_path), ec2);
+            std::filesystem::rename(path_from_utf8(tmp), path_from_utf8(args.save_path), ec2);
             if (ec2) {
                 std::fprintf(stderr,
                              "[gbarecomp:runtime] save rename failed: %s\n",
                              ec2.message().c_str());
-                std::filesystem::remove(tmp, ec2);
+                std::filesystem::remove(path_from_utf8(tmp), ec2);
                 return false;
             }
         }
@@ -2155,7 +2188,7 @@ int run_game(int argc, char** argv, const RunOptions& opts) {
     if(third_age_game) {
         third_age_settings.scale=args.scale;third_age_settings.volume=args.volume;
         third_age_settings.fullscreen=args.fullscreen!=0;third_age_settings.smooth=args.linear_filter;
-        third_age_settings.load(std::filesystem::path(args.save_path).parent_path()/"third-age-settings.ini");
+        third_age_settings.load(path_from_utf8(args.save_path).parent_path()/"third-age-settings.ini");
         if(const char* e=std::getenv("GBARECOMP_MOUSE"))third_age_settings.mouse=e[0]!='0';
         if(const char* e=std::getenv("GBARECOMP_FRAME_BLEND"))third_age_settings.blend=e[0]!='0';
         if(const char* e=std::getenv("GBARECOMP_SKIP_COMBAT"))third_age_settings.skip_combat=e[0]=='1';

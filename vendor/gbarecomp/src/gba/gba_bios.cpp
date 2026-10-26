@@ -1,6 +1,7 @@
 // gba_bios.cpp — see gba_bios.h.
 
 #include "gba_bios.h"
+#include "../runtime/utf8_path.h"
 
 #include <cstdio>
 #include <cstring>
@@ -18,7 +19,7 @@ bool GbaBios::load_from_file(const std::string& path,
     loaded_ = false;
     sha1_hex_.clear();
 
-    std::FILE* f = std::fopen(path.c_str(), "rb");
+    std::FILE* f = gbarecomp::fopen_utf8(path, "rb");
     if (!f) {
         if (err) *err = "open failed: " + path;
         return false;

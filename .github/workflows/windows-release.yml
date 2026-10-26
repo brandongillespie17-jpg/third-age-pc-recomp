@@ -1,0 +1,117 @@
+name: Windows preview package
+
+# Deliberately manual. No push/PR/tag trigger and no GitHub Release publication.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows-preview:
+    runs-on: windows-2022
+    timeout-minutes: 40
+    env:
+      # Runtime owner confirmed this public, compiler-free build contract.
+      RELEASE_CONTRACT_CONFIRMED: 'true'
+      PUBLIC_RUNTIME_CMAKE_OPTION: THIRD_AGE_PORTABLE_RELEASE
+      SDL_VERSION: 2.32.10
+      SDL_SHA256: af347939395a58b365846aaea27391e69f9ec9d4dd650d6ac40802159b418a6e
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Require reviewed release contract
+        run: |
+          if ($env:RELEASE_CONTRACT_CONFIRMED -ne 'true' -or $env:PUBLIC_RUNTIME_CMAKE_OPTION -eq 'UNCONFIRMED') {
+            throw 'Release contract is pending. See docs/WINDOWS-RELEASE.md; do not dispatch until the parent confirms the public build flags and target.'
+          }
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          submodules: false
+          lfs: false
+          fetch-depth: 1
+
+      - name: Audit clean source inputs
+        run: ./tools/package_windows.ps1 -Mode AuditSource -SourceRoot $env:GITHUB_WORKSPACE
+
+      - name: Activate preinstalled MSVC x64 tools
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if ($LASTEXITCODE -ne 0 -or !$vs) { throw 'Preinstalled MSVC was not found.' }
+          Import-Module "$vs/Common7/Tools/Microsoft.VisualStudio.DevShell.dll"
+          Enter-VsDevShell -VsInstallPath $vs -SkipAutomaticLocation -DevCmdArguments '-arch=x64 -host_arch=x64'
+          # Each subsequent step is a fresh process; persist the developer environment.
+          foreach ($name in @('PATH','INCLUDE','LIB','LIBPATH','VCToolsInstallDir')) {
+            "$name=$([Environment]::GetEnvironmentVariable($name))" >> $env:GITHUB_ENV
+          }
+          cmake --version
+          if ($LASTEXITCODE -ne 0) { throw 'Preinstalled CMake is unavailable.' }
+          & cl.exe 2>&1 | Write-Host
+          # cl without input intentionally returns nonzero; record the version only.
+          $global:LASTEXITCODE = 0
+
+      - name: Fetch and verify official SDL2 VC dependency
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'SDL2-devel-2.32.10-VC.zip'
+          $url = 'https://github.com/libsdl-org/SDL/releases/download/release-2.32.10/SDL2-devel-2.32.10-VC.zip'
+          Invoke-WebRequest -Uri $url -OutFile $archive
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne $env:SDL_SHA256) { throw 'SDL2 SHA256 mismatch.' }
+          $destination = Join-Path $env:RUNNER_TEMP 'third-age-sdl'
+          if (Test-Path $destination) { throw 'Dependency directory must be fresh.' }
+          Expand-Archive -LiteralPath $archive -DestinationPath $destination
+          "SDL_ARCHIVE=$archive" >> $env:GITHUB_ENV
+          "SDL_ROOT=$destination/SDL2-2.32.10" >> $env:GITHUB_ENV
+
+      - name: Configure public runtime with no private inputs
+        run: |
+          if ($env:PUBLIC_RUNTIME_CMAKE_OPTION -notmatch '^THIRD_AGE_[A-Z0-9_]+$') { throw 'Invalid reviewed CMake option.' }
+          $build = Join-Path $env:RUNNER_TEMP 'third-age-windows-build'
+          if (Test-Path $build) { throw 'Build directory must be fresh.' }
+          "BUILD_ROOT=$build" >> $env:GITHUB_ENV
+          cmake -S . -B $build -G 'Visual Studio 17 2022' -A x64 `
+            "-D$($env:PUBLIC_RUNTIME_CMAKE_OPTION)=ON" `
+            -DTHIRD_AGE_ALLOW_HEADLESS=OFF `
+            -DGBARECOMP_STATIC_RELEASE=OFF `
+            -DGBARECOMP_COMPILER_CACHE=OFF `
+            -DGBARECOMP_SELFHEAL_RECOMPILE_DEFAULT=OFF `
+            -DGBARECOMP_ENABLE_MODS=OFF `
+            -DGBARECOMP_BUILD_ORACLE=OFF `
+            -DGBA_COSIM=OFF `
+            -DFETCHCONTENT_FULLY_DISCONNECTED=ON `
+            -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
+            "-DSDL2_INCLUDE_DIR=$env:SDL_ROOT/include" `
+            "-DSDL2_LIBRARY=$env:SDL_ROOT/lib/x64/SDL2.lib"
+          if ($LASTEXITCODE -ne 0) { throw 'CMake configuration failed.' }
+
+      - name: Build only reviewed runtime target
+        run: |
+          cmake --build $env:BUILD_ROOT --config Release --target third-age-pc --parallel 2
+          if ($LASTEXITCODE -ne 0) { throw 'Windows compilation failed.' }
+
+      - name: Audit dependencies and create preview ZIP
+        run: |
+          ./tools/package_windows.ps1 -Mode Package -SourceRoot $env:GITHUB_WORKSPACE `
+            -BuildRoot $env:BUILD_ROOT -Executable "$env:BUILD_ROOT/Release/third-age-pc.exe" `
+            -SdlRoot $env:SDL_ROOT -SdlArchive $env:SDL_ARCHIVE `
+            -PublicRuntimeCMakeOption $env:PUBLIC_RUNTIME_CMAKE_OPTION `
+            -OutputDirectory "$env:RUNNER_TEMP/third-age-package" -Commit $env:GITHUB_SHA
+
+      - name: Upload only audited ZIP and checksum
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: third-age-pc-windows-x64-preview-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/third-age-package/*.zip
+            ${{ runner.temp }}/third-age-package/*.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+          include-hidden-files: false

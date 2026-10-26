@@ -1,6 +1,11 @@
 {
   "files": [
     {
+      "path": ".github/workflows/windows-release.yml",
+      "bytes": 5627,
+      "sha256": "8a9fa6af6ac856ca9f0749362094babb73aef9651cde88644794927c1c7cdef9"
+    },
+    {
       "path": ".gitignore",
       "bytes": 428,
       "sha256": "b3499ff7d9e32031d84263e4ec8440776cc8fd8abdea3adcdc45328a38ee2892"
@@ -12,8 +17,8 @@
     },
     {
       "path": "CMakeLists.txt",
-      "bytes": 2068,
-      "sha256": "90763e6afbc32eef755c88a804d0b7449a652159b9246b39a6094b442a9c1d76"
+      "bytes": 3131,
+      "sha256": "408b2e090e5cf8b5acf1632d69cfc8097bfb74e563377180ab1911afd5762b51"
     },
     {
       "path": "DEPENDENCIES.json",
@@ -42,8 +47,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 1694,
-      "sha256": "b62811ba891bce869c7db42e6da8740ce1e4bb0f55638dd838938d2affe09af1"
+      "bytes": 2266,
+      "sha256": "b214f4436fa9186ae79cc7bcddf19dc8fb916d4f32888a5dcbb8887a99d9c3e2"
+    },
+    {
+      "path": "RELEASE-VALIDATION.json",
+      "bytes": 2467,
+      "sha256": "956aa0cd4d63fd0a506dadddcc09f6556d639e9f5118a068ba1506e023c5d3b4"
     },
     {
       "path": "docs/BUILD.md",
@@ -59,6 +69,11 @@
       "path": "docs/ROADMAP.md",
       "bytes": 1428,
       "sha256": "1079418ef1263c4bd841da2ce6b3b20a8b4176cd21581aab8cef85a699eee437"
+    },
+    {
+      "path": "docs/WINDOWS-RELEASE.md",
+      "bytes": 11483,
+      "sha256": "769731dfebfa890553fe26c372aab978be9ca9abc9db4882b6ef6b355fafd1dc"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
@@ -101,9 +116,14 @@
       "sha256": "7f42cbd9fb4062969cab871a42e642d22b3b12cb9dc08cac622e693584497c6d"
     },
     {
+      "path": "src/empty_dispatch.cpp",
+      "bytes": 308,
+      "sha256": "7cfed96fe23e467e7d12ec42b05b355b6447939df7d021c753af2aae2cdc7a77"
+    },
+    {
       "path": "src/main.cpp",
-      "bytes": 806,
-      "sha256": "2e33b9005bfd93652f69bf3389d281359b45b7e721872bb2358dc21cc6e5410c"
+      "bytes": 1946,
+      "sha256": "363e7b79fd34fb13aa4299f34ff6e37e4bbef4532963f0ab8ae4a90b9f9ebf9f"
     },
     {
       "path": "tests/diagnostic-ring.cpp",
@@ -156,6 +176,11 @@
       "sha256": "496d3d002703951eabcbcfbf23c467f84a6fbc7bd2ff3fb1d87f94c318c0ca1d"
     },
     {
+      "path": "tools/package_windows.ps1",
+      "bytes": 15181,
+      "sha256": "4e248420673875d75b52b59fec38e91aa37a0cc5409e98e5e3f02e37c792864e"
+    },
+    {
       "path": "tools/preflight.py",
       "bytes": 2547,
       "sha256": "b466268b17bb78c133e68eb36cc1e6d1d83b9b46ef33e9ea2b94f27c83528305"
@@ -169,6 +194,11 @@
       "path": "tools/reference_frame.c",
       "bytes": 1966,
       "sha256": "24f6fa0f21546d3876223a3d0d7e4fcfc970a48ba17d745269f34c5102d6cb6f"
+    },
+    {
+      "path": "tools/test_runtime_assets.cpp",
+      "bytes": 5868,
+      "sha256": "c288c8ab5bdfcba34c51a9eb272bbb37de4067ca6f635bc14ab1ed69ab38f0aa"
     },
     {
       "path": "vendor/gbarecomp/.gitattributes",
@@ -1577,8 +1607,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/armv4t/runtime_arm.cpp",
-      "bytes": 70972,
-      "sha256": "fa4242578d95ed7383d017c925c674a7313046fb649d62689679eb8822fb9a21"
+      "bytes": 71275,
+      "sha256": "4fd9760ee2af42b9ec700e54f90dfcf551b74ed0d2ce49eccfc424490fee6ef3"
     },
     {
       "path": "vendor/gbarecomp/src/armv4t/runtime_arm.h",
@@ -1747,8 +1777,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/gba/gba_bios.cpp",
-      "bytes": 2151,
-      "sha256": "06afbd74ea214894e289131923aeb9e43f2e6a14f647c7c858ba09c5827ed38c"
+      "bytes": 2188,
+      "sha256": "aaa9596436cd181a0018d389732347de4832c31ef9073288ea9dfdb0009a1c79"
     },
     {
       "path": "vendor/gbarecomp/src/gba/gba_bios.h",
@@ -2062,8 +2092,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/asset_picker.cpp",
-      "bytes": 8317,
-      "sha256": "5ba229c892a77c4af1edbc310403febfa42d0f002c1bdceec3fabc0a48da98a2"
+      "bytes": 9062,
+      "sha256": "36c202ab48f2815313004cb8c7b71c4d371df807a1870f3e7a8b8864235f772f"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/asset_picker.h",
@@ -2127,8 +2157,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.cpp",
-      "bytes": 5341,
-      "sha256": "37c7257527c58818680b4e911633a66480185e099faed732f065998613b32c87"
+      "bytes": 5356,
+      "sha256": "c9c53f7152eec589ce3213ce71ffa2787f371f997d793785e560ed575c644140"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.h",
@@ -2357,8 +2387,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/runtime.cpp",
-      "bytes": 227479,
-      "sha256": "a317f9914b6230167971af2b28bf958236359517b1d464b30798ba581901bdac"
+      "bytes": 229043,
+      "sha256": "12a0bf14cb280da87f55494ab4aba33452f5abe54e0931a3a0e574fa86ca8493"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/runtime.h",
@@ -2447,13 +2477,13 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_hd_font.h",
-      "bytes": 7157,
-      "sha256": "c968543763adda0d4e597907174757d1f2fdfc7b49dda723988b060724de3ec8"
+      "bytes": 10863,
+      "sha256": "d06189d35b32fa2819daea17b931305b5fab316cb40a9de688dc3b26ce06e9ed"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_hd_panel.h",
-      "bytes": 34031,
-      "sha256": "3ff3790e708d62d1cb6ae01740f814e33563da21ff47926a8e8408245072cf8f"
+      "bytes": 34109,
+      "sha256": "3fad8dbf0b9565268d5911be3c740ed9bb827c4f2f33f935275d96493e286a37"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_intro.h",
@@ -2472,13 +2502,13 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_native_decode.h",
-      "bytes": 3125,
-      "sha256": "ef170d8f0f44b4d97e9f23f6adf0fa1860a313a37940def109ccbc8263256239"
+      "bytes": 3233,
+      "sha256": "bb2b15e7ad4f25642305f7951bd71c2be6ce62e72f4515033e925ce48abcddc2"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_native_portraits.h",
-      "bytes": 17948,
-      "sha256": "4f324ef97a42aaaeb4ed0e5185059547f62aa6fdd1c2a3a276251f18cfa3e969"
+      "bytes": 18072,
+      "sha256": "cf047f58759a23b7a191d8d37706525daf7a9543707cc5d4d9d70c8b1e9426f5"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_overlay.h",
@@ -2509,6 +2539,16 @@
       "path": "vendor/gbarecomp/src/runtime/third_age_refresh_clock.h",
       "bytes": 7134,
       "sha256": "09e694e8b898d68cb2b8335701b5bebf8c668cfc7c524c1c046d946bb374b2f3"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_runtime_decode.inc",
+      "bytes": 4714,
+      "sha256": "610f388e9e9510f44b29cfcc15dae22dbc8be04caf13cfba746d75a63c664446"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/third_age_runtime_portraits.h",
+      "bytes": 4247,
+      "sha256": "a6051522df73bd0572342a75eaef843a4ca1289e86823c97d460599b507045a8"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/third_age_settings.h",
@@ -2559,6 +2599,11 @@
       "path": "vendor/gbarecomp/src/runtime/touch_input.h",
       "bytes": 12048,
       "sha256": "23af94e6cf5bcf39c761feecdb1736a7fc463b480036b0b8fbe7df9093561136"
+    },
+    {
+      "path": "vendor/gbarecomp/src/runtime/utf8_path.h",
+      "bytes": 729,
+      "sha256": "c3e062059fccaa28962c11c1401e77edade53c8f033af44d2e955d5b26a6f127"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/view_config.h",
@@ -3166,5 +3211,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 633
+  "count_excluding_inventory": 642
 }

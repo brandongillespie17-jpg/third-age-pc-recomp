@@ -1,5 +1,6 @@
 #pragma once
 #include <array>
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <vector>
@@ -54,7 +55,11 @@ struct ThirdAgeNativeDecode {
         auto& r=regs;bool n=flags>>31,z=(flags>>30)&1,c=(flags>>29)&1,v=(flags>>28)&1;
         try {
 // Generated locally from the owned ROM; never distribute translated game code.
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+#include "third_age_runtime_decode.inc"
+#else
 #include "third_age_native_decode.private.inc"
+#endif
         }catch(const Unsupported&){return false;}
     }
 };

@@ -1355,6 +1355,12 @@ extern "C" void runtime_swi(uint32_t swi_imm) {
     // codegen does not tick this op.
     runtime_tick(3u + swi_fetch);
 
+#ifdef THIRD_AGE_PORTABLE_RELEASE
+    // The interpreter caller has no generated native frame to unwind. Resume
+    // at the real BIOS vector through the outer instruction/IRQ driver.
+    // Preserve SVC banking, SWI cycle charge and BIOS execution; no HLE switch.
+    if(g_force_interp)return;
+#endif
     runtime_dispatch(0x00000008u);
 }
 

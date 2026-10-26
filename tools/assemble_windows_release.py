@@ -230,6 +230,8 @@ def assemble(base: Path, expected_hash: str, commit: str, portraits_dir: Path,
     contents['README.txt'] = readme.encode()
     contents['extras/Ringbearer-original.zip'] = font_bytes
     active=active_font_files(font_bytes);contents.update(active)
+    for notice in ['DISTRIBUTION-NOTICE.md','LICENSING-INVENTORY.md']:
+        contents['notices/'+notice]=(Path(__file__).resolve().parent.parent/notice).read_bytes()
     contents['extras/Ringbearer-NOTICE.txt']=(Path(__file__).resolve().parent.parent/'assets/FONT-NOTICE.md').read_bytes()
     hashes = {name: sha256(data) for name, data in contents.items() if name != 'SHA256SUMS.txt'}
     hashes.update({row['file']: row['sha256'] for row in manifest['files']})

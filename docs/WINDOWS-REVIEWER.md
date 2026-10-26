@@ -8,7 +8,7 @@ This is the end-user package. You do not need a compiler, Python, CMake, an SDK 
 
 1. Download the ZIP and extract it into a new writable folder. Do not run directly inside the ZIP or overwrite an existing installation or save.
 2. Double-click `third-age-pc.exe`. Select your own matching BIOS and ROM when prompted. Valid selections are cached for later launches; cancellation exits setup.
-3. Use the default system font. The complete original Ringbearer ZIP is optional, with its original terms and a separate notice; it is not automatically installed. Follow the packaged README if choosing that font.
+3. Ringbearer loads automatically from the included assets/fonts/ringbearer.ttf. Keep the complete assets/fonts folder and original READMEs. No manual font extraction or Windows font installation is required.
 4. The package includes the 68 approved portraits. New game saves and preferences use the extracted installation's `saves` directory. Keep an original campaign save separate while testing.
 5. Complete the checklist below and report any unchecked item as **not tested**.
 

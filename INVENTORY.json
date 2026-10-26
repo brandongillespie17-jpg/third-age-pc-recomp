@@ -42,8 +42,8 @@
     },
     {
       "path": "DISTRIBUTION-NOTICE.md",
-      "bytes": 3322,
-      "sha256": "718f7d41f7a328c87a5d374924a51d8885dcadf3f5ee9b8ad025f8db3d4af13f"
+      "bytes": 3615,
+      "sha256": "73b758b734e0eda688eb7673ed47de1c1a0423f6275a4bb87fa9c7a52f4a3046"
     },
     {
       "path": "HD-PRESET-VALIDATION.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "LICENSING-INVENTORY.md",
-      "bytes": 6718,
-      "sha256": "71a10533295ee09a3923d6cdbf924e3d9362866ee6b08569f60595bee0e7a912"
+      "bytes": 6953,
+      "sha256": "bacaa1229a1a9a26a4ae7732d8bf617f48c8d13fb025a2ce835c679773e7feeb"
     },
     {
       "path": "PREPARATION-CHANGES.md",
@@ -77,8 +77,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4148,
-      "sha256": "899ec961f73ede8b618ed216a0120d10d540b911595e189af5c050c41a300417"
+      "bytes": 4315,
+      "sha256": "c89d92a43932934f30c0a235c5b997369110244189bda6d652149e982c3e8645"
     },
     {
       "path": "RELEASE-VALIDATION.json",
@@ -132,13 +132,13 @@
     },
     {
       "path": "docs/WINDOWS-RELEASE.md",
-      "bytes": 17675,
-      "sha256": "5088d75f519bb94fac80785528544a2d52f0fd0a431aa2145bafbc4dd45bb310"
+      "bytes": 18070,
+      "sha256": "4a910d3472dedbda3b3f49a59de9fc4d5152ab39570c1dd994b1c7451a937f6d"
     },
     {
       "path": "docs/WINDOWS-REVIEWER.md",
-      "bytes": 4839,
-      "sha256": "d9886235da764c57714658b5e29d7a33272a89d285781863529528ffc3af6388"
+      "bytes": 4834,
+      "sha256": "76649b786340f54764ec35a47444f4a00405dbce0e5458c95d4997d1252deb42"
     },
     {
       "path": "inputs/new-game.csv",
@@ -222,8 +222,8 @@
     },
     {
       "path": "tools/assemble_windows_release.py",
-      "bytes": 18091,
-      "sha256": "c1b53cff3fe35237b8aed90c90b2ef8fe729cd334e27376814d918d064973805"
+      "bytes": 18259,
+      "sha256": "1cf491796ad0b5b5c6967478a4464d7fe7e76e300cb0a86d51849747c96543e3"
     },
     {
       "path": "tools/build_from_inputs.py",
@@ -292,8 +292,8 @@
     },
     {
       "path": "tools/update_windows_font_release.py",
-      "bytes": 5037,
-      "sha256": "5ad81098401604d4449eabefd008da168435ce583a504770b72af88a75e0ca40"
+      "bytes": 5391,
+      "sha256": "3986363dc61c7986dddc39b5751e6bb680c0e4f4c264a35bc514babd60e1f771"
     },
     {
       "path": "vendor/gbarecomp/.gitattributes",

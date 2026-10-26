@@ -6,11 +6,11 @@
 
 Windows and Linux compiled and passed the actual SDL overlay/preset/persistence regression with dummy drivers in [CI](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931), built from `4beaa8d235b3e40549c675fceb1d0218431459e9`. The Windows dependency-loader and both archive content/checksum audits passed. Physical display smoothness, audio devices and full-campaign gameplay remain untested by CI; native Windows gameplay acceptance remains pending. The separately [completed publication run](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676) verified both uploaded archives.
 
-Final ZIP: 254,565,945 bytes. SHA-256: `a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12`. Includes the executable, SDL2, 68 approved portraits and the unchanged optional font archive.
+Final ZIP: 254,565,945 bytes. SHA-256: `a389a3427a97af3704f479012a7d1078334772937844d3673ad5fed7ce7bda12`. Includes the executable, SDL2, 68 approved portraits and the complete original Ringbearer distribution, loaded automatically from assets/fonts/ringbearer.ttf.
 
 ## Optional developer build and packaging workflow
 
-The remainder of this guide is for rebuilding the preview, not a prerequisite for using the download. The manual workflow builds a code-only base ZIP with `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output `<build>/Release/third-age-pc.exe`. A separate local assembler adds the exact approved portraits and optional complete font archive. Those two helpers do not publish releases. The separate `publish-desktop.yml` workflow invokes the Windows build and a native Linux build, requires their SDL regression checks, reconstructs shared artwork only from hash-pinned previous public assets, audits both archives, and publishes separate prereleases through `tools/publish_desktop.py`. Only its final job has repository content write permission; the superseded-attempt cleanup job has Actions write permission. The builder/publisher runs on `release/hd-smoothing-20261026` and rejects superseded commits. `publish-tested-desktop.yml` supports the `release/hd-publication-20261026` publication retry: it reuses the exact successful platform artifacts, verifies their source SHA and job results, and checks out their exact source revision for packaging.
+The remainder of this guide is for rebuilding the preview, not a prerequisite for using the download. The manual workflow builds a code-only base ZIP with `THIRD_AGE_PORTABLE_RELEASE=ON`, target `third-age-pc`, and Visual Studio output `<build>/Release/third-age-pc.exe`. A separate local assembler adds the exact approved portraits and complete original font files, archive and runtime filename alias. Those two helpers do not publish releases. The separate `publish-desktop.yml` workflow invokes the Windows build and a native Linux build, requires their SDL regression checks, reconstructs shared artwork only from hash-pinned previous public assets, audits both archives, and publishes separate prereleases through `tools/publish_desktop.py`. Only its final job has repository content write permission; the superseded-attempt cleanup job has Actions write permission. The builder/publisher runs on `release/hd-smoothing-20261026` and rejects superseded commits. `publish-tested-desktop.yml` supports the `release/hd-publication-20261026` publication retry: it reuses the exact successful platform artifacts, verifies their source SHA and job results, and checks out their exact source revision for packaging.
 
 Compilation consumes no ROM, BIOS, private generated headers, game-code translations, font bytes, artwork or saves. User-owned ROM/BIOS are loaded at runtime. The original private-input source build is a separate developer path and must not be packaged by this workflow. Source and asset metadata are versioned in Git; bulky assets live in release downloads.
 
@@ -103,21 +103,20 @@ implementation as well; a cache entry by itself cannot prove safe behavior.
 
    The selected paths are remembered in `bios.cfg` and `rom.cfg` beside the
    executable. Keep these files and your inputs private; they are not packaged.
-3. The interface uses an installed system font by default. No font installation
-   or Ringbearer file is required. To use your own permitted font, optionally put
-   it at `assets/fonts/ringbearer.ttf` beside the executable, or set `THIRD_AGE_FONT`
-   to a local TrueType font path before launching. An invalid explicit
-   `THIRD_AGE_FONT` selection produces an error rather than silently changing it.
+3. Ringbearer loads automatically from the included `assets/fonts/ringbearer.ttf`.
+   Preserve the complete font folder and its original READMEs. No extraction or
+   system font installation is needed. `THIRD_AGE_FONT` can explicitly select a
+   different local TTF; an invalid explicit selection reports an error.
 4. New saves default to `saves/third-age.sav` beside the executable. Do not merge
    this preview into an existing campaign/save directory or copy over an original
    save. Use a disposable new save for the first review.
 
 The existing 68 approved photo-based portraits are supplied unchanged under
 `assets/portraits`; keep that folder with the executable. No game ROM, BIOS,
-bare font, personal save, film video/music or unrelated artwork is supplied.
-The complete optional Ringbearer archive is supplied separately under `extras`,
-with its original terms; it is not installed or loaded automatically.
-Create `assets/fonts` only if choosing the optional font path. The old `WINDOWS-REVIEWER.md` private-build instructions are not the
+personal save, film video/music or unrelated artwork is supplied.
+The complete original Ringbearer archive also remains under `extras`. All nine
+original files are included under `assets/fonts`, with a byte-identical
+`ringbearer.ttf` filename alias used by the existing runtime loader. The old `WINDOWS-REVIEWER.md` private-build instructions are not the
 compiler-free end-user procedure. This remains a **preview**: native Windows
 startup, audio, input, battle and save/relaunch acceptance are still pending.
 
@@ -149,9 +148,10 @@ remain untouched. The portrait manifest SHA-256 is
 The final ZIP also carries `extras/Ringbearer-original.zip`, the complete,
 unchanged nine-file original local package, SHA-256
 `1a400cd55ece1ce992229ee167e1297c1e6373682d10ef309f8742f5b8d3d13b`.
-This optional archive is never auto-extracted, installed, embedded or loaded.
-The system font remains the default. No bare TTF is packaged. The original
-English/German READMEs and all companion files remain inside the archive; its
+The final Windows package contains all nine original files under assets/fonts
+and a byte-identical ringbearer.ttf alias for automatic local loading. No font
+is installed into Windows, modified or embedded in the executable. The original
+English/German READMEs and all companion files also remain inside the archive; its
 separate notice paraphrases the author's free complete-archive distribution,
 private-use-only, noncommercial and no-modification restrictions. This is not a
 claim of permission to use the font in a publicly distributed game. The font
@@ -196,7 +196,7 @@ only executable files allowed are `third-age-pc.exe` and the exact vendor x64
 `SDL2.dll`. Other files are README.txt, BUILD-INFO.json, SHA256SUMS.txt, required
 license/attribution notices, and the two exact MPL-covered `bios_hle.cpp/.h` source
 files with their license. The base contains only the small portrait/font manifests and notices. The final
-assembler adds the 68 exact BMPs, original optional font archive and base metadata. No recursive build-folder or asset-folder copy
+assembler adds the 68 exact BMPs, complete original font files/archive, loader filename alias and base metadata. No recursive build-folder or asset-folder copy
 is used. MPL source is
 included directly and the README points to the full immutable source revision.
 
@@ -247,3 +247,5 @@ release terms, resolve the specific inventory entries with the parent before
 publishing the preview release. Never
 bypass the audit, replace an unknown dependency with a random download, or use a
 previous Linux/private build to manufacture a passing artifact.
+
+The `windows-font.yml` workflow repackages the tested Windows base and runs `tests/font-selection.cpp` on native Windows against the final packaged font. It preserves the tested EXE and SDL2 DLL bytes and verifies uploaded archive hashes before updating the release.

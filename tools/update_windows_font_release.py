@@ -18,8 +18,10 @@ def main(work):
     require(not work.exists(),'Fresh directory required');work.mkdir(parents=True)
     source=Path(__file__).resolve().parent.parent
     current=release();require(not current['draft'] and current['target_commitish']==COMMIT,'Release source changed')
-    old=next(a for a in current['assets'] if a['name']==OLD_NAME)
-    require(old['digest']=='sha256:'+OLD_HASH,'Previous Windows ZIP changed')
+    existing={a['name']:a for a in current['assets']}
+    font_name=OLD_NAME.replace('.zip','-ringbearer.zip')
+    previous=existing.get(OLD_NAME) or existing.get(font_name)
+    require(previous and previous['digest'] in {'sha256:'+OLD_HASH,'sha256:87489d656026cb122120995447290d625a0eecd2902a2adfcd5589988b3cda26'},'Previous Windows ZIP changed')
     run=json.loads(gh('api',f'repos/{REPO}/actions/runs/{BUILD_RUN}'));require(run['head_sha']==COMMIT,'Build commit mismatch')
     jobs=json.loads(gh('api',f'repos/{REPO}/actions/runs/{BUILD_RUN}/jobs'))['jobs']
     require(any(j['name']=='windows / windows-preview' and j['conclusion']=='success' for j in jobs),'Windows build/tests did not pass')
@@ -44,16 +46,18 @@ def main(work):
     subprocess.run([str(probe),str(probe_root)],env=env,check=True)
     # Upload new, distinctly named assets before replacing the old download links.
     files=[package,package.with_name(package.name+'.sha256')]
-    gh('release','upload',TAG,*map(str,files),'--repo',REPO)
+    gh('release','upload',TAG,*map(str,files),'--repo',REPO,'--clobber')
     uploaded=release();assets={a['name']:a for a in uploaded['assets']}
     for p in files:
         a=assets[p.name];require(a['size']==p.stat().st_size and a['digest']=='sha256:'+file_hash(p),'Uploaded checksum mismatch')
     notes=work/'notes.md'
-    notes.write_text('**Font correction:** Ringbearer now loads automatically from the included `assets/fonts/ringbearer.ttf`. No manual extraction, font installation or environment variable is needed. All original font files, READMEs and the original archive are preserved unchanged. EXE and SDL2 DLL bytes are unchanged from the tested HD build.\n\n'+current['body'].replace('unchanged optional font archive','complete unchanged font distribution'))
+    prior_body=current['body']
+    if prior_body.startswith('**Font correction:**'):prior_body=prior_body.split('\n\n',1)[1]
+    notes.write_text('**Font correction:** Ringbearer now loads automatically from the included `assets/fonts/ringbearer.ttf`. No manual extraction, font installation or environment variable is needed. All original font files, READMEs and the original archive are preserved unchanged. EXE and SDL2 DLL bytes are unchanged from the tested HD build.\n\n'+prior_body.replace('unchanged optional font archive','complete unchanged font distribution'))
     gh('release','edit',TAG,'--repo',REPO,'--notes-file',str(notes))
     # Only the two superseded Windows assets are removed after verification.
     for name in [OLD_NAME,OLD_NAME+'.sha256']:
-        gh('release','delete-asset',TAG,name,'--repo',REPO,'--yes')
+        if name in assets:gh('release','delete-asset',TAG,name,'--repo',REPO,'--yes')
     final=release();require({a['name'] for a in final['assets']}=={p.name for p in files},'Unexpected final release assets')
     print(json.dumps({'release':final['html_url'],'font':'Ringbearer Medium v1.00','nativeWindowsLoaderTest':'PASS','assets':[{k:a[k] for k in ['name','size','digest','browser_download_url']} for a in final['assets']]},indent=2))
 if __name__=='__main__':

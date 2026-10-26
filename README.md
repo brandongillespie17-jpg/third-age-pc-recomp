@@ -10,7 +10,7 @@ Extract into a new writable folder. Windows: run `third-age-pc.exe` and select y
 
 **Display → Camera Smoothing** applies immediately and persists. **Presentation Rate** offers 60/120/144/165 Hz. Camera interpolation uses the expanded battlefield. **Gameplay → Sprite Cache** independently controls the experimental renderer cache. The simulation keeps its normal speed.
 
-Both releases include the same 68 approved portraits and optional unchanged original Ringbearer archive, with notices; a system font is the default. No ROM, BIOS or personal save is included. Each release has an archive checksum and per-file hashes.
+Both releases include the same 68 approved portraits and original Ringbearer archive, with notices. The corrected Windows package loads Ringbearer automatically from assets/fonts/ringbearer.ttf and includes all original font files. The existing Linux package keeps its system-font default and optional font archive. No ROM, BIOS or personal save is included. Each release has an archive checksum and per-file hashes.
 
 Windows and Linux compiled and passed the actual SDL overlay/preset/persistence regression with dummy drivers in [CI](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40405711931), built from `4beaa8d235b3e40549c675fceb1d0218431459e9`. The Windows dependency-loader and both archive content/checksum audits passed. Physical display smoothness, audio devices and full-campaign gameplay remain untested by CI; native Windows gameplay acceptance remains pending. The separately [completed publication run](https://github.com/brandongillespie17-jpg/third-age-pc-recomp/actions/runs/40406576676) verified both uploaded archives.
 

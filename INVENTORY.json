@@ -11,6 +11,11 @@
       "sha256": "e630cc59db9bb0a3fd1dc2db8f09c43116eb826e3e2195701ec54c7905ea5474"
     },
     {
+      "path": ".github/workflows/windows-font.yml",
+      "bytes": 1588,
+      "sha256": "57dda86476923146761ab5f311e496f6f21cb32b0e47ca67a799acedabfd4872"
+    },
+    {
       "path": ".github/workflows/windows-release.yml",
       "bytes": 6331,
       "sha256": "fb269f3453b9136b98951c622cb39a3bcfb79a7798b58b04dc27a9638e3d1297"
@@ -87,8 +92,8 @@
     },
     {
       "path": "assets/FONT-NOTICE.md",
-      "bytes": 1373,
-      "sha256": "f698962865b4c5804aa4093fc7032027839dc2de27e2c3b92a12865bf309bcdf"
+      "bytes": 1389,
+      "sha256": "ad08b140aa00f1128edf1f64463cac125b76bd29f47a1f17d9d51393bc752999"
     },
     {
       "path": "assets/PORTRAIT-MANIFEST.json",
@@ -186,6 +191,11 @@
       "sha256": "7091ea1775e1b69b9215dd2f4949ddc0cb3d76c939f9988b8bdc2ae478cc96de"
     },
     {
+      "path": "tests/font-selection.cpp",
+      "bytes": 683,
+      "sha256": "4e8bcf27a221bfff9e669d0338c935d0e4c8cf1b06872b24e757dad69a7ff9f9"
+    },
+    {
       "path": "tests/present-diagnostics.cpp",
       "bytes": 4746,
       "sha256": "18a678ebb882193787be38124e10f85fb5ea1a90eecf7f8e4cb59155262196c9"
@@ -212,8 +222,8 @@
     },
     {
       "path": "tools/assemble_windows_release.py",
-      "bytes": 15646,
-      "sha256": "f617bdd506c88dbe0c15ab6693361493cd5506d272e217bce2e0fb80febecef9"
+      "bytes": 18091,
+      "sha256": "c1b53cff3fe35237b8aed90c90b2ef8fe729cd334e27376814d918d064973805"
     },
     {
       "path": "tools/build_from_inputs.py",
@@ -279,6 +289,11 @@
       "path": "tools/test_runtime_assets.cpp",
       "bytes": 5868,
       "sha256": "c288c8ab5bdfcba34c51a9eb272bbb37de4067ca6f635bc14ab1ed69ab38f0aa"
+    },
+    {
+      "path": "tools/update_windows_font_release.py",
+      "bytes": 5037,
+      "sha256": "5ad81098401604d4449eabefd008da168435ce583a504770b72af88a75e0ca40"
     },
     {
       "path": "vendor/gbarecomp/.gitattributes",
@@ -3291,5 +3306,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 658
+  "count_excluding_inventory": 661
 }

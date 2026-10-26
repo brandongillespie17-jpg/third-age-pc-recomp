@@ -1,0 +1,39 @@
+name: Activate Ringbearer in Windows release
+on:
+  push:
+    branches: [release/windows-font-20261026]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: windows-font-20261026
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Activate installed MSVC tools for font-loader check
+        shell: pwsh
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          Import-Module "$vs/Common7/Tools/Microsoft.VisualStudio.DevShell.dll"
+          Enter-VsDevShell -VsInstallPath $vs -SkipAutomaticLocation -DevCmdArguments '-arch=x64 -host_arch=x64'
+          foreach ($name in @('PATH','INCLUDE','LIB','LIBPATH')) {
+            "$name=$([Environment]::GetEnvironmentVariable($name))" >> $env:GITHUB_ENV
+          }
+      - name: Assemble, test font selection and update Windows assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONDONTWRITEBYTECODE: '1'
+          PYTHONUTF8: '1'
+        run: |
+          python -B tools/update_windows_font_release.py --work "$env:RUNNER_TEMP/windows-font-release"
+          if ($LASTEXITCODE -ne 0) { throw 'Windows font update failed.' }

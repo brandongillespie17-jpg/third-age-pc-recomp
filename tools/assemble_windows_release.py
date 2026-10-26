@@ -7,6 +7,7 @@ Python is needed by the maintainer assembling the ZIP, never by its users.
 from __future__ import annotations
 
 import argparse
+import io
 import hashlib
 import json
 import re
@@ -166,6 +167,25 @@ def font_input(contents: dict[str, bytes], path: Path) -> bytes:
     return data  # Only the unchanged ZIP is copied; never extract or install it.
 
 
+def active_font_files(font_bytes: bytes) -> dict[str, bytes]:
+    """Keep the complete original distribution plus the runtime's filename alias."""
+    with zipfile.ZipFile(io.BytesIO(font_bytes)) as archive:
+        files = {'assets/fonts/' + name: archive.read(name) for name in archive.namelist()}
+    font = files['assets/fonts/RINGM___.TTF']
+    require(sha256(font) == '22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b',
+            'Active font differs from chosen Ringbearer TTF')
+    files['assets/fonts/ringbearer.ttf'] = font
+    files['assets/ACTIVE-FONT.json'] = (json.dumps({
+        'name': 'Ringbearer Medium v1.00', 'default': True,
+        'file': 'assets/fonts/ringbearer.ttf', 'sha256': sha256(font),
+        'originalArchiveSha256': FONT_ARCHIVE_SHA256,
+        'completeOriginalFiles': sorted(n for n in files if n != 'assets/fonts/ringbearer.ttf'),
+        'systemInstallation': False, 'fontModification': False,
+        'note': 'The original archive manifest describes the optional archive. This file records Windows package activation.'
+    }, indent=2) + '\n').encode()
+    return files
+
+
 def zip_entry(name: str) -> zipfile.ZipInfo:
     entry = zipfile.ZipInfo(name, (2000, 1, 1, 0, 0, 0))
     entry.compress_type = zipfile.ZIP_DEFLATED
@@ -185,13 +205,13 @@ def assemble(base: Path, expected_hash: str, commit: str, portraits_dir: Path,
     portraits = portrait_inputs(contents, portraits_dir)
     font_bytes = font_input(contents, font_archive)
     manifest = json.loads(contents['assets/PORTRAIT-MANIFEST.json'])
-    root = f'third-age-pc-windows-x64-preview-{commit[:12]}'
+    root = f'third-age-pc-windows-x64-preview-{commit[:12]}-ringbearer'
     # Preserve original CI evidence separately; final metadata distinguishes assembly.
     contents['BASE-BUILD-INFO.json'] = contents['BUILD-INFO.json']
     info.update(packageKind='final-preview-with-portraits', portraitCount=68,
                 baseZipSha256=expected_hash, ciRunUrl=ci_run_url,
-                assembly='Exact manifest-selected local BMP bytes and unchanged optional original font ZIP; no conversion or installation',
-                optionalFontArchiveSha256=FONT_ARCHIVE_SHA256, fontArchiveIncluded=True, defaultFont='system font',
+                assembly='Exact portrait bytes, complete original font archive and original font files; runtime filename alias; no conversion or system installation',
+                optionalFontArchiveSha256=FONT_ARCHIVE_SHA256, fontArchiveIncluded=True, defaultFont='Ringbearer Medium v1.00', activeFontPath='assets/fonts/ringbearer.ttf', activeFontSha256='22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b',
                 nativeWindowsGameplay='not verified by assembly; desktop review remains required')
     contents['BUILD-INFO.json'] = (json.dumps(info, indent=2, ensure_ascii=False) + '\n').encode()
     readme = contents['README.txt'].decode('utf-8-sig').replace('\r\n', '\n')
@@ -201,15 +221,22 @@ def assemble(base: Path, expected_hash: str, commit: str, portraits_dir: Path,
     base_asset_note = 'This CI base contains only\ntheir manifests/notices, NOT the images or font archive.'
     require(base_asset_note in readme, 'Base asset-status paragraph is missing')
     readme = readme.replace(base_asset_note, 'This final ZIP contains the images and unchanged optional font archive,\nas well as their manifests/notices.')
-    readme += '\nFinal assembly preserved the CI executable/DLL bytes and added only the approved portraits\nand unchanged optional original font archive. BASE-BUILD-INFO.json retains the CI audit metadata.\n'
+    start=readme.index('The interface uses an installed system font by default.')
+    end=readme.index('Open F10/Escape',start)
+    readme=readme[:start]+'Ringbearer is included and loads automatically from assets/fonts/ringbearer.ttf.\nNo font installation or environment variable is required. Keep the complete\nassets/fonts directory, including the original READMEs and companion files.\nThe original unchanged archive is also preserved in extras. THIRD_AGE_FONT\ncan still select a different local TTF explicitly.\n\n'+readme[end:]
+    readme=readme.replace('The optional font archive is not automatically extracted, installed or loaded.','Ringbearer loads from the included assets/fonts files without system installation.')
+    readme=readme.replace('No ROM, BIOS, personal save, film video/music, bare TTF, or game-derived','No ROM, BIOS, personal save, film video/music, or game-derived')
+    readme += '\nFinal assembly preserved the CI executable/DLL bytes and added only the approved portraits\nand unchanged original font distribution, active TTF alias and archive. BASE-BUILD-INFO.json retains the CI audit metadata.\n'
     contents['README.txt'] = readme.encode()
     contents['extras/Ringbearer-original.zip'] = font_bytes
+    active=active_font_files(font_bytes);contents.update(active)
+    contents['extras/Ringbearer-NOTICE.txt']=(Path(__file__).resolve().parent.parent/'assets/FONT-NOTICE.md').read_bytes()
     hashes = {name: sha256(data) for name, data in contents.items() if name != 'SHA256SUMS.txt'}
     hashes.update({row['file']: row['sha256'] for row in manifest['files']})
     contents['SHA256SUMS.txt'] = ''.join(f'{hashes[name]}  {name}\n' for name in sorted(hashes)).encode()
     hashes['SHA256SUMS.txt'] = sha256(contents['SHA256SUMS.txt'])
     expected_names = set(contents) | set(portraits)
-    require(expected_names == BASE_FILES | {'BASE-BUILD-INFO.json', 'extras/Ringbearer-original.zip'} | set(portraits), 'Final allowlist mismatch')
+    require(expected_names == BASE_FILES | {'BASE-BUILD-INFO.json', 'extras/Ringbearer-original.zip'} | set(portraits) | set(active), 'Final allowlist mismatch')
     output_dir.mkdir(parents=True, exist_ok=False)
     partial = output_dir / (root + '.zip.partial')
     final = output_dir / (root + '.zip')

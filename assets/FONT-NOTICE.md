@@ -1,21 +1,21 @@
-# Optional Ringbearer original archive
+# Ringbearer distribution and Windows activation
 
-The final Windows download includes `extras/Ringbearer-original.zip` as an
-optional, unchanged copy of the complete nine-file local Ringbearer distribution.
 Ringbearer Medium v1.00 is © Pete Klassen, 2002. All rights reserved.
+The Windows font-fix package includes the complete, unchanged nine-file original
+distribution in `assets/fonts/`, including both original READMEs and all companion
+files. `ringbearer.ttf` is a byte-identical filename alias of `RINGM___.TTF` for the
+existing runtime loader. The game loads it by default from its own directory;
+it does not install a font into Windows, alter, subset or embed the font.
+
+The complete original archive also remains in `extras/Ringbearer-original.zip`.
 Archive SHA-256: `1a400cd55ece1ce992229ee167e1297c1e6373682d10ef309f8742f5b8d3d13b`.
-`assets/FONT-MANIFEST.json` records every member's size and SHA-256. The original
-English and German READMEs and all companion files remain inside the archive.
+TTF SHA-256: `22220f17fdcec646bc8d0597421f4a589022f93753b48ce1bff6fbb23ceb477b`.
+`assets/FONT-MANIFEST.json` describes the preserved archive and its original
+optional packaging; `assets/ACTIVE-FONT.json` records Windows activation.
+The previous Linux release still carries the archive as an optional extra.
 
-The author's English README permits distribution free of charge only with the
-complete contents of the original archive. It limits use to private use and
-prohibits commercial use and modification. Ringbearer is based on the Lord of
-the Rings logo; the README separately credits © 2001–2003 New Line Cinema and
-Wingnut Films. Read the original README inside the archive for the actual terms.
-
-This optional archive is not covered by the engine or other code licenses. Its
-inclusion does not assert permission to use the font in a publicly distributed
-game, commercial project, or embedded font payload. There is no automatic
-extraction, installation, embedding or loading. The application uses a system
-font by default; any private font selection is the user's separate choice.
-The code-only CI base contains this notice and manifest, not the font archive.
+The author's English README permits free-of-charge distribution only with all
+original archive contents. It limits use to private use and prohibits commercial
+use and modification. The README separately credits the Lord of the Rings logo
+© 2001–2003 New Line Cinema and Wingnut Films. Preserve and read the original
+READMEs for the terms. Code licenses do not replace the font's own terms.

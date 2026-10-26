@@ -6,6 +6,11 @@
       "sha256": "1e8df2a6ba12fb595b66e9e249a8ddd64e4ae14237aaa802f379bab608ce38d8"
     },
     {
+      "path": ".github/workflows/publish-tested-desktop.yml",
+      "bytes": 1891,
+      "sha256": "e630cc59db9bb0a3fd1dc2db8f09c43116eb826e3e2195701ec54c7905ea5474"
+    },
+    {
       "path": ".github/workflows/windows-release.yml",
       "bytes": 6331,
       "sha256": "fb269f3453b9136b98951c622cb39a3bcfb79a7798b58b04dc27a9638e3d1297"
@@ -252,8 +257,8 @@
     },
     {
       "path": "tools/publish_desktop.py",
-      "bytes": 6190,
-      "sha256": "d887b527363228d17efab79be820bca2471f15ce9f61acf7f86e9b2c2bc2970e"
+      "bytes": 7404,
+      "sha256": "bb8be782588915418eb9ec05c49b7ed8e22318accde62c93c79ef922d58b73d9"
     },
     {
       "path": "tools/reference_frame.c",
@@ -3276,5 +3281,5 @@
       "sha256": "20061777dad762930f099ac9c261d9285fe0a7823587af14020b425f69c6eac7"
     }
   ],
-  "count_excluding_inventory": 655
+  "count_excluding_inventory": 656
 }

@@ -10,12 +10,23 @@ OLD_TAG='windows-preview-2026-10-26'
 OLD_FILE='third-age-pc-windows-x64-preview-b8b7714f5a38.zip'
 def gh(*args):
     return subprocess.check_output(['gh',*args],text=True)
-def main(work):
+def main(work, build_commit=None, build_run=None):
     require(os.environ['GITHUB_REPOSITORY']==REPO,'Unexpected repository')
-    commit=os.environ['GITHUB_SHA'];run=os.environ['GITHUB_RUN_ID']
-    require(os.environ['GITHUB_REF']=='refs/heads/release/hd-smoothing-20261026','Unexpected publishing branch')
+    checkout_commit=os.environ['GITHUB_SHA']
+    commit=build_commit or checkout_commit;run=build_run or os.environ['GITHUB_RUN_ID']
+    require(os.environ['GITHUB_REF'] in {'refs/heads/release/hd-smoothing-20261026','refs/heads/release/hd-publication-20261026'},'Unexpected publishing branch')
     source=Path(__file__).resolve().parent.parent
     require(not work.exists(),'Fresh publication directory required');work.mkdir(parents=True)
+    if build_commit or build_run:
+        require(bool(build_commit and build_run),'Both tested build identifiers are required')
+        info=json.loads(gh('api',f'repos/{REPO}/actions/runs/{run}'))
+        require(info['head_sha']==commit,'Artifact run commit mismatch')
+        jobs=json.loads(gh('api',f'repos/{REPO}/actions/runs/{run}/jobs'))['jobs']
+        for name in ['linux','windows / windows-preview']:
+            require(any(j['name']==name and j['conclusion']=='success' for j in jobs),'Required build/test job did not pass: '+name)
+        source=work/'tested-source'
+        subprocess.run(['git','clone','--quiet','--no-checkout',f'https://github.com/{REPO}.git',str(source)],check=True)
+        subprocess.run(['git','-C',str(source),'checkout','--quiet','--detach',commit],check=True)
     run_url=f'https://github.com/{REPO}/actions/runs/{run}'
     gh('run','download',run,'--repo',REPO,'--name','third-age-pc-windows-x64-preview-base-'+commit,'--dir',str(work/'windows'))
     gh('run','download',run,'--repo',REPO,'--name','third-age-linux-tested-'+commit,'--dir',str(work/'linux'))
@@ -29,8 +40,8 @@ def main(work):
     exe=work/'linux/third-age-pc';exe.chmod(0o755)
     package(source,exe,work/'shared',work/'linux-final',commit,run_url,work/'linux')
     linux=list((work/'linux-final').glob('*.tar.gz'));require(len(linux)==1,'Expected one Linux archive')
-    head=json.loads(gh('api',f'repos/{REPO}/git/ref/heads/release/hd-smoothing-20261026'))['object']['sha']
-    require(head==commit,'A newer release commit supersedes this run')
+    head=json.loads(gh('api',f"repos/{REPO}/git/ref/{os.environ['GITHUB_REF'][5:]}"))['object']['sha']
+    require(head==checkout_commit,'A newer release commit supersedes this run')
     releases=[]
     for platform,binary in [('windows',win),('linux',linux[0])]:
         tag=f'{platform}-preview-hd-2026-10-26'
@@ -60,7 +71,9 @@ Source commit: `{commit}`. Each download includes file hashes and build provenan
             gh('release','create',tag,'--repo',REPO,'--target',commit,'--draft','--prerelease','--title',title,'--notes-file',str(notes))
         files=[binary,binary.with_name(binary.name+'.sha256')]
         gh('release','upload',tag,*map(str,files),'--repo',REPO,'--clobber')
-        data=json.loads(gh('api',f'repos/{REPO}/releases/tags/{tag}'))
+        matches=[r for r in json.loads(gh('api',f'repos/{REPO}/releases?per_page=100')) if r['tag_name']==tag]
+        require(len(matches)==1,'Cannot identify the release draft')
+        data=matches[0]
         require(data['draft'] and data['target_commitish']==commit,'Release provenance mismatch')
         assets={a['name']:a for a in data['assets']}
         require(set(assets)=={p.name for p in files},'Unexpected release assets')
@@ -73,4 +86,6 @@ Source commit: `{commit}`. Each download includes file hashes and build provenan
         gh('release','edit',tag,'--repo',REPO,'--draft=false','--prerelease','--latest=false')
         print(f'https://github.com/{REPO}/releases/tag/{tag}')
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--work',required=True,type=Path);main(parser.parse_args().work)
+    parser=argparse.ArgumentParser();parser.add_argument('--work',required=True,type=Path)
+    parser.add_argument('--build-commit');parser.add_argument('--build-run')
+    args=parser.parse_args();main(args.work,args.build_commit,args.build_run)

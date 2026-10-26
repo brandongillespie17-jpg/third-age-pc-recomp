@@ -2102,8 +2102,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/bios_hle.cpp",
-      "bytes": 23100,
-      "sha256": "39775aca1b4f2aa4151ee78b5d400063f2963fa19b82b31a6bc093e51be1ec93"
+      "bytes": 23109,
+      "sha256": "a00a819262685facc33aaca60ea80c5422a1e4bfc590d8bfae3d3d1444181228"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/bios_hle.h",
@@ -2157,8 +2157,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.cpp",
-      "bytes": 5356,
-      "sha256": "c9c53f7152eec589ce3213ce71ffa2787f371f997d793785e560ed575c644140"
+      "bytes": 5358,
+      "sha256": "ec052476c0697b452e8733660b6f4b69dd1117af7468155ab4add2f661be408d"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_platform.h",
@@ -2167,8 +2167,8 @@
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_window.cpp",
-      "bytes": 175964,
-      "sha256": "bc6454c54afddf6ae68bcc727c8ec4046bd7c192bb0b9d6bbff74ace7db3f5ca"
+      "bytes": 175966,
+      "sha256": "ed4fcb54d809995e7f1e3be45a60b63ed9859cd22fb73c7b1613e33dd35b7d0a"
     },
     {
       "path": "vendor/gbarecomp/src/runtime/host_window.h",

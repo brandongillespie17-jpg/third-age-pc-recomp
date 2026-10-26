@@ -395,7 +395,7 @@ private:
 };
 
 struct Backend {
-    gbarecomp::ThirdAgeRefreshClock refresh_clock;
+    gbarecomp::ThirdAgeRefreshClock refresh_clock{};
     gbarecomp::ThirdAgePresentDiagnostics diagnostic_trace;
     gbarecomp::ThirdAgePresentSample diagnostic_sample;
     int64_t diagnostic_source_received_ns=0,diagnostic_base_uploaded_ns=0,diagnostic_source_completed_ns=0,diagnostic_received_completed_ns=0;

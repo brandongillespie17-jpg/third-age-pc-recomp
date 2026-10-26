@@ -72,7 +72,7 @@ void FramePacer::wait_for_next_frame() {
             wait_service_();
             const auto remaining=next_-clock::now();
             if(remaining>std::chrono::microseconds(300))
-                std::this_thread::sleep_for(std::min(remaining,std::chrono::duration_cast<clock::duration>(std::chrono::microseconds(250))));
+                std::this_thread::sleep_for((std::min)(remaining,std::chrono::duration_cast<clock::duration>(std::chrono::microseconds(250))));
         }
     } else {
     // A high-resolution waitable timer is already precise enough on modern

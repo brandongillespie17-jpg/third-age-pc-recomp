@@ -2,8 +2,8 @@
   "files": [
     {
       "path": ".github/workflows/windows-release.yml",
-      "bytes": 5648,
-      "sha256": "567a861c1c6e690e270a44b974f697b6c204a7b55e84653b36eba52f668c3637"
+      "bytes": 5868,
+      "sha256": "a3a3c06605949fb32093b6bb01b979ba8f5c252ea1f9a0005a1c46afaede21d6"
     },
     {
       "path": ".gitignore",
@@ -172,8 +172,8 @@
     },
     {
       "path": "tools/assemble_windows_release.py",
-      "bytes": 15624,
-      "sha256": "67042ef5cfe006128a80ae7383ea9ff674c2d1a3c81850bc3e064c93be3baf0b"
+      "bytes": 15646,
+      "sha256": "f617bdd506c88dbe0c15ab6693361493cd5506d272e217bce2e0fb80febecef9"
     },
     {
       "path": "tools/build_from_inputs.py",

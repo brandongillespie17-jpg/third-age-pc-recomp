@@ -194,7 +194,7 @@ def assemble(base: Path, expected_hash: str, commit: str, portraits_dir: Path,
                 optionalFontArchiveSha256=FONT_ARCHIVE_SHA256, fontArchiveIncluded=True, defaultFont='system font',
                 nativeWindowsGameplay='not verified by assembly; desktop review remains required')
     contents['BUILD-INFO.json'] = (json.dumps(info, indent=2, ensure_ascii=False) + '\n').encode()
-    readme = contents['README.txt'].decode('utf-8-sig')
+    readme = contents['README.txt'].decode('utf-8-sig').replace('\r\n', '\n')
     marker = 'CODE-ONLY CI BASE: portraits are NOT included. Assemble the final ZIP before delivery.'
     require(marker in readme, 'Base README does not clearly identify the code-only package')
     readme = readme.replace(marker, 'FINAL PREVIEW: all 68 approved portraits are included unchanged in assets/portraits.\nKeep the full assets directory with the executable. Native Windows gameplay remains pending.')

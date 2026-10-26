@@ -31,6 +31,11 @@ jobs:
             throw 'Release contract is pending. See docs/WINDOWS-RELEASE.md; do not dispatch until the parent confirms the public build flags and target.'
           }
 
+      - name: Preserve exact tracked manifest bytes on Windows
+        run: |
+          git config --global core.autocrlf false
+          if ($LASTEXITCODE -ne 0) { throw 'Cannot disable checkout newline conversion.' }
+
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false

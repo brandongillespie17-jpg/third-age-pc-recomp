@@ -29,6 +29,8 @@ def main(work):
     exe=work/'linux/third-age-pc';exe.chmod(0o755)
     package(source,exe,work/'shared',work/'linux-final',commit,run_url,work/'linux')
     linux=list((work/'linux-final').glob('*.tar.gz'));require(len(linux)==1,'Expected one Linux archive')
+    head=json.loads(gh('api',f'repos/{REPO}/git/ref/heads/release/hd-smoothing-20261026'))['object']['sha']
+    require(head==commit,'A newer release commit supersedes this run')
     releases=[]
     for platform,binary in [('windows',win),('linux',linux[0])]:
         tag=f'{platform}-preview-hd-2026-10-26'

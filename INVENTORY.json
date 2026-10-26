@@ -2,8 +2,8 @@
   "files": [
     {
       "path": ".github/workflows/publish-desktop.yml",
-      "bytes": 2512,
-      "sha256": "75ee131858c5c3c0ffc1df498fe8563f15550751071849c22ec08daf8f50cc91"
+      "bytes": 3729,
+      "sha256": "b4bca36d275f35f1717807b1c8bd7442d1a0f058649dc37fe47144754bd1f76f"
     },
     {
       "path": ".github/workflows/windows-release.yml",
@@ -252,8 +252,8 @@
     },
     {
       "path": "tools/publish_desktop.py",
-      "bytes": 6011,
-      "sha256": "67222170e55947012816c87835275c74556e698c36ff23089d5e093cd7ab0b8a"
+      "bytes": 6190,
+      "sha256": "d887b527363228d17efab79be820bca2471f15ce9f61acf7f86e9b2c2bc2970e"
     },
     {
       "path": "tools/reference_frame.c",

@@ -6,12 +6,31 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: desktop-preview-20261026
+  group: desktop-preview-${{ github.sha }}
   cancel-in-progress: true
 jobs:
+  superseded:
+    runs-on: ubuntu-24.04
+    permissions:
+      actions: write
+    steps:
+      - name: Cancel older attempts for this release branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PYTHON'
+          import json, os, subprocess
+          repo=os.environ['GITHUB_REPOSITORY']; current=int(os.environ['GITHUB_RUN_ID'])
+          data=json.loads(subprocess.check_output(['gh','api',f'repos/{repo}/actions/runs?branch=release%2Fhd-smoothing-20261026&per_page=50'],text=True))
+          for run in data['workflow_runs']:
+              if run['name']=='Publish Windows and Linux HD previews' and run['id']<current and run['status']!='completed':
+                  subprocess.run(['gh','api','--method','POST',f"repos/{repo}/actions/runs/{run['id']}/cancel"],check=False)
+          PYTHON
   windows:
+    needs: superseded
     uses: ./.github/workflows/windows-release.yml
   linux:
+    needs: superseded
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -19,7 +38,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install build and runtime dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build g++ libsdl2-dev fonts-dejavu-core
+        run: sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update && sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y cmake ninja-build g++ libsdl2-dev fonts-dejavu-core
       - name: Build without private game inputs
         run: |
           cmake -S . -B "$RUNNER_TEMP/linux-build" -G Ninja \
@@ -52,7 +71,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Install Linux runtime for dependency audit
-        run: sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+        run: sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update && sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y libsdl2-2.0-0
       - name: Assemble, audit and publish separate platform releases
         env:
           GH_TOKEN: ${{ github.token }}
